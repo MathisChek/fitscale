@@ -1,4 +1,6 @@
 class WorkoutsController < ApplicationController
+  before_action :set_workout, only: %i[edit update]
+
   def new
     @workout = Workout.new
   end
@@ -14,16 +16,18 @@ class WorkoutsController < ApplicationController
   end
 
   def edit
-    @workout = Workout.find(params[:id])
   end
 
   def update
-    @workout = Workout.find(params[:id])
     @workout.update(workout_params)
     redirect_to edit_workout_path(@workout)
   end
 
   private
+
+  def set_workout
+    @workout = Workout.find(params[:id])
+  end
 
   def workout_params
     params.require(:workout).permit(:name, :description)
