@@ -1,0 +1,22 @@
+<div class="container">
+
+  <div class="row" >
+
+    <% @workouts.each do |workout| %>
+      <div class="col-6" style="width:250px; height: 350px;">
+
+        <div class= " border border-3 border-dark mt-3">
+
+          <p><strong>Name : </strong><%= workout.name %></p>
+          <p><strong>Description : </strong><%= workout.description %></p>
+
+        </div>
+
+      </div>
+
+    <% end %>
+
+  </div>
+
+
+</div>

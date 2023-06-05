@@ -1,6 +1,10 @@
 class WorkoutsController < ApplicationController
   before_action :set_workout, only: %i[edit update]
 
+  def index
+    @workouts = Workout.all
+  end
+
   def new
     @workout = Workout.new
   end
