@@ -16,6 +16,7 @@ class WorkoutsController < ApplicationController
   end
 
   def edit
+    # à modifier avec wo set
   end
 
   def update
