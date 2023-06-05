@@ -1,46 +1,54 @@
-<nav class="navbar navbar-expand-lg bg-black p-0" style="height: 70px">
-  <div class="container-fluid ">
+<nav class="navbar navbar-expand-lg border-bottom border-bottom-dark py-0" data-bs-theme="dark" style="background-color: #363636;">
+  <div class="container-fluid ps-0">
 
-    <%# button logo : %>
+    <%# button + logo : %>
 
-    <a class="navbar-brand text-white" href="#">Navbar</a>
+    <%= link_to  root_path, class: "navbar-brand text-white" do%>
+      <%= image_tag "fitscale-logo.png", alt: "logo.png", height: 100, width: 200%>
+    <% end %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
     <%# navbar %>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
       <%# butons %>
 
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
         <li class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+          <%= link_to "Home", actuality_path, class: "nav-link active text-white" %>
         </li>
         <li class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" href="#">Workouts</a>
+          <%= link_to "Workouts", workouts_path, class: "nav-link active text-white" %>
         </li>
         <li class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" href="#">Exercices</a>
+          <%= link_to "Exercices", '#', class: "nav-link active text-white" %>
         </li>
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dashboard
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">My workouts</a></li>
-            <li><a class="dropdown-item" href="#">My sessions</a></li>
+            <li><%= link_to "My workouts", '#', class: "dropdown-item text-white" %></li>
+            <li><%= link_to "My sessions", '#', class: "dropdown-item text-white" %></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">My dashboard</a></li>
+            <li><%= link_to "My dashboard", '#', class: "dropdown-item text-white" %></li>
           </ul>
         </li>
+
+        <%# form search %>
+
       </ul>
-
-      <%# form search %>
-
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <button class="btn btn-outline-success text-white" type="submit">Search</button>
       </form>
     </div>
-
 
   </div>
 </nav>
