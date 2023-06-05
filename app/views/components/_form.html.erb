@@ -1,0 +1,19 @@
+<div class="container vh-100 d-flex align-items-center justify-content-center">
+  <div class='d-flex justify-content-center mb-3'>
+
+    <%= simple_form_for @workout do |f|%>
+
+      <div class ="form-input">
+        <%= f.input :name %>
+        <%= f.input :description %>
+      </div>
+
+      <div class ="form-actions justify-content-center mt-5">
+        <%= f.submit :submit %>
+      </div>
+
+  </div>
+
+
+  <% end %>
+</div>
