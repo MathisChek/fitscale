@@ -1,23 +1,30 @@
 <div class="container">
+  <div>
+    <div>
+      <h1>workout</h1>
+      <h2>Name : </h2>
+      <p><%= @workout.name  %></p>
+      <h2>Description : </h2>
+      <p><%= @workout.description  %></p>
 
-  <h1>workout</h1>
-  <h2>Name : </h2>
-  <p><%= @workout.name  %></p>
-  <h2>Description : </h2>
-  <p><%= @workout.description  %></p>
+      </div>
+    <div>
 
-  <h2>Exercices : </h2>
-  <% @workout.exercices.each do |exercice| %>
-   <h3>Name : </h3>
-   <p><small><%= exercice.nature  %></small></p>
-   <h3>Muscle : </h3>
-   <p><small><%= exercice.muscle  %></small></p>
-   <h3>Equipment : </h3>
-   <p><small><%= exercice.equipment  %></small></p>
-   <h3>Instructions : </h3>
-   <p><small><%= exercice.instructions  %></small></p>
+      <h2>Exercices : </h2>
+      <% @workout.exercices.each do |exercice| %>
+      <h3>Name : </h3>
+      <p><small><%= exercice.nature  %></small></p>
+      <h3>Muscle : </h3>
+      <p><small><%= exercice.muscle  %></small></p>
+      <h3>Equipment : </h3>
+      <p><small><%= exercice.equipment  %></small></p>
+      <h3>Instructions : </h3>
+      <p><small><%= exercice.instructions  %></small></p>
 
 
-  <% end %>
+      <% end %>
+    </div>
+
+  </div>
 
 </div>
