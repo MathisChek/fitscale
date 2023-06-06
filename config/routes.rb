@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :workouts, only: %i[index show new create edit update] do
     resources :workout_sets, only: %i[create edit update]
-    resources :trainingss, only: %i[create]
+    resources :trainings, only: %i[create]
   end
   resources :sessions, only: %i[new create]
 end
