@@ -19,6 +19,70 @@ KEY = "vEqmPDsSQJqKTpaOjrbwVg==88FJhtYQjvhNTufV"
 url = "https://api.api-ninjas.com/v1/exercises?"
 json = JSON.parse(RestClient.get(url, headers={'X-Api-Key' => KEY}))
 
+
+# CLEARING DB
+User.destroy_all
+puts "All Users deleted"
+Exercice.destroy_all
+puts "All Exercices deleted"
+Workout.destroy_all
+puts "All Workouts deleted (WorkoutSets deleted too)"
+
+
+# CREATING USERS
+10.times do
+  user = User.new(
+    name: Faker::JapaneseMedia::Naruto.character,
+    email: Faker::Internet.email,
+    password: "azerty"
+  )
+  user.save
+end
+puts "#{User.count} users added"
+
+
+# LOAD EXERICES FROM THE CSV FILE
+CSV.foreach(csv_path, headers: :first_row, header_converters: :symbol) do |row|
+  row[:user_id] = row[:user_id].to_i
+  exercices << Exercice.new(row)
+end
+puts "All #{exercices.size} exercices loaded."
+
+# ADD NON ALREADY EXISTANT EXERCICE IN EXERCICE DB
+new_exercices = 0
+json.each do |data|
+  if Exercice.where(name: data["name"]).empty?
+    data = data.transform_keys(&:to_sym)
+    exercice = Exercice.new(data)
+    exercice.user = User.first
+    new_exercices += 1
+  end
+end
+"#{new_exercices} exercices added"
+
+
+
+# USING API TO ADD EXERCICES TO THE CSV FILE
+CSV.open(csv_path, "wb") do |row|
+  row << header
+  Exercice.all.each do |exercice|
+    data = [
+      exercice[:name],
+      exercice[:type],
+      exercice[:muscle],
+      exercice[:equipment],
+      exercice[:difficulty],
+      exercice[:instructions],
+      exercice[:user_id]
+    ]
+    row << data
+  end
+end
+
+
+# Faker::Internet.email
+# Faker::JapaneseMedia::Naruto.character
+
 # {"name"=>"Jumping rope",
 #  "type"=>"cardio",
 #   "muscle"=>"quadriceps",
@@ -31,35 +95,3 @@ json = JSON.parse(RestClient.get(url, headers={'X-Api-Key' => KEY}))
 #                     Rope jumping is exciting, challenges your coordination, and requires a lot of energy.
 #                     A 150 lb person will burn about 350 calories jumping rope for 30 minutes,
 #                     compared to over 450 calories running."}
-
-
-
-CSV.foreach(csv_path, headers: :first_row, header_converters: :symbol) do |row|
-  exercices << Exercice.new(row)
-end
-
-
-
-CSV.open(csv_path, "wb") do |row|
-  new_exercices  new exercices added != 0
-  row << header
-  json.each do |element|
-    if Exercice.where(name: element["name"]).
-      array = [
-        element["name"],
-        element["type"],
-        element["muscle"],
-        element["equipment"],
-        element["difficulty"],
-        element["instructions"]
-      ]
-      row << array
-      new_exercices  new exercices added !+= 1
-    end
-  end
-  "#{new_exercices} new exercices added !"
-end
-
-
-
-# Faker::JapaneseMedia::Naruto.character
