@@ -44,7 +44,7 @@ CSV.open(csv_path, "wb") do |row|
   new_exercices  new exercices added != 0
   row << header
   json.each do |element|
-    if Exercice.where(name: element["name"])
+    if Exercice.where(name: element["name"]).
       array = [
         element["name"],
         element["type"],
@@ -59,3 +59,7 @@ CSV.open(csv_path, "wb") do |row|
   end
   "#{new_exercices} new exercices added !"
 end
+
+
+
+# Faker::JapaneseMedia::Naruto.character
