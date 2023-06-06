@@ -11,4 +11,8 @@ Rails.application.routes.draw do
     resources :trainings, only: %i[create]
   end
   resources :sessions, only: %i[new create]
+  resources :dashboard, only: %i[index] do
+    get "my_bookings", to: "dashboard#my_bookings"
+    get "sessions", to: "dashboard#sessions"
+  end
 end
