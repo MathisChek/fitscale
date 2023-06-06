@@ -19,16 +19,18 @@ csv_path = File.join(__dir__, 'exercices.csv')
 
 
 # CLEARING DB
-Exercice.destroy_all
-puts "All Exercices deleted"
+Workout.destroy_all
+WorkoutSet.destroy_all
+puts "All Workouts deleted (WorkoutSets deleted too)"
 User.destroy_all
 puts "All Users deleted"
-Workout.destroy_all
-puts "All Workouts deleted (WorkoutSets deleted too)"
+Exercice.destroy_all
+puts "All Exercices deleted"
+
 
 
 # CREATING USERS
-10.times do
+15.times do
   user = User.new(
     name: Faker::JapaneseMedia::Naruto.character,
     email: Faker::Internet.email,
@@ -61,18 +63,21 @@ def query_new_exercices(option, section)
       data[:nature] = data.delete :type if data.has_key?(:type)
       exercice = Exercice.new(data)
       exercice.user = USERS.sample
-      exercice.save
-      new_exercices += 1
+      if exercice.save
+        new_exercices += 1
+        exercices << exercice
+      end
     end
   end
-  puts "#{new_exercices} exercices added from the API in section \"#{section}\" with option \"#{option}\""
+  puts "#{new_exercices} Exercices added from the API in section \"#{section}\" with option \"#{option}\""
 end
-puts "#{Exercice.count} exercices currently in the database "
 
 # ITERATE ON VARIOUS OPTIONS OF THE API
 type_options = ["cardio", "olympic_weightlifting", "plyometrics", "powerlifting", "strength", "stretching", "strongman"]
 muscle_options = ["abdominals", "abductors", "biceps", "calves", "chest", "forearms", "glutes", "hamstrings", "lats", "lower_back", "middle_back", "neck", "quadriceps", "traps", "tricep"]
-muscle_options[0..4].each { |opt| query_new_exercices(opt, "muscle") }
+muscle_options[0..1].each { |opt| query_new_exercices(opt, "muscle") }
+puts "#{Exercice.count} Exercices currently in the database"
+EXERCICES = Exercice.all
 
 # USING API TO ADD EXERCICES TO THE CSV FILE
 CSV.open(csv_path, "wb", col_sep: '//') do |row|
@@ -87,5 +92,53 @@ CSV.open(csv_path, "wb", col_sep: '//') do |row|
     ]
     row << data
   end
-  "#{Exercice.count} exercices saved"
+  puts "#{Exercice.count} Exercices saved"
 end
+
+
+# GENERATING WORKOUTS AND WORKOUTS SET
+number_of_workouts = 5
+number_of_workoutsets = rand(4..16)
+
+number_of_workouts.times do
+  workout = Workout.new(
+    name: Faker::JapaneseMedia::Naruto.eye,
+    description: Faker::JapaneseMedia::StudioGhibli.quote
+  )
+  workout.user = USERS.sample
+  workout.save
+  number_of_workoutsets.times do
+    workout_set = WorkoutSet.new(
+      repetition: rand(6..16)
+    )
+    workout_set.workout = workout
+    workout_set.exercice = EXERCICES.sample
+    workout_set.save
+  end
+end
+WORKOUTS = Workout.all
+puts "#{Workout.count} Workouts created"
+puts "#{WorkoutSet.count} WorkoutSets created"
+
+# GENERATING TRAININGS and SESSIONS
+number_of_trainings = rand(2..6)
+number_of_users = 5
+
+USERS.sample(number_of_users).each do |user|
+  number_of_trainings.times do
+    training = Training.new
+    workout = WORKOUTS.sample
+    training.user = user
+    training.workout = workout
+    if training.save
+      session = Session.new(
+        programing_at: Date.today + rand(1..100).day
+      )
+      session.training = training
+      session.save
+    end
+  end
+end
+
+puts "#{Training.count} Trainings created"
+puts "#{Session.count} Sessions created"
