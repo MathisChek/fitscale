@@ -10,9 +10,13 @@ Rails.application.routes.draw do
     resources :workout_sets, only: %i[create]
     resources :trainings, only: %i[create]
   end
+  
   resources :sessions, only: %i[new create]
 
   resources :dashboard, only: %i[index] do
+    get "my_bookings", to: "dashboard#my_bookings"
+    get "my_sessions", to: "dashboard#my_sessions"
     get "my_workout", to: "dashboard#current_workout"
+
   end
 end
