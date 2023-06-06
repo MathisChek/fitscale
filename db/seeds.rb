@@ -53,6 +53,7 @@ new_exercices = 0
 json.each do |data|
   if Exercice.where(name: data["name"]).empty?
     data = data.transform_keys(&:to_sym)
+    data.delete(:difficulty) if data.delete(:difficulty).present?
     exercice = Exercice.new(data)
     exercice.user = User.first
     new_exercices += 1

@@ -18,17 +18,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_141036) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_exercices_on_user_id"
-  end
-
-  create_table "products", force: :cascade do |t|
     t.string "name"
     t.string "type"
     t.string "muscle"
-    t.string "equipment", default: "none"
+    t.string "equipment"
     t.string "instructions"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_exercices_on_user_id"
   end
 
   create_table "sessions", force: :cascade do |t|
