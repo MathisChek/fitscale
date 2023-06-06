@@ -1,3 +1,3 @@
 class Session < ApplicationRecord
-  belongs_to :training_id
+  belongs_to :training
 end

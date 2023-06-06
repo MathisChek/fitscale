@@ -1,4 +1,4 @@
 class Training < ApplicationRecord
-  belongs_to :workout_id
-  belongs_to :user_id
+  belongs_to :workout, dependent: :destroy
+  belongs_to :user
 end
