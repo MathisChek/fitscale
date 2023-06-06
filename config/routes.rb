@@ -5,14 +5,16 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  get "actuality", to: "pages#index"
+  get "actuality", to: "pages#actuality"
   resources :workouts, only: %i[index show new create edit update] do
     resources :workout_sets, only: %i[create edit update]
     resources :trainings, only: %i[create]
   end
   resources :sessions, only: %i[new create]
-  resources :dashboard, only: %i[index] do
-    get "my_bookings", to: "dashboard#my_bookings"
-    get "sessions", to: "dashboard#sessions"
+
+  resources :users, only: %i[index] do
+    get "my_workouts", to: "users#my_workouts"
+    get "my_sessions", to: "users#my_sessions"
+    get "my_exercises", to: "users#my_exercises"
   end
 end
