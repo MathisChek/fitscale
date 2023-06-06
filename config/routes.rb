@@ -5,4 +5,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :workouts, only: %i[index show new create edit update] do
+    resources :workout_sets, only: %i[create edit update]
+    resources :trainingss, only: %i[create]
+  end
+  resources :sessions, only: %i[new create]
 end
