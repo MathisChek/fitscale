@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   # root "articles#index"
   get "actuality", to: "pages#actuality"
   resources :workouts, only: %i[index show new create edit update] do
-    resources :workout_sets, only: %i[create edit update]
+    resources :workout_sets, only: %i[create]
     resources :trainings, only: %i[create]
   end
+  
   resources :sessions, only: %i[new create]
 
   resources :users, only: %i[index] do
