@@ -1,0 +1,43 @@
+<div class="container">
+
+  <div class="d-flex justify-content-between">
+
+    <div class="px-5 py-5 mt-3">
+
+        <div class= "border border-3 rounded-3 border-dark mb-4 px-5 py-4 sticky-top ">
+          <h2>Name</h2>
+          <p><%= @workout.name  %></p>
+          <h2>Description</h2>
+          <p><%= @workout.description  %></p>
+          <p><strong><%= @workout.exercices.count %></strong> Exercices to do</p>
+
+        </div>
+
+    </div>
+
+    <div class="px-5 py-5 mt-3">
+
+        <% @workout.workout_sets.each do |workout_set| %>
+
+          <div class = "px-5 py-4 border border-3 rounded-3 border-dark mb-4">
+            <% repetitions = workout_set.repetition %>
+            <% exercice = Exercice.find(workout_set.exercice_id) %>
+
+            <h3>Exercice</h3>
+            <p><small><%= exercice.nature  %></small></p>
+            <h3>Muscle</h3>
+            <p><small><%= exercice.muscle  %></small></p>
+            <h3>Equipment</h3>
+            <p><small><%= exercice.equipment  %></small></p>
+            <h3>Repetitions</h3>
+            <p><small><%= repetitions  %></small></p>
+            <h3>Instructions</h3>
+            <p><small><%= exercice.instructions  %></small></p>
+
+          </div>
+        <% end %>
+    </div>
+
+  </div>
+
+</div>
