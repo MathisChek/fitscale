@@ -69,13 +69,16 @@ def query_new_exercices(option, section)
       end
     end
   end
-  puts "#{new_exercices} Exercices added from the API in section \"#{section}\" with option \"#{option}\""
+  puts "#{new_exercices} Exercices added from the API in section \"#{section}\" with option \"#{option}\"" unless new_exercices == 0
 end
 
 # ITERATE ON VARIOUS OPTIONS OF THE API
 type_options = ["cardio", "olympic_weightlifting", "plyometrics", "powerlifting", "strength", "stretching", "strongman"]
 muscle_options = ["abdominals", "abductors", "biceps", "calves", "chest", "forearms", "glutes", "hamstrings", "lats", "lower_back", "middle_back", "neck", "quadriceps", "traps", "tricep"]
+
 muscle_options.each { |opt| query_new_exercices(opt, "muscle") }
+type_options.each { |opt| query_new_exercices(opt, "type") }
+
 puts "#{Exercice.count} Exercices currently in the database"
 
 # USING API TO ADD EXERCICES TO THE CSV FILE
@@ -141,3 +144,9 @@ end
 
 puts "#{Training.count} Trainings created"
 puts "#{Session.count} Sessions created"
+
+admin = User.create!(
+  name: "admin",
+  email: "admin@mail.com",
+  password: "secret"
+)
