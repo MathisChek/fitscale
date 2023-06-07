@@ -25,6 +25,7 @@ class WorkoutsController < ApplicationController
 
   def edit
     # à modifier avec wo set
+    @workout_set = WorkoutSet.new
   end
 
   def update
