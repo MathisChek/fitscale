@@ -2,7 +2,7 @@ class WorkoutsController < ApplicationController
   before_action :set_workout, only: %i[edit update]
 
   def index
-    raise
+    @workouts = Workout.all
   end
 
   def show
