@@ -5,6 +5,10 @@ class WorkoutsController < ApplicationController
     @workouts = Workout.all
   end
 
+  def show
+    raise
+  end
+
   def new
     @workout = Workout.new
   end
