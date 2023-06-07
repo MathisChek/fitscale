@@ -80,4 +80,4 @@ group :test do
   gem "webdrivers"
 end
 
-gem "pry-rails", "~> 0.3.9"
+# gem "pry-rails", "~> 0.3.9"
