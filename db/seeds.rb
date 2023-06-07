@@ -44,10 +44,12 @@ puts "#{User.count} users added"
 
 # LOAD EXERICES FROM THE CSV FILE
 CSV.foreach(csv_path, headers: :first_row, col_sep: '//', header_converters: :symbol) do |row|
-  exo = Exercice.new(row)
-  exo.user = USERS.sample
-  exo.save
-  EXERCICES << exo
+  if Exercice.where(name: row[:name]).empty?
+    exo = Exercice.new(row)
+    exo.user = USERS.sample
+    exo.save
+    EXERCICES << exo
+  end
 end
 puts "#{Exercice.count} exercices loaded from CSV"
 
