@@ -1,0 +1,7 @@
+<div>
+  <%= simple_form_for([ workout, workout_set]) do |f| %>
+    <%= f.input :repetition %>
+    <%= f.association :exercice %>
+    <%= f.submit 'Submit exercice' %>
+  <% end %>
+</div>
