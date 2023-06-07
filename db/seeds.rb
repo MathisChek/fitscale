@@ -13,7 +13,7 @@ require 'json'
 require 'rest-client'
 require 'pry-byebug'
 
-exercices = []
+EXERCICES = []
 header = ["name", "nature", "muscle", "equipment", "instructions"]
 csv_path = File.join(__dir__, 'exercices.csv')
 
@@ -47,9 +47,9 @@ CSV.foreach(csv_path, headers: :first_row, col_sep: '//', header_converters: :sy
   exo = Exercice.new(row)
   exo.user = USERS.sample
   exo.save
-  exercices << exo
+  EXERCICES << exo
 end
-puts "#{Exercice.count} exercices loaded"
+puts "#{Exercice.count} exercices loaded from CSV"
 
 # ADD NON ALREADY EXISTANT EXERCICE IN EXERCICE DB
 def query_new_exercices(option, section)
@@ -65,7 +65,7 @@ def query_new_exercices(option, section)
       exercice.user = USERS.sample
       if exercice.save
         new_exercices += 1
-        exercices << exercice
+        EXERCICES << exercice
       end
     end
   end
@@ -75,9 +75,8 @@ end
 # ITERATE ON VARIOUS OPTIONS OF THE API
 type_options = ["cardio", "olympic_weightlifting", "plyometrics", "powerlifting", "strength", "stretching", "strongman"]
 muscle_options = ["abdominals", "abductors", "biceps", "calves", "chest", "forearms", "glutes", "hamstrings", "lats", "lower_back", "middle_back", "neck", "quadriceps", "traps", "tricep"]
-muscle_options[0..1].each { |opt| query_new_exercices(opt, "muscle") }
+muscle_options.each { |opt| query_new_exercices(opt, "muscle") }
 puts "#{Exercice.count} Exercices currently in the database"
-EXERCICES = Exercice.all
 
 # USING API TO ADD EXERCICES TO THE CSV FILE
 CSV.open(csv_path, "wb", col_sep: '//') do |row|
@@ -92,11 +91,11 @@ CSV.open(csv_path, "wb", col_sep: '//') do |row|
     ]
     row << data
   end
-  puts "#{Exercice.count} Exercices saved"
+  puts "#{Exercice.count} Exercices saved in CSV"
 end
 
 
-# GENERATING WORKOUTS AND WORKOUTS SET
+# GENERATING WORKOUTS AND WORKOUTS_SET
 number_of_workouts = 5
 number_of_workoutsets = rand(4..16)
 
