@@ -1,12 +1,12 @@
 class WorkoutsController < ApplicationController
-  before_action :set_workout, only: %i[edit update]
+  before_action :set_workout, only: %i[edit update show]
 
   def index
     @workouts = Workout.all
   end
 
   def show
-    raise
+
   end
 
   def new
@@ -25,6 +25,7 @@ class WorkoutsController < ApplicationController
 
   def edit
     # à modifier avec wo set
+    @workout_set = WorkoutSet.new
   end
 
   def update
