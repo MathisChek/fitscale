@@ -1,0 +1,27 @@
+<div class="container d-flex justify-content-center">
+  <%# div formulaire %>
+
+  <div  class="p-3">
+
+    <div class = "px-5 py-4 border border-3 rounded-5 border-dark background_form bg-secondary bg-gradient">
+
+      <div class= "d-flex justify-content-center mb-3">
+        <h3>Create your workout</h3>
+      </div>
+
+      <%= simple_form_for @workout do |f|%>
+        <div class ="form-input" name="input_form">
+
+          <%= f.input :name, style: "border-radius: 5px;"%>
+          <%= f.input :description %>
+
+        </div>
+
+        <div class ="d-flex justify-content-center mt-5 submit" name= "submit">
+          <%= f.submit :submit, class: "btn btn-dark px-3 py-2 rounded-pill border border-0 btn-submit" %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>
