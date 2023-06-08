@@ -1,10 +1,10 @@
 <div class="container">
 
-  <div class="d-flex justify-content-between">
+  <div class="d-flex">
 
-    <div class="px-5 py-5 mt-3">
+    <div class="p-3 mt-5" style="width: 300px;">
 
-        <div class= "border border-3 rounded-3 border-dark mb-4 px-5 py-4 sticky-top ">
+        <div class= "border border-3 rounded-3 border-dark mb-4 p-3 sticky-top border-dark background_form bg-secondary bg-gradient">
           <h2>Name</h2>
           <p><%= @workout.name  %></p>
           <h2>Description</h2>
@@ -15,27 +15,14 @@
 
     </div>
 
-    <div class="px-5 py-5 mt-3">
 
-        <% @workout.workout_sets.each do |workout_set| %>
+    <div class="mt-5">
 
-          <div class = "px-5 py-4 border border-3 rounded-3 border-dark mb-4">
-            <% repetitions = workout_set.repetition %>
-            <% exercice = Exercice.find(workout_set.exercice_id) %>
+      <% @workout.workout_sets.each do |workout_set| %>
 
-            <h3>Exercice</h3>
-            <p><small><%= exercice.nature  %></small></p>
-            <h3>Muscle</h3>
-            <p><small><%= exercice.muscle  %></small></p>
-            <h3>Equipment</h3>
-            <p><small><%= exercice.equipment  %></small></p>
-            <h3>Repetitions</h3>
-            <p><small><%= repetitions  %></small></p>
-            <h3>Instructions</h3>
-            <p><small><%= exercice.instructions  %></small></p>
+        <%= render "components/card_exo_info", workout: @workout, workout_set: workout_set  %>
 
-          </div>
-        <% end %>
+      <% end %>
     </div>
 
   </div>
