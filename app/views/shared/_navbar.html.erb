@@ -4,7 +4,7 @@
     <%# button + logo : %>
 
     <%= link_to  root_path, class: "navbar-brand text-white" do%>
-      <%= image_tag "fitscale-logo.png", alt: "logo.png", height: 100, width: 200%>
+      <%= image_tag "fitscale-logo.png", alt: "logo.png", height: 70, width: 150%>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,13 +22,6 @@
         <li class="nav-item">
           <%= link_to "Home", actuality_path, class: "nav-link active text-white" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "Workouts", workouts_path, class: "nav-link active text-white" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Exercices", '#', class: "nav-link active text-white" %>
-        </li>
-
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dashboard
@@ -39,6 +32,15 @@
             <li><hr class="dropdown-divider"></li>
             <li><%= link_to "My dashboard", '#', class: "dropdown-item text-white" %></li>
           </ul>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Workouts", workouts_path, class: "nav-link active text-white" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Exercices", '#', class: "nav-link active text-white" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Create a workout", new_workout_path, class: "nav-link active text-white" %>
         </li>
 
         <%# form search %>
