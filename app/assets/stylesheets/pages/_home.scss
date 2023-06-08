@@ -18,3 +18,19 @@
     background-color: rgba(0, 0, 0, 0);
   }
 }
+
+.workouts-wrapper {
+  width: auto;
+  // background-color: #797979;
+  overflow: auto hidden;
+  white-space: nowrap;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// .work {
+//   &:hover.img{
+//     height: 100vh;
+//   }
+// }
