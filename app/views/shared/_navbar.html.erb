@@ -34,7 +34,7 @@
             Dashboard
           </a>
           <ul class="dropdown-menu">
-            <li><%= link_to "My workouts", '#', class: "dropdown-item text-white" %></li>
+            <li><%= link_to "My workouts", user_my_workouts_path(current_user.id), class: "dropdown-item text-white" %></li>
             <li><%= link_to "My sessions", '#', class: "dropdown-item text-white" %></li>
             <li><hr class="dropdown-divider"></li>
             <li><%= link_to "My dashboard", '#', class: "dropdown-item text-white" %></li>
