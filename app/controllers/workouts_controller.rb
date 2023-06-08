@@ -25,6 +25,7 @@ class WorkoutsController < ApplicationController
 
   def edit
     # à modifier avec wo set
+    @exercices = Exercice.search(params.dig(:filter, :name))
     @workout_set = WorkoutSet.new
   end
 
