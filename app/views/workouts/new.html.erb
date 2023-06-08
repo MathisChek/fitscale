@@ -1,10 +1,8 @@
-<div class="bg-form-new d-flex align-items-center" style="min-height: calc(100vh - 110px - 226px);">
-  <div class="row align-items-center">
-    <div class="col-md-4 offset-md-2">
-      <%= render "components/form_new_wo", workout: @workout%>
-    </div>
-    <div class="col-md-3 offset-md-3">
-      <%= image_tag "man.jpg", width: 700, class: "rounded-4"%>
-    </div>
+<div class="bg-form-new d-flex flex-row align-items-center justify-content-around" style="min-height: calc(100vh - 110px - 226px);">
+  <div class="pe-5">
+    <%= render "components/form_new_wo", workout: @workout%>
+  </div>
+  <div class="">
+    <%= image_tag "man.jpg", width: 700, class: "rounded-4"%>
   </div>
 </div>
