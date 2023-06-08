@@ -1,16 +1,16 @@
 <div class="mx-2">
 
-  <div class="mb-4 d-flex">
+  <div class="mb-4 d-flex flex-row justify-content-center">
 
     <%# Filters %>
     <%= simple_form_for(:filter, url: edit_workout_path(workout), method: :get) do |f| %>
 
-      <div class="d-flex flex-row justify-content-center">
+      <div class="">
         <div style="width: calc(80vw - 200px)">
           <%= f.input :name %>
         </div>
 
-        <div class="d-flex align-items-center pt-3">
+        <div class="pt-3">
           <%= f.submit 'Search', style: "height: 37px;"%>
         </div>
       </div>
@@ -24,7 +24,7 @@
   </div>
 
   <%# Formulaire edit workout_set %>
-  <div>
+  <div class="">
     <% exercices.each do |exercice| %>
 
       <%= render "components/card_exercice_edit_wo", exercice: exercice, workout: workout, workout_set: workout_set %>
