@@ -1,8 +1,6 @@
-<div class="border border-3 mb-3 d-flex">
+<div class="border border-3 mb-3 d-flex" style="width: 92vw">
 
-  <div>
-    <%= image_tag "push_ups.jpg", width: 300%>
-  </div>
+  <%= image_tag "push_ups.jpg", width: 300%>
   <div class="ps-3 pt-3">
     <h6>Name : <strong><%= exercice.name %></strong></h6>
     <p><%= exercice.instructions %></p>
@@ -12,11 +10,15 @@
       <p>Number of repetitions : <strong><%= workout.workout_sets.find_by(exercice: exercice).repetition %></strong></p>
       <p class="text-success"><strong>You already have this exercice in the workout</strong></p>
     <% else %>
-      <%= simple_form_for([workout, workout_set]) do |f| %>
-        <%= f.input :repetition %>
-        <%= f.hidden_field :exercice_id, value: exercice.id %>
-        <%= f.submit 'Submit exercice' %>
-      <% end %>
+      <div class="mb-3">
+        <%= simple_form_for([workout, workout_set]) do |f| %>
+          <div style="width: 80%">
+            <strong><%= f.input :repetition, label: "How many repetitions ?" %></strong>
+          </div>
+          <%= f.hidden_field :exercice_id, value: exercice.id %>
+          <%= f.submit 'Submit exercice' %>
+        <% end %>
+      </div>
     <% end %>
   </div>
 
