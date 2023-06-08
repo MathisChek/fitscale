@@ -12,13 +12,13 @@
       <% repetitions = workout_set.repetition %>
       <% exercice = Exercice.find(workout_set.exercice_id) %>
 
-        <div class= "card-exo-title d-flex justify-content-between">
+        <div class= "card-exo-title d-flex flex-column align-items-center">
           <span><%= exercice.name%></span>
         </div>
 
               <%# DETAILS %>
 
-        <div class= "card-exo-details d-flex flex-column align-items-start py-1">
+        <div class= "card-exo-details d-flex flex-column align-items-start px-5">
 
           <div class="d-flex flex-column align-items-center">
             <span><i class="fa-solid fa-dumbbell"></i> <%= exercice.nature  %></span>
@@ -34,9 +34,9 @@
 
         </div>
 
-        <div>
-
             <%# INSTRUCTIONS %>
+        <div class="d-flex flex-column align-items-center py-2">
+
 
           <p> <a class="btn btn-outline-success text-clack" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                 instructions
@@ -52,10 +52,10 @@
 
     </div>
 
-    <div class="class-exo-stats -flex flex-column align-items-center" >
-      <p><i class="fas fa-chart-bar"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></i></p>
-      <p><i class="fa fa-thumbs-up">   1653</i></p>
-      <p><i class="fas fa-repeat"> </i>   <%= repetitions %></p>
+    <div class="class-exo-stats -flex flex-column align-items-center px-5" >
+      <p><i class="fas fa-chart-bar" style="color: #ed1707;"></i>  </i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></i></p>
+      <p><i class="fas fa-thumbs-up" style="color: #2cb922;"></i> 1652</p>
+      <p><i class="fas fa-repeat" style="color: #f4ed1f;"></i>  <%= repetitions %></p>
     </div>
 
   </div>
