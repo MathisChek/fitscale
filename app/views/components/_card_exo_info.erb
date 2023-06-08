@@ -1,0 +1,61 @@
+
+  <div class="card-exo d-flex justify-content-between px-3 rounded mt-3" style="width: 50vw">
+
+              <%# IMAGE %>
+    <div class="card-exo-img">
+      <%= image_tag "giga_chad.png" %>
+    </div>
+
+              <%# INFO CARD %>
+    <div class="card-exo-infos ">
+
+      <% repetitions = workout_set.repetition %>
+      <% exercice = Exercice.find(workout_set.exercice_id) %>
+
+        <div class= "card-exo-title d-flex justify-content-between">
+          <span><%= exercice.name%></span>
+        </div>
+
+              <%# DETAILS %>
+
+        <div class= "card-exo-details d-flex flex-column align-items-start py-1">
+
+          <div class="d-flex flex-column align-items-center">
+            <span><i class="fa-solid fa-dumbbell"></i> <%= exercice.nature  %></span>
+          </div>
+
+          <div class="d-flex flex-column align-items-center">
+            <span><i class="fa-solid fa-person"></i> <%= exercice.muscle  %></span>
+          </div>
+
+          <div class="d-flex flex-column align-items-center">
+            <span><i class="fa-solid fa-gear"></i> <%= exercice.equipment  %></span>
+          </div>
+
+        </div>
+
+        <div>
+
+            <%# INSTRUCTIONS %>
+
+          <p> <a class="btn btn-outline-success text-clack" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                instructions
+              </a>
+              <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                  <small><%= exercice.instructions  %></small></p>
+                </div>
+              </div>
+
+        </div>
+              <%# RATING %>
+
+    </div>
+
+    <div class="class-exo-stats -flex flex-column align-items-center" >
+      <p><i class="fas fa-chart-bar"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></i></p>
+      <p><i class="fa fa-thumbs-up">   1653</i></p>
+      <p><i class="fas fa-repeat"> </i>   <%= repetitions %></p>
+    </div>
+
+  </div>
