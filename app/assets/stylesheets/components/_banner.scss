@@ -2,10 +2,11 @@
   height: 65vh;
   width: 100%;
   background-color: grey;
-  background-image: url("giga_chad.png");
+  background-image: radial-gradient(circle, rgba(0,0,0,0) 40%, rgba(0, 0, 0, 0.9)), asset-url("giga_chad.png");
   background-repeat: no-repeat;
   background-position: right 10% top 35%;
-  object-fit: contain;
+  // background-size: auto;
+  // object-fit: contain;
 }
 
 .banner-wrapper {
