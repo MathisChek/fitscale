@@ -5,6 +5,5 @@ class PagesController < ApplicationController
   end
 
   def actuality
-    raise
   end
 end
