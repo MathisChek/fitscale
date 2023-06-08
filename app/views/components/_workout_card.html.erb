@@ -1,20 +1,15 @@
-<%= link_to workout_path(workout) do %>
+<%= link_to workout_path(workout), style: "text-decoration: none; color: black;" do %>
   <div class="wo-card d-flex flex-column flex-nowrap justify-content-between nostylin">
 
 
     <%# IMAGE %>
 
-      <%= image_tag "canyon_pic.jpg", class: "wo-card-image" %>
-
+    <%= image_tag "canyon_pic.jpg", class: "wo-card-image" %>
     <div class="d-flex wo-card-body justify-content-between m-2 rounded-5">
       <div name="left-infos d-flex flex-column justify-content-evenly" class="">
         <h4><%= workout.name %></h4>
-        <p><%= workout.fake_time / 15 %> : 00 </p> <i class="fa-regular fa-clock-nine"></i>
-
-
-
+        <p><%= workout.fake_time / 15 %>:00 <i class="fa-solid fa-clock-rotate-left"></i></p>
       </div>
-
       <div name="pie-graph" class="d-flex align-items-center pe-3">
         <%= image_tag "pie-graph-2.png", style: "height: 90px" %>
       </div>
