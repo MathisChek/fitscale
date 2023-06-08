@@ -16,14 +16,22 @@
 
 .card-exo-img {
   img {
-    height: 120px;
-    width: 120px;
+    height: 136px;
+    width: 149px;
     object-fit: cover;
     margin-right: 16px;
   }
 }
 
+.card-wo {
+  position: sticky;top: 50%;
+}
 
+.bg-image {
+  background-image:url('bg_img_exo')
+
+
+}
 // .card-exo h5 {
 //   font-size: 16px;
 //   font-weight: bold;
