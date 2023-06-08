@@ -8,10 +8,8 @@ KEY = "vEqmPDsSQJqKTpaOjrbwVg==88FJhtYQjvhNTufV"
 #   Character.create(name: "Luke", movie: movies.first)
 
 require 'csv'
-require 'net/http'
 require 'json'
 require 'rest-client'
-require 'pry-byebug'
 
 EXERCICES = []
 header = ["name", "nature", "muscle", "equipment", "instructions"]
