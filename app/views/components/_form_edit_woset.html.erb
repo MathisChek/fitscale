@@ -1,0 +1,31 @@
+<div class="container">
+
+  <div class="mb-4">
+
+    <%# Filters %>
+    <%= simple_form_for(:filter, url: edit_workout_path(workout), method: :get) do |f| %>
+
+      <div class="d-flex flex-row justify-content-center">
+        <div style="width: calc(80vw - 200px)">
+          <%= f.input :name %>
+        </div>
+
+        <div class="d-flex align-items-center pt-3">
+          <%= f.submit 'Search', style: "height: 37px;"%>
+        </div>
+      </div>
+
+    <% end %>
+
+  </div>
+
+  <%# Formulaire edit workout_set %>
+  <div>
+    <% exercices.each do |exercice| %>
+
+      <%= render "components/card_exercice_edit_wo", exercice: exercice, workout: workout, workout_set: workout_set %>
+
+    <% end %>
+  </div>
+
+</div>
