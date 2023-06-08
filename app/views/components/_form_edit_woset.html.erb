@@ -1,6 +1,6 @@
-<div class="container">
+<div class="mx-2">
 
-  <div class="mb-4">
+  <div class="mb-4 d-flex">
 
     <%# Filters %>
     <%= simple_form_for(:filter, url: edit_workout_path(workout), method: :get) do |f| %>
@@ -16,6 +16,10 @@
       </div>
 
     <% end %>
+
+    <div>
+      <%= link_to "Submit workout", user_my_workouts_path(current_user.id), class: "btn btn-outline-success text-dark" %>
+    </div>
 
   </div>
 
