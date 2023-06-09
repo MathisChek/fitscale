@@ -17,13 +17,13 @@ csv_path = File.join(__dir__, 'exercices.csv')
 
 
 # CLEARING DB
-Workout.destroy_all
 WorkoutSet.destroy_all
 puts "All Workouts deleted (WorkoutSets deleted too)"
-User.destroy_all
-puts "All Users deleted"
 Exercice.destroy_all
 puts "All Exercices deleted"
+Workout.destroy_all
+User.destroy_all
+puts "All Users deleted"
 
 
 
@@ -144,6 +144,27 @@ end
 
 puts "#{Training.count} Trainings created"
 puts "#{Session.count} Sessions created"
+
+# RATINGS
+users = User.all
+exercices = Exercice.all
+users.each do |user|
+  exercices.each do |exercice|
+    rating = Rating.new(
+      user_id: user.id,
+      exercice_id: exercice.id,
+      muscular_effort: rand(0..10),
+      breath_difficulty: rand(0..10),
+      flexibility: rand(0..10)
+    )
+    rating.save
+  end
+end
+puts "#{Rating.count} Ratings created"
+
+
+
+
 
 admin = User.create!(
   name: "admin",
