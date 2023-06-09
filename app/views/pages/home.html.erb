@@ -1,6 +1,16 @@
 <nav class="navbar navbar-light position-absolute opacity-100">
   <div class="d-flex flex-row-reverse" style="width: 100vw;">
-    <p class="navbar-text text-white mx-5">Login</p>
+
+    <%= link_to "Home", actuality_path, class: "navbar-text text-white mx-5", style: "text-decoration: none;"  %>
+    <% if current_user.id.present? %>
+    <%= link_to "My workouts",  user_my_workouts_path(current_user), class: "navbar-text text-white mx-5", style: "text-decoration: none;"  %>
+
+
+    <% else %>
+      <%= link_to "Login", user_session_path, class: "navbar-text text-white mx-5", style: "text-decoration: none;"  %>
+    <% end %>
+
+
     <span class="navbar-text text-white mx-5">Home</span>
   </div>
 </nav>
