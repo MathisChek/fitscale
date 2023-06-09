@@ -19,16 +19,21 @@
 }
 
 .top-card-wo {
-  width: 40px;
-  position: sticky;top: 70%;
+  height: 80px;
+  position: sticky;top: 5%;
 }
 .card-wo {
-  position: sticky;top: 70%;
+  position: sticky;top: 5%;
 }
 
 
 .bg-image {
-  background-image:url('bg_img_exo');
-  background-repeat: no-repeat;
+  background-color: #080202;
+  background-image: asset-url('bg_img_exo.jpg');
   background-attachment: fixed;
+  background-size: cover;
+}
+
+.margin_card {
+  margin-left: 30%;
 }
