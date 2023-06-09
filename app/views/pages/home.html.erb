@@ -1,30 +1,25 @@
 <nav class="navbar navbar-light position-absolute opacity-100">
   <div class="d-flex flex-row-reverse" style="width: 100vw;">
 
-    <%= link_to "Home", actuality_path, class: "navbar-text text-white mx-5", style: "text-decoration: none;"  %>
     <% if current_user.present? %>
+    <%= link_to "Logout",  destroy_user_session_path, class: "navbar-text text-white mx-5", style: "text-decoration: none;"  %>
     <%= link_to "My workouts",  user_my_workouts_path(current_user), class: "navbar-text text-white mx-5", style: "text-decoration: none;"  %>
-
 
     <% else %>
       <%= link_to "Login", user_session_path, class: "navbar-text text-white mx-5", style: "text-decoration: none;"  %>
     <% end %>
-
-
-    <span class="navbar-text text-white mx-5">Home</span>
+    <%= link_to "Home", actuality_path, class: "navbar-text text-white mx-5", style: "text-decoration: none;"  %>
   </div>
 </nav>
 <div class="bg-home">
   <div class="filter-dark d-flex justify-content-center align-items-center">
 
 
-<%# LINK TO ACTUALITY PAGE %>
-  <%= link_to actuality_path do %>
-    <div class="btn btn-lg btn-outline-light opacity-75 rounded-border">
-        <h1 class="display-1 color-success"><em><strong>FitScale</strong></em></h1>
-    </div>
-  <% end %>
-
-
+  <%# LINK TO ACTUALITY PAGE %>
+    <%= link_to actuality_path do %>
+      <div class="btn btn-lg btn-outline-light opacity-75 rounded-border">
+          <h1 class="display-1 color-success"><em><strong>FitScale</strong></em></h1>
+      </div>
+    <% end %>
   </div>
 </div>
