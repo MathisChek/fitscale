@@ -160,7 +160,6 @@ users.each do |user|
     rating.save
   end
 end
-
 puts "#{Rating.count} Ratings created"
 
 
