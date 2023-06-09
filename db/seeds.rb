@@ -100,7 +100,7 @@ end
 
 # GENERATING WORKOUTS AND WORKOUTS_SET
 number_of_workouts = 5
-number_of_workoutsets = rand(4..16)
+number_of_workoutsets = rand(3..8)
 
 number_of_workouts.times do
   workout = Workout.new(
