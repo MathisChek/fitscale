@@ -5,22 +5,19 @@
     <%# IMAGE %>
     <%= image_tag "canyon_pic.jpg", class: "wo-card-image" %>
 
-    <div class="d-flex wo-card-body justify-content-between m-2 rounded-5 p-4">
-
-      <div name="left-infos" class="d-flex flex-column justify-content-evenly">
-      <div>
-        <h4><%= workout.name %></h4>
-      </div>
-        <div name="workout-int-infos" class="d-flex">
-
-          <p style="font-size: 24px"><strong><%= workout.score %></strong></p>
+    <div class="d-flex wo-card-body justify-content-between m-2 rounded-5">
+      <%# NAME SCORE TIME %>
+      <div name="left-infos" class="d-flex flex-column justify-content-between px-3" style="padding: 0px">
+          <h5 style="margin-bottom: 0px;"><%= workout.name %></h5>
+        <div name="workout-int-infos" class="d-flex flex-column justify-content-between">
+          <p style="font-size: 24px; margin-bottom: 0px;"><strong><%= workout.score %></strong></p>
+          <p style="font-size: 16px; margin-bottom: 0px;" class=""><%= workout.fake_time / 5 %>:00 <i class="fa-solid fa-clock-rotate-left"></i></p>
         </div>
       </div>
-
+      <%# STATS %>
       <div name="pie-graph" class="d-flex flex-grow-1 justify-content-center">
         <%# <%= image_tag "pie-graph-2.png", style: "height: 90px" %>
-        <ul class="list-unstyled">
-          <li><p><%= workout.fake_time / 15 %>:00 <i class="fa-solid fa-clock-rotate-left"></i></p></li>
+        <ul class="list-unstyled" style="font-size: 18px">
           <li><i class="fa-solid fa-person-running"></i><strong class="text-warning"><%= workout.avg_dex %></strong></li>
           <li><i class="fa-solid fa-dumbbell"></i><strong class="text-danger"><%= workout.avg_str %></strong></li>
           <li><i class="fa-solid fa-lungs"></i><strong class="text-success"><%= workout.avg_end %></strong></li>

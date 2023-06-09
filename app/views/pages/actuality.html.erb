@@ -10,7 +10,7 @@
 </div>
 
 <%# BODY %>
-<div class="container pt-5">
+<div class="container py-5">
   <% if current_user.present? %>
     <h2>Begin your journey</h2>
     <div class="d-flex justify-content-between mb-5">
@@ -33,7 +33,7 @@
   <h3 class="mt-2">Recommended workouts  for beginners</h3>
   <div class="mb-5" style="overflow:hidden;">
     <div name="workouts scroll" class="workouts-wrapper d-flex p-3 rounded-5">
-      <% @workouts.each do |workout| %>
+      <% @workouts_beg.each do |workout| %>
         <div class="mx-3">
           <%= render "components/workout_card", workout: workout %>
         </div>
@@ -45,7 +45,7 @@
   <%# HORIZONTAL SCROLL OF WORKOUTS %>
   <h3 class="m-2">Popular workouts !</h3>
   <div name="workouts scroll" class="workouts-wrapper d-flex p-3 rounded-5 shadow">
-    <% @workouts.each do |workout| %>
+    <% @workouts_exp.each do |workout| %>
       <div class="m-3">
         <%= render "components/workout_card", workout: workout %>
       </div>

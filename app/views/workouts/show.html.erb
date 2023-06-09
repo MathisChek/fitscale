@@ -12,9 +12,9 @@
             <h2>Description</h2>
             <p><%= @workout.description  %></p>
             <p><strong><%= @workout.exercices.count %></strong> Exercices to do</p>
-
+            <p><strong><%= @workout.score %></strong></p>
+            <p>Create by <%= @workout.user.name %></p>
           </div>
-
         </div>
 
         <div class="margin_card">

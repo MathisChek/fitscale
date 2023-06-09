@@ -30,7 +30,7 @@ puts "All Users deleted"
 # CREATING USERS
 15.times do
   user = User.new(
-    name: Faker::JapaneseMedia::Naruto.character,
+    name: Faker::Name.name,
     email: Faker::Internet.email,
     password: "azerty"
   )
@@ -104,8 +104,8 @@ number_of_workoutsets = rand(3..8)
 
 number_of_workouts.times do
   workout = Workout.new(
-    name: Faker::JapaneseMedia::Naruto.eye,
-    description: Faker::JapaneseMedia::StudioGhibli.quote
+    name: "Train like #{Faker::JapaneseMedia::DragonBall.character}",
+    description: "If you love challenge, this workout should pick your interest. It's beginner friendly and a great way to start your fitness journey !"
   )
   workout.user = USERS.sample
   workout.save
@@ -146,6 +146,25 @@ puts "#{Training.count} Trainings created"
 puts "#{Session.count} Sessions created"
 
 # RATINGS
+
+def rate
+  rates = [
+    rand(1..2),
+    rand(3..4),
+    rand(5..6),
+    rand(7..8),
+    rand(9..10)
+  ]
+  rate_picker = rand(0..(rates.size-1))
+  rates[rate_picker]
+end
+
+
+
+
+
+
+
 users = User.all
 exercices = Exercice.all
 users.each do |user|
@@ -153,9 +172,9 @@ users.each do |user|
     rating = Rating.new(
       user_id: user.id,
       exercice_id: exercice.id,
-      muscular_effort: rand(0..10),
-      breath_difficulty: rand(0..10),
-      flexibility: rand(0..10)
+      muscular_effort: rate(),
+      breath_difficulty: rate(),
+      flexibility: rate()
     )
     rating.save
   end
