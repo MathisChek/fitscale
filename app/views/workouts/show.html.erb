@@ -1,32 +1,32 @@
 <div class="bg-image">
-  <div class="container">
+  <div class="mx-5 py-4">
+    <div>
 
-    <div class="top-card-wo d-flex"></div>
-      <div class="card-wo">
+      <div class="card-wo d-flex justify-content-center ">
 
-        <div class="p-3 mt-5" style="width: 300px;">
+        <div class="p-3" style="width: 300px;">
+          <div class="top-card-wo"></div>
+          <div class= "border border-3 rounded-3 border-dark mb-1 p-3 border-dark background_form bg-secondary bg-gradient sticky">
+            <h2>Name</h2>
+            <p><%= @workout.name  %></p>
+            <h2>Description</h2>
+            <p><%= @workout.description  %></p>
+            <p><strong><%= @workout.exercices.count %></strong> Exercices to do</p>
 
-            <div class= "border border-3 rounded-3 border-dark mb-4 p-3 sticky-top border-dark background_form bg-secondary bg-gradient">
-              <h2>Name</h2>
-              <p><%= @workout.name  %></p>
-              <h2>Description</h2>
-              <p><%= @workout.description  %></p>
-              <p><strong><%= @workout.exercices.count %></strong> Exercices to do</p>
+          </div>
 
-            </div>
+        </div>
 
+        <div class="margin_card">
+          <% @workout.workout_sets.each do |workout_set| %>
+
+            <%= render "components/card_exo_info", workout: @workout, workout_set: workout_set  %>
+
+          <% end %>
         </div>
       </div>
 
-
-      <div class="margin_card">
-
-        <% @workout.workout_sets.each do |workout_set| %>
-
-          <%= render "components/card_exo_info", workout: @workout, workout_set: workout_set  %>
-
-        <% end %>
-      </div>
+    </div>
   </div>
 
 </div>

@@ -18,14 +18,18 @@
   }
 }
 
-.top-card-wo {
-  height: 80px;
-  position: sticky;top: 5%;
-}
-.card-wo {
-  position: sticky;top: 5%;
-}
+// .top-card-wo {
+//   height: 80px;
+//   position: sticky;top: 5%;
+// }
+// .card-wo {
+//   position: sticky;top: 5%;
+// }
 
+.sticky {
+  position: sticky;
+  top: 125px;
+}
 
 .bg-image {
   background-color: #080202;
@@ -34,6 +38,6 @@
   background-size: cover;
 }
 
-.margin_card {
-  margin-left: 30%;
-}
+// .margin_card {
+//   margin-left: 30%;
+// }
