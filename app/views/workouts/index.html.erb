@@ -1,25 +1,15 @@
+<div class="bg-index-wo pt-5">
 
-<div class="container">
+  <div class="container">
 
-  <div class="row d-flex " >
+    <div class="row">
 
-    <% @workouts.each do |workout| %>
-      <%= link_to workout_path(workout),class: "col-4" do %>
+      <% @workouts.each do |workout| %>
+      <div class="col-4 my-3"><%= render "components/workout_card", workout: workout %></div>
 
-        <div class="" style="width:250px; height: 350px;">
-
-          <div class= " border border-3 border-dark mt-3">
-
-            <p><strong>Name : </strong><%= workout.name %></p>
-            <p><strong>Description : </strong><%= workout.description %></p>
-
-          </div>
-
-        </div>
       <% end %>
 
-    <% end %>
+    </div>
 
   </div>
-
 </div>
