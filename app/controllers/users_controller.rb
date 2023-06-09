@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def my_workouts
-    raise
+    @workouts = current_user.workouts
   end
 
   def my_exercises
