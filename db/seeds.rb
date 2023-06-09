@@ -162,10 +162,6 @@ users.each do |user|
 end
 puts "#{Rating.count} Ratings created"
 
-
-
-
-
 admin = User.create!(
   name: "admin",
   email: "admin@mail.com",
