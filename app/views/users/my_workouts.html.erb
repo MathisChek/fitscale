@@ -1,0 +1,15 @@
+<div class="bg-index-wo pt-5" style="min-height: calc(100vh - 258px)">
+
+  <div class="container">
+
+    <div class="row">
+
+      <% @workouts.each do |workout| %>
+      <div class="col-4 my-3"><%= render "components/workout_card", workout: workout %></div>
+
+      <% end %>
+
+    </div>
+
+  </div>
+</div>
