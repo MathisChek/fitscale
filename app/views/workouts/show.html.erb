@@ -6,14 +6,18 @@
 
         <div class="p-3 mt-5" style="width: 300px;">
 
-            <div class= "border border-3 rounded-3 border-dark mb-4 p-3 sticky-top border-dark background_form bg-secondary bg-gradient">
-              <h2>Name</h2>
-              <p><%= @workout.name  %></p>
-              <h2>Description</h2>
-              <p><%= @workout.description  %></p>
-              <p><strong><%= @workout.exercices.count %></strong> Exercices to do</p>
+        <div class= "border border-3 rounded-3 border-dark mb-4 p-3 sticky-top border-dark background_form bg-secondary bg-gradient">
+          <h2>Name</h2>
+          <p><%= @workout.name  %></p>
+          <h2>Description</h2>
+          <p><%= @workout.description  %></p>
+          <p><strong><%= @workout.exercices.count %></strong> Exercices to do</p>
+          <p><strong><%= @workout.score %></strong></p>
+          <p>Create by <%= @workout.user.name %></p>
+        </div>
 
-            </div>
+    </div>
+
 
         </div>
       </div>

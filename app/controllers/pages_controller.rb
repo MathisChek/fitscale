@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   end
 
   def actuality
-    @workouts = Workout.order("RANDOM()").limit(5)
+    @workouts_beg = Workout.all.sort_by(&:score)[0..5]
+    @workouts_exp = Workout.all.sort_by(&:score)[0..5].reverse
   end
 end
