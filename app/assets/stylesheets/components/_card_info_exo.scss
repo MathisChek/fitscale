@@ -1,10 +1,5 @@
 .card-exo {
-  /*   overflow: hidden;
-  height: 120px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2); */
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  /*   align-items: center; */
   background-color: white;
   padding: 1rem 0.5rem;
 
@@ -23,29 +18,17 @@
   }
 }
 
-.card-wo {
-  position: sticky;top: 50%;
+.top-card-wo {
+  width: 40px;
+  position: sticky;top: 70%;
 }
+.card-wo {
+  position: sticky;top: 70%;
+}
+
 
 .bg-image {
-  background-image:url('bg_img_exo')
-
-
+  background-image:url('bg_img_exo');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
-// .card-exo h5 {
-//   font-size: 16px;
-//   font-weight: bold;
-//   margin: 0;
-// }
-
-// .card-exo p {
-//   font-size: 12px;
-//   line-height: 1.4;
-//   opacity: .7;
-//   margin-bottom: 0;
-//   margin-top: 8px;
-// }
-
-// .card-exo .card-exo-infos {
-//   padding: 16px;
-// }
