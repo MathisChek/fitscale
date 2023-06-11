@@ -1,19 +1,21 @@
 <div class="bg-image">
-  <div class="mx-5 py-4">
-    <div>
+    <div class="container">
 
-      <div class="card-wo d-flex justify-content-center ">
+      <div class="card-wo d-flex justify-content-center">
 
+        <%# WORKOUT INFOS CARD %>
         <div class="p-3" style="width: 300px;">
-          <div class="top-card-wo"></div>
-          <div class= "border border-3 rounded-3 border-dark mb-1 p-3 border-dark background_form bg-secondary bg-gradient sticky">
-            <h2>Name</h2>
-            <p><%= @workout.name  %></p>
-            <h2>Description</h2>
+          <%# <div class= "border border-3 rounded-3 border-dark mb-1 p-3 border-dark background_form bg-secondary bg-gradient sticky"> %>
+          <div class="stick border border-success p-3 bg-dark rounded text-light">
+            <h5 class="text-success"><%= @workout.name %></h5>
+            <p><em>Description:</em></p>
             <p><%= @workout.description  %></p>
-            <p><strong><%= @workout.exercices.count %></strong> Exercices to do</p>
-            <p><strong><%= @workout.score %></strong></p>
-            <p>Create by <%= @workout.user.name %></p>
+            <p><em>Specs:</em></p>
+            <p><strong><%= @workout.exercices.count %></strong> exercices</p>
+            <p><i class="fa-solid fa-person-running"></i><strong class="text-warning"> <%= @workout.avg_dex %></strong></p>
+            <p><i class="fa-solid fa-dumbbell"></i><strong class="text-danger"> <%= @workout.avg_str %></strong></p>
+            <p><i class="fa-solid fa-lungs"></i><strong class="text-success"> <%= @workout.avg_end %></strong></p>
+            <p class="text-end" style="backdrop-filter: brightness(1.5);"><%= @workout.user.name %></p>
           </div>
         </div>
 
@@ -27,6 +29,5 @@
       </div>
 
     </div>
-  </div>
 
 </div>
