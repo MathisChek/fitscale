@@ -1,0 +1,21 @@
+  <div class="d-flex justify-content-center">
+    <%= image_tag "2-7-768x537.jpg", alt: "image.png" %>
+  </div>
+<div class="d-flex align-items-center justify-content-between px-5 mx-5">
+  <div>
+    <h3>Name : <strong><%= @exercice.name %></strong></h3>
+    <h3><i class="fa-solid fa-square-xmark pe-3"></i>Details: </h3>
+    <h4>Muscle : <strong><%= @exercice.muscle %></strong></h4>
+    <h4>Type : <strong><%= @exercice.nature %></strong></h4>
+    <h4>Equipment : <strong><%= @exercice.equipment %></strong></h4>
+    <h3><i class="fa-solid fa-square-xmark pe-3"></i>Instructions : </h4>
+    <h4><%= @exercice.instructions %></h4>
+  </div>
+  <div>
+    <h3>Ratings : </h3>
+    <h4><strong><%= @flexibility_avg.round(2) %></strong></h4>
+    <h4><strong><%= @breath_avg.round(2) %></strong></h4>
+    <h4><strong><%= @muscular_avg.round(2) %></strong></h4>
+    <h4><strong><%= @rating_avg.round(2) %></strong></h4>
+  </div>
+</div>
