@@ -9,3 +9,6 @@ application.register("bar-charts", BarChartsController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import PieChartsController from "./pie_charts_controller"
+application.register("pie-charts", PieChartsController)
