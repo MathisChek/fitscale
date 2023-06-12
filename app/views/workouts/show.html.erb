@@ -14,6 +14,7 @@
             <p><strong><%= @workout.exercices.count %></strong> Exercices to do</p>
             <p><strong><%= @workout.score %></strong></p>
             <p>Create by <%= @workout.user.name %></p>
+            <%= render "components/boostrap_bar_chart", workout: @workout %>
           </div>
         </div>
 
