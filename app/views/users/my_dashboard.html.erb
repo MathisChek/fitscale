@@ -25,19 +25,20 @@
       </div>
     </nav>
 
-    <%# TABS %>
-    <div class="tab-content" id="nav-tabContent">
-      <%# DASHBOARD HOME %>
-      <div class="tab-pane fade show disable" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-      </div>
-
-      <%# CALENDAR %>
-      <div class="tab-pane fade active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-        <%= render "components/calendar" %>
-      </div>
-    </div>
 
     <div name="content">
+      <%# TABS %>
+      <div class="tab-content" id="nav-tabContent">
+
+        <%# DASHBOARD HOME %>
+        <div class="tab-pane fade show disable" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        </div>
+
+        <%# CALENDAR %>
+        <div class="tab-pane fade active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+          <%= render "components/calendar", sessions: @sessions %>
+        </div>
+      </div>
     </div>
 
     <div name="side menu" >
