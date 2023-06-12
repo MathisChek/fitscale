@@ -2,7 +2,7 @@
 <div class="banner-wrapper shadow-lg">
   <div class="chad-banner d-flex flex-column justify-content-center align-items-center p-5">
     <div class="animate__animated animate__slow animate__fadeInLeft text-light">
-      <h1 class="">Welcome to FitScale</h1>
+      <h1 class="">Welcome to <span class="text-success">FitScale</span></h1>
       <p class="mt-3 fw-light text-grey">Share and create your own experience.</p>
       <%= link_to "Create your own workout !", new_workout_path, class: "btn btn-lg btn-success text-dark shadow" %>
     </div>
@@ -10,45 +10,49 @@
 </div>
 
 <%# BODY %>
-<div class="container py-5">
-  <% if current_user.present? %>
-    <h2>Begin your journey</h2>
-    <div class="d-flex justify-content-between mb-5">
-      <% if current_user.workouts.empty? %>
-        <p>Don't have a workout yet ?</p>
-      <% else %>
-        <p>You currently have <strong><%= current_user.workouts.size %></strong> !</p>
-        <p>But if you're tired of your current workouts, try to create a new one</p>
-      <% end %>
-      <div class="flex-grow-1 text-center">
-        <%= link_to "Create your own workout !", new_workout_path, class: "btn btn-lg btn-outline-success text-dark shadow" %>
-      </div>
-    </div>
-  <% end %>
-
-
-
-  <h2 class="text-center mb-5">Interested in what's going on ?</h2>
-  <%# HORIZONTAL SCROLL OF WORKOUTS %>
-  <h3 class="mt-2">Recommended workouts  for beginners</h3>
-  <div class="mb-5" style="overflow:hidden;">
-    <div name="workouts scroll" class="workouts-wrapper d-flex p-3 rounded-5">
-      <% @workouts_beg.each do |workout| %>
-        <div class="mx-3">
-          <%= render "components/workout_card", workout: workout %>
+<div class=" py-5">
+  <div class="container">
+    <% if current_user.present? %>
+      <h2><strong>Begin your <span class="text-success">journey</span></strong></h2>
+      <div class="d-flex justify-content-between mb-5">
+        <% if current_user.workouts.empty? %>
+          <p>Don't have a workout yet ?</p>
+        <% else %>
+          <p>You currently have <strong><%= current_user.workouts.size %></strong> !</p>
+          <p>But if you're tired of your current workouts, try to create a new one</p>
+        <% end %>
+        <div class="flex-grow-1 text-center">
+          <%= link_to "Create your own workout !", new_workout_path, class: "btn btn-lg btn-outline-success text-dark shadow" %>
         </div>
-      <% end %>
-    </div>
-  </div>
-
-
-  <%# HORIZONTAL SCROLL OF WORKOUTS %>
-  <h3 class="m-2">Popular workouts !</h3>
-  <div name="workouts scroll" class="workouts-wrapper d-flex p-3 rounded-5 shadow">
-    <% @workouts_exp.each do |workout| %>
-      <div class="m-3">
-        <%= render "components/workout_card", workout: workout %>
       </div>
     <% end %>
   </div>
+
+    <h2 class="text-center mb-5">Interested in what's going on ?</h2>
+    <%# HORIZONTAL SCROLL OF WORKOUTS %>
+
+    <h3 class="container mt-2">Recommended workouts  for beginners</h3>
+    <div class="wo-container mb-5">
+      <div class="my-3" style="overflow:hidden;">
+        <div name="workouts scroll" class="workouts-wrapper d-flex p-3 rounded-5">
+          <% @workouts_beg.each do |workout| %>
+            <div class="mx-3">
+              <%= render "components/workout_card", workout: workout %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+  <%# HORIZONTAL SCROLL OF WORKOUTS %>
+    <h3 class="container mt-2">Popular workouts !</h3>
+    <div class="wo-container mb-5">
+      <div name="workouts scroll" class="workouts-wrapper d-flex p-3 rounded-5">
+        <% @workouts_exp.each do |workout| %>
+          <div class="m-3">
+            <%= render "components/workout_card", workout: workout %>
+          </div>
+        <% end %>
+      </div>
+    </div>
 </div>

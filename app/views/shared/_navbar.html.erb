@@ -3,8 +3,8 @@
 
     <%# button + logo : %>
 
-    <%= link_to  root_path, class: "navbar-brand text-white" do%>
-      <%= image_tag "fitscale-logo.png", alt: "logo.png", height: 70, width: 150%>
+    <%= link_to  root_path, class: "navbar-brand text-white ps-3" do%>
+      <%= image_tag "logo-2.png", alt: "logo.png", height: 90%>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,7 +25,7 @@
           <%= link_to "Workouts", workouts_path, class: "nav-link active text-white" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Exercices", '#', class: "nav-link active text-white" %>
+          <%= link_to "Exercices", exercices_path, class: "nav-link active text-white" %>
         </li>
         <li class="nav-item">
           <%= link_to "Create a workout", new_workout_path, class: "nav-link active text-white" %>
@@ -45,7 +45,7 @@
                 <%= link_to "My workouts", user_my_workouts_path(current_user.id), class: "dropdown-item text-white" %>
                 <%= link_to "My sessions", '#', class: "dropdown-item text-white" %>
                 <hr class="dropdown-divider">
-                <%= link_to "My dashboard", '#', class: "dropdown-item text-white" %>
+                <%= link_to "My dashboard", user_my_dashboard_path(current_user.id), class: "dropdown-item text-white" %>
                 <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
               </div>
         </div>
