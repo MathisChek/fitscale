@@ -19,16 +19,25 @@ class Workout < ApplicationRecord
 
   def avg_str
     exercices = self.workout_sets
+    return 0 if exercices.size.zero?
+
     (exercices.map { |wo_set| wo_set.exercice.str }.sum / exercices.size).round(1)
   end
+
   def avg_dex
     exercices = self.workout_sets
+    return 0 if exercices.size.zero?
+
     (exercices.map { |wo_set| wo_set.exercice.dex }.sum / exercices.size).round(1)
   end
+
   def avg_end
     exercices = self.workout_sets
+    return 0 if exercices.size.zero?
+
     (exercices.map { |wo_set| wo_set.exercice.end }.sum / exercices.size).round(1)
   end
+
   def score
     ((self.avg_dex + self.avg_str + self.avg_end) / 3).round(1)
   end
