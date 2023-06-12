@@ -6,4 +6,6 @@ class DashboardController < ApplicationController
   def my_workout
     raise
   end
+
+
 end
