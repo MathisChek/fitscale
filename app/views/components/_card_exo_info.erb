@@ -1,37 +1,27 @@
 
-  <div class="card-exo d-flex justify-content-between px-3 rounded m-3" style="width: 50vw">
+  <div class="card-exo d-flex justify-content-between rounded m-3" style="width: 45vw">
 
               <%# IMAGE %>
-    <div class="card-exo-img">
-      <%= image_tag "giga_chad.png" %>
-    </div>
+    <%= image_tag "giga_chad2.png", class:"card-img" %>
 
               <%# INFO CARD %>
-    <div class="card-exo-infos ">
+    <div style="width: 15vw">
 
       <% repetitions = workout_set.repetition %>
       <% exercice = Exercice.find(workout_set.exercice_id) %>
 
-        <div class= "card-exo-title d-flex flex-column align-items-center">
-          <span><%= exercice.name%></span>
-        </div>
 
               <%# DETAILS %>
 
-        <div class= "card-exo-details d-flex flex-column align-items-start px-5">
+        <div class= "card-exo-detail px-2 pt-3">
 
-          <div class="d-flex flex-column align-items-center">
-            <span><i class="fa-solid fa-dumbbell"></i> <%= exercice.nature  %></span>
-          </div>
-
-          <div class="d-flex flex-column align-items-center">
-            <span><i class="fa-solid fa-person"></i> <%= exercice.muscle  %></span>
-          </div>
-
-          <div class="d-flex flex-column align-items-center">
-            <span><i class="fa-solid fa-gear"></i> <%= exercice.equipment  %></span>
-          </div>
-
+          <span><strong><%= exercice.name%></strong></span>
+          <br>
+          <span class="ps-2"><i class="fa-solid fa-dumbbell"></i> <%= exercice.nature  %></span>
+          <br>
+          <span class="ps-2"><i class="fa-solid fa-person"></i> <%= exercice.muscle  %></span>
+          <br>
+          <span class="ps-2"><i class="fa-solid fa-gear"></i> <%= exercice.equipment  %></span>
         </div>
 
             <%# INSTRUCTIONS %>
@@ -52,6 +42,10 @@
 
     </div>
 
-    <%= render "components/bar_chart", exercice: exercice %>
+    <div class="div-img d-flex align-items-center px-2" style="width: 15vw">
+
+      <%= image_tag "pie-graph-2.png", width: 200 %>
+
+    </div>
 
   </div>
