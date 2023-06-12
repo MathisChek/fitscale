@@ -52,16 +52,6 @@
 
     </div>
 
-    <div class="class-exo-stats d-flex flex-wrap flex-column justify-content-center px-5" >
-
-      <p><i class="fa-solid fa-person-running"></i><strong class="text-warning"><%= exercice.dex %></strong></p>
-      <p><i class="fa-solid fa-dumbbell"></i><strong class="text-danger"><%= exercice.str %></strong></p>
-      <p><i class="fa-solid fa-lungs"></i><strong class="text-success"><%= exercice.end %></strong></p>
-    </div>
-    <div class="class-exo-stats d-flex flex-wrap flex-column justify-content-center px-5" >
-      <p><i class="fas fa-thumbs-up" style="color: #2cb922;"></i> <%= rand(800..3500) %></p>
-      <p><i class="fas fa-repeat" style="color: #f4ed1f;"></i>  <%= repetitions %></p>
-
-    </div>
+    <%= render "components/bar_chart", exercice: exercice %>
 
   </div>
