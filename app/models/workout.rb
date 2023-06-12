@@ -18,24 +18,33 @@ class Workout < ApplicationRecord
   end
 
   def avg_str
-    exercices = self.workout_sets
-    return 0 if exercices.size.zero?
-
-    (exercices.map { |wo_set| wo_set.exercice.str }.sum / exercices.size).round(1)
+    array = []
+    self.exercices.each do |exo|
+      exo.ratings.each do |rate|
+        array << rate.muscular_effort
+      end
+    end
+    (array.sum / array.size.to_f).round(1)
   end
 
   def avg_dex
-    exercices = self.workout_sets
-    return 0 if exercices.size.zero?
-
-    (exercices.map { |wo_set| wo_set.exercice.dex }.sum / exercices.size).round(1)
+    array = []
+    self.exercices.each do |exo|
+      exo.ratings.each do |rate|
+        array << rate.flexibility
+      end
+    end
+    (array.sum / array.size.to_f).round(1)
   end
 
   def avg_end
-    exercices = self.workout_sets
-    return 0 if exercices.size.zero?
-
-    (exercices.map { |wo_set| wo_set.exercice.end }.sum / exercices.size).round(1)
+    array = []
+    self.exercices.each do |exo|
+      exo.ratings.each do |rate|
+        array << rate.breath_difficulty
+      end
+    end
+    (array.sum / array.size.to_f).round(4)
   end
 
   def score
