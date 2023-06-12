@@ -289,7 +289,7 @@ DEPENDENCIES
   rest-client
   sassc-rails
   selenium-webdriver
-  simple_calendar
+  simple_calendar (~> 2.4)
   simple_form!
   sprockets-rails
   stimulus-rails
