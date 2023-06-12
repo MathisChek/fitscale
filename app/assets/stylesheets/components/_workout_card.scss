@@ -29,3 +29,10 @@
 .pie-graph{
   height: 50px;
 }
+
+.scroller {
+  overflow: hidden visible;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
