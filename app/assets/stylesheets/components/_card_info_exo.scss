@@ -29,6 +29,7 @@
 .sticky {
   position: sticky;
   top: 125px;
+  left: 50px;
 }
 
 .bg-image {
@@ -36,6 +37,14 @@
   background-image: asset-url('bg_img_exo.jpg');
   background-attachment: fixed;
   background-size: cover;
+}
+
+.hide-text {
+  overflow: hidden;
+  transition: 1s ease-out;
+  &:hover {
+    overflow: auto;
+  }
 }
 
 // .margin_card {
