@@ -1,5 +1,5 @@
 class WorkoutsController < ApplicationController
-  before_action :set_workout, only: %i[edit update show]
+  before_action :set_workout, only: %i[edit update show destroy]
 
   def index
     @workouts = Workout.all
@@ -32,6 +32,11 @@ class WorkoutsController < ApplicationController
   def update
     @workout.update(workout_params)
     redirect_to edit_workout_path(@workout)
+  end
+
+  def destroy
+    @workout.destroy
+    redirect_to workouts_path, status: :see_other
   end
 
   private

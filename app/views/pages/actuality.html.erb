@@ -33,23 +33,21 @@
 
     <h3 class="container mt-2">Recommended workouts  for beginners</h3>
     <div class="wo-container mb-5">
-      <div class="my-3" style="overflow:hidden;">
-        <div name="workouts scroll" class="workouts-wrapper d-flex p-3 rounded-5">
+        <div name="workouts scroll" class="workouts-wrapper d-flex px-3 py-5 rounded-5">
           <% @workouts_beg.each do |workout| %>
             <div class="mx-3">
               <%= render "components/workout_card", workout: workout %>
             </div>
           <% end %>
         </div>
-      </div>
     </div>
 
   <%# HORIZONTAL SCROLL OF WORKOUTS %>
     <h3 class="container mt-2">Popular workouts !</h3>
     <div class="wo-container mb-5">
-      <div name="workouts scroll" class="workouts-wrapper d-flex p-3 rounded-5">
+      <div name="workouts scroll" class="workouts-wrapper d-flex px-3 py-5 rounded-5">
         <% @workouts_exp.each do |workout| %>
-          <div class="m-3">
+          <div class="mx-3">
             <%= render "components/workout_card", workout: workout %>
           </div>
         <% end %>
