@@ -5,17 +5,28 @@
 
         <%# WORKOUT INFOS CARD %>
         <div class="p-3" style="width: 300px;">
-          <%# <div class= "border border-3 rounded-3 border-dark mb-1 p-3 border-dark background_form bg-secondary bg-gradient sticky"> %>
-          <div class="stick border border-success p-3 bg-dark rounded text-light">
-            <h5 class="text-success"><%= @workout.name %></h5>
-            <p><em>Description:</em></p>
+
+          <div class="top-card-wo"></div>
+
+          <div class= "border border-3 rounded-3 border-dark mb-1 p-3 border-dark background_form bg-secondary bg-gradient sticky">
+            <h2>Name</h2>
+            <p><%= @workout.name  %></p>
+            <h2>Description</h2>
             <p><%= @workout.description  %></p>
-            <p><em>Specs:</em></p>
-            <p><strong><%= @workout.exercices.count %></strong> exercices</p>
-            <p><i class="fa-solid fa-person-running"></i><strong class="text-warning"> <%= @workout.avg_dex %></strong></p>
-            <p><i class="fa-solid fa-dumbbell"></i><strong class="text-danger"> <%= @workout.avg_str %></strong></p>
-            <p><i class="fa-solid fa-lungs"></i><strong class="text-success"> <%= @workout.avg_end %></strong></p>
-            <p class="text-end" style="backdrop-filter: brightness(1.5);"><%= @workout.user.name %></p>
+            <p><strong><%= @workout.exercices.count %></strong> Exercices to do</p>
+            <p><strong><%= @workout.score %></strong></p>
+            <p>Create by <%= @workout.user.name %></p>
+
+
+            <p><strong><%= @workout.trainings.count%></strong> trainings added to your profile</p>
+
+
+            <div class="mb-3">
+              <%= simple_form_for([@workout, @training]) do |f| %>
+                <%= f.submit 'Add to training' %>
+              <% end %>
+            </div>
+
           </div>
         </div>
 
