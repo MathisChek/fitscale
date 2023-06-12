@@ -6,6 +6,7 @@
 
         <div class="p-3" style="width: 300px;">
           <div class="top-card-wo"></div>
+
           <div class= "border border-3 rounded-3 border-dark mb-1 p-3 border-dark background_form bg-secondary bg-gradient sticky">
             <h2>Name</h2>
             <p><%= @workout.name  %></p>
@@ -14,6 +15,16 @@
             <p><strong><%= @workout.exercices.count %></strong> Exercices to do</p>
             <p><strong><%= @workout.score %></strong></p>
             <p>Create by <%= @workout.user.name %></p>
+
+
+            <p><strong><%= @workout.trainings.count%></strong> trainings added to your profile</p>
+
+
+            <div class="mb-3">
+              <%= simple_form_for([@workout, @training]) do |f| %>
+                <%= f.submit 'Add to training' %>
+              <% end %>
+            </div>
           </div>
         </div>
 
