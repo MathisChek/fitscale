@@ -12,4 +12,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-@import 'animate.css';
+// @import 'animate.css';
+
+body {
+  min-height: 100vh;
+}

@@ -1,5 +1,4 @@
 class WorkoutSetsController < ApplicationController
-
   def create
     @workout_set = WorkoutSet.new(workout_set_params)
     @workout = Workout.find(params[:workout_id])
@@ -16,5 +15,4 @@ class WorkoutSetsController < ApplicationController
   def workout_set_params
     params.require(:workout_set).permit(:repetition, :workout_id, :exercice_id)
   end
-
 end
