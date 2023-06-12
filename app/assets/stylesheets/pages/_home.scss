@@ -21,7 +21,7 @@
 }
 
 .workouts-wrapper {
-  width: auto;
+  width: 80vw;
   // background-color: #797979;
   overflow: auto hidden;
   white-space: nowrap;
@@ -35,3 +35,8 @@
 //     height: 100vh;
 //   }
 // }
+
+.wo-container{
+  padding: 0px 9vw;
+  background: #363636;
+}
