@@ -18,14 +18,30 @@
             <p>Create by <%= @workout.user.name %></p>
 
 
-            <p><strong><%= @workout.trainings.count%></strong> trainings added to your profile</p>
+            <p><strong><%= @workout.trainings.count %></strong> trainings added to your profile</p>
+            <p><strong><%= current_user.trainings.count %></strong> trainings added to your profile</p>
 
 
-            <div class="mb-3">
-              <%= simple_form_for([@workout, @training]) do |f| %>
-                <%= f.submit 'Add to training' %>
+              <% train = Training.where(user_id: current_user.id, workout_id: @workout.id) %>
+              <% if train.empty? %>
+                <div class="mb-3">
+                    <%= simple_form_for([@workout, @training]) do |f| %>
+                        <%= button_tag type: 'submit', class: "submit-button" do %>
+                          <i class="fa-solid fa-plus bg-light"></i>
+                        <% end %>
+                    <% end %>
+                </div>
+              <% else %>
+                  <div>
+                  <%# <% @workout.trainings.each do |training| %>
+                    <%= link_to training_path(train.first), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+                        <i class="fa-solid fa-minus fa-xs"></i>
+                     <% end %>
+                  </div>
               <% end %>
-            </div>
+
+
+
 
           </div>
         </div>

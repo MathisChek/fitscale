@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   get "actuality", to: "pages#actuality"
   resources :workouts, only: %i[index show new create edit update] do
     resources :workout_sets, only: %i[create]
-    resources :trainings, only: %i[create destroy]
+    resources :trainings, only: %i[create]
   end
+
+  resources :trainings, only: :destroy
 
   resources :exercices
 

@@ -13,10 +13,8 @@ class TrainingsController < ApplicationController
   end
 
   def destroy
+    @training = Training.find(params[:id])
     @training.destroy
-    respond_to do |format|
-      format.html { redirect_to "workouts/show", notice: "Training was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to @training.workout, notice: "Training was successfully destroyed.", status: :see_other
   end
 end
