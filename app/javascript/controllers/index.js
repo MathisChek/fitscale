@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import BarChartDashboardController from "./bar_chart_dashboard_controller"
+application.register("bar-chart-dashboard", BarChartDashboardController)
+
 import BarChartsController from "./bar_charts_controller"
 application.register("bar-charts", BarChartsController)
 
