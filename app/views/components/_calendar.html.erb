@@ -1,0 +1,24 @@
+<div class="animate__animated animate__fadeInDown" style="height: 800px; width: 100%">
+
+  <%# SIMPLE CALENDAR %>
+  <%= turbo_frame_tag 'calendar' do %>
+    <%= week_calendar(events: sessions) do |date| %>
+      <% if current_user.sessions.map(&:programing_at).include?(date) %>
+
+        <%# RENDERING WORKOUTS OF THAT DAY %>
+        <ul class="list-unstyled">
+          <% current_user.sessions.find_all { |s| s.programing_at == date}.each do |item| %>
+            <li>
+              <%= render "components/pie_chart", workout: item.training.workout %>
+            </li>
+          <% end %>
+        </ul>
+        <% else %>
+        <p>not include</p>
+      <% end %>
+    <% end %>
+  <% end %>
+  <%= Session.dates(current_user, Date.today) %>
+  <%= current_user.sessions.find { |s| s.programing_at == Date.today } %>
+  <% console %>
+</div>

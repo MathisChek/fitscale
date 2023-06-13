@@ -160,11 +160,6 @@ def rate
 end
 
 
-
-
-
-
-
 users = User.all
 exercices = Exercice.all
 users.each do |user|
@@ -186,3 +181,20 @@ admin = User.create!(
   email: "admin@mail.com",
   password: "secret"
 )
+
+10.times do
+  training = Training.new()
+  training.user = admin
+  training.workout = WORKOUTS.sample
+  training.save
+end
+
+5.times do
+  session = Session.new(
+    programing_at: Date.today + rand(0..6).day
+  )
+  session.training = admin.trainings.sample
+  session.save
+end
+
+puts "#{admin.sessions.size} Admin sessions"
