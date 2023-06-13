@@ -30,7 +30,7 @@
       <div name="content" class="tab-content" id="nav-tabContent" style="width: 50vw">
         <%# TABS %>
         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-          <div class="d-flex">
+          <div class="d-flex justify-content-between" style="width:45vw">
             <div class="pe-5 me-5">
               <h2 class="text-success mb-5"><strong>Details</strong></h2>
               <p>Number of workouts created : <strong><%= Workout.where(user_id: current_user.id).count %></strong></p>
@@ -45,7 +45,7 @@
             <% end %>
           </div>
 
-          <div>
+          <div style="width: 45vw">
             <%= render "components/multi_bar_chart_dashboard", days: @days, count_exo_day: @count_exo_day, la: @res  %>
           </div>
         </div>
