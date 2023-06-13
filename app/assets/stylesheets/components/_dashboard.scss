@@ -21,11 +21,11 @@
 	--c-text-tertiary: var(--c-gray-500);
 }
 
-*,
-*:before,
-*:after {
-	box-sizing: border-box;
-}
+// *,
+// *:before,
+// *:after {
+// 	box-sizing: border-box;
+// }
 
 body {
 	line-height: 1.5;
@@ -57,9 +57,7 @@ a {
 
 .app {
 	min-height: 100vh;
-	width: 100vw;
 	background-color: var(--c-gray-800);
-	padding: 2vw 4vw 6vw;
 	display: flex;
 	flex-direction: column;
 }
@@ -94,16 +92,16 @@ a {
 	}
 }
 
-.app-header-actions-buttons {
-	display: flex;
-	border-left: 1px solid var(--c-gray-600);
-	margin-left: 2rem;
-	padding-left: 2rem;
+// .app-header-actions-buttons {
+// 	display: flex;
+// 	border-left: 1px solid var(--c-gray-600);
+// 	margin-left: 2rem;
+// 	padding-left: 2rem;
 
-	& > * + * {
-		margin-left: 1rem;
-	}
-}
+// 	& > * + * {
+// 		margin-left: 1rem;
+// 	}
+// }
 
 .app-header-mobile {
 	display: none;
@@ -124,11 +122,11 @@ a {
 	padding-top: 2.5rem;
 
 	@media (max-width: 1200px) {
-		grid-template-columns: 1fr;
-		& > * {
-			margin-bottom: 3.5rem;
-		}
-	}
+	// 	grid-template-columns: 1fr;
+	// 	& > * {
+	// 		margin-bottom: 3.5rem;
+	// 	}
+ }
 }
 
 .app-body-navigation {
@@ -423,18 +421,18 @@ a {
 	}
 }
 
-.service-section-header {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	& > * + * {
-		margin-left: 1.25rem;
-	}
+// .service-section-header {
+// 	display: flex;
+// 	align-items: center;
+// 	justify-content: space-between;
+// 	& > * + * {
+// 		margin-left: 1.25rem;
+// 	}
 
-	@media (max-width: 1000px) {
-		display: none;
-	}
-}
+// 	@media (max-width: 1000px) {
+// 		display: none;
+// 	}
+// }
 
 .service-section-footer {
 	color: var(--c-text-tertiary);
@@ -530,13 +528,13 @@ a {
 	margin-top: 1.5rem;
 }
 
-.payment {
-	display: flex;
-	align-items: center;
-	& + * {
-		margin-top: 1rem;
-	}
-}
+// .payment {
+// 	display: flex;
+// 	align-items: center;
+// 	& + * {
+// 		margin-top: 1rem;
+// 	}
+// }
 
 .card {
 	width: 125px;
@@ -594,26 +592,26 @@ a {
 	}
 }
 
-.filter-options {
-	margin-left: 1.25rem;
-	padding-left: 1.25rem;
-	border-left: 1px solid var(--c-gray-600);
-	display: flex;
-	align-items: center;
-	flex: 1 1 auto;
+// .filter-options {
+// 	margin-left: 1.25rem;
+// 	padding-left: 1.25rem;
+// 	border-left: 1px solid var(--c-gray-600);
+// 	display: flex;
+// 	align-items: center;
+// 	flex: 1 1 auto;
 
-	p {
-		& + * {
-			margin-left: auto;
-			margin-right: 0.75rem;
-		}
-		color: var(--c-text-tertiary);
-		font-size: 0.875rem;
-		@media (max-width: 1000px) {
-			display: none;
-		}
-	}
-}
+// 	p {
+// 		& + * {
+// 			margin-left: auto;
+// 			margin-right: 0.75rem;
+// 		}
+// 		color: var(--c-text-tertiary);
+// 		font-size: 0.875rem;
+// 		@media (max-width: 1000px) {
+// 			display: none;
+// 		}
+// 	}
+// }
 
 .transfers {
 	display: flex;
@@ -621,19 +619,19 @@ a {
 	margin-top: 1.5rem;
 }
 
-.transfer {
-	display: flex;
-	align-items: center;
-	width: 100%;
-	font-size: 0.875rem;
-	@media (max-width: 1000px) {
-		align-items: flex-start;
-		flex-direction: column;
-	}
-	& + * {
-		margin-top: 2rem;
-	}
-}
+// .transfer {
+// 	display: flex;
+// 	align-items: center;
+// 	width: 100%;
+// 	font-size: 0.875rem;
+// 	@media (max-width: 1000px) {
+// 		align-items: flex-start;
+// 		flex-direction: column;
+// 	}
+// 	& + * {
+// 		margin-top: 2rem;
+// 	}
+// }
 
 .transfer-logo {
 	background-color: var(--c-gray-200);
@@ -700,25 +698,25 @@ a {
 	}
 }
 
-.payment-section-header {
-	display: flex;
-	align-items: center;
-	margin-top: 1rem;
-	p {
-		color: var(--c-text-tertiary);
-		font-size: 0.875rem;
-	}
+// .payment-section-header {
+// 	display: flex;
+// 	align-items: center;
+// 	margin-top: 1rem;
+// 	p {
+// 		color: var(--c-text-tertiary);
+// 		font-size: 0.875rem;
+// 	}
 
-	div {
-		padding-left: 1rem;
-		margin-left: auto;
-		display: flex;
-		align-items: center;
-		& > * + * {
-			margin-left: 0.5rem;
-		}
-	}
-}
+// 	div {
+// 		padding-left: 1rem;
+// 		margin-left: auto;
+// 		display: flex;
+// 		align-items: center;
+// 		& > * + * {
+// 			margin-left: 0.5rem;
+// 		}
+// 	}
+// }
 
 .card-button {
 	display: flex;

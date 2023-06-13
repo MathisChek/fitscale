@@ -4,11 +4,17 @@
 
 import { application } from "./application"
 
+import BarChartDashboardController from "./bar_chart_dashboard_controller"
+application.register("bar-chart-dashboard", BarChartDashboardController)
+
 import BarChartsController from "./bar_charts_controller"
 application.register("bar-charts", BarChartsController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import MultiBarChartDashboardController from "./multi_bar_chart_dashboard_controller"
+application.register("multi-bar-chart-dashboard", MultiBarChartDashboardController)
 
 import PieChartsController from "./pie_charts_controller"
 application.register("pie-charts", PieChartsController)

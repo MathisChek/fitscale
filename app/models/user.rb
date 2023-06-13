@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :exercices, dependent: :destroy
   has_many :ratings, dependent: :destroy
   has_many :trainings, dependent: :destroy
+  has_many :sessions, through: :trainings, dependent: :destroy
 end
