@@ -15,41 +15,38 @@
             <%= render "components/pie_chart", workout: @workout %>
             <p class="text-end" style="backdrop-filter: brightness(1.5);"><%= @workout.user.name %></p>
 
-          <div class="top-card-wo"></div>            
+          <div class="top-card-wo"></div>
 
-            <p><strong><%= @workout.trainings.count %></strong> trainings added to your profile</p>
+
             <p><strong><%= current_user.trainings.count %></strong> trainings added to your profile</p>
 
+
+                <%# ADDING TRAINING %>
 
               <% train = Training.where(user_id: current_user.id, workout_id: @workout.id) %>
               <% if train.empty? %>
                 <div class="mb-3">
                     <%= simple_form_for([@workout, @training]) do |f| %>
                         <%= button_tag type: 'submit', class: "submit-button" do %>
-                          <i class="fa-solid fa-plus bg-light"></i>
+                          <i class="fa-regular fa-square-plus add-btn"></i>
                         <% end %>
                     <% end %>
                 </div>
               <% else %>
                   <div>
-                  <%# <% @workout.trainings.each do |training| %>
                     <%= link_to training_path(train.first), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-                        <i class="fa-solid fa-minus fa-xs"></i>
+                        <i class="fa-regular fa-square-minus delete-btn"></i>
                      <% end %>
                   </div>
               <% end %>
 
 
 
-            <div class="mb-3">
-              <%= simple_form_for([@workout, @training]) do |f| %>
-                <%= f.submit 'Add to training' %>
-              <% end %>
-            </div>
-
           </div>
         </div>
 
+
+        <%# EXERCICES INFOS %>
         <div class="margin_card">
           <% @workout.workout_sets.each do |workout_set| %>
 
