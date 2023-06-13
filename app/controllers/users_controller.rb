@@ -15,6 +15,27 @@ class UsersController < ApplicationController
       @k << key.to_s
       @v << value
     end
+
+    # recuperer les sessions de la semaine en cours
+    actual_week = Date.today.cweek
+    @sessions = current_user.sessions
+    @actual_sessions = []
+    @sessions.each do |session|
+      session.programing_at.cweek == actual_week ? @actual_sessions << session : nil
+    end
+    @hash_session_exo = {
+      Mon: 0,
+      Tue: 0,
+      Wed: 0,
+      Thu: 0,
+      Fri: 0,
+      Sat: 0,
+      Sun: 0
+    }
+    @actual_sessions.each do |session|
+      nbr = session.training.workout.exercices.count
+      @hash_session_exo[session.programing_at.strftime('%a').to_sym].nil? ? @hash_session_exo[session.programing_at.strftime('%a').to_sym] = nbr : @hash_session_exo[session.programing_at.strftime('%a').to_sym] += nbr
+    end
   end
 
   def my_sessions
