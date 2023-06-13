@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :trainings, only: :destroy
 
   resources :exercices do
-    resources :ratings, only: %i[create edit update destroy]
+    resources :ratings, only: %i[create update]
   end
   resources :sessions, only: %i[new create]
 
