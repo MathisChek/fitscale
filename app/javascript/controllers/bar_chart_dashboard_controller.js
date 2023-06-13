@@ -25,7 +25,7 @@ export default class extends Controller {
         labels: labels,
         datasets: [{
           data: data,
-          backgroundColor: ["#1edd88", "#AE8E1C", "#116D6E","#1B9C85","#A27B5C", "#632626", "#711A75", "#E9A6A6", "#950101", "#801336" ],
+          backgroundColor: ["#1edd88", "#FF5EFA", "#B2FFDE","#A7F578","#91EBEE", "#3B8DFE", "#A92831", "#ABA0F9", "#1B9476", "#82F2A7" ],
           borderWidth: 1,
         }]
       },
