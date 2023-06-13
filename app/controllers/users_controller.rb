@@ -12,8 +12,8 @@ class UsersController < ApplicationController
     @k = []
     @v = []
     @hash.each do |key, value|
-      k << key
-      v << value
+      @k << key.to_s
+      @v << value
     end
   end
 

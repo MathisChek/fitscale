@@ -1,7 +1,8 @@
 import { Controller } from "@hotwired/stimulus"
 import Chart from 'chart.js/auto';
 
-// Connects to data-controller="bar-chart-dashboard"
+
+// Connects to data-controller="multi-bar-chart-dashboard"
 export default class extends Controller {
   static targets = ["card"]
   static values = {

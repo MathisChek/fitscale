@@ -1,55 +1,55 @@
-<div class="app text-white">
+<div class="d-flex justify-content-center" style="background-color: var(--c-gray-800);">
+  <div class="app text-white p-2">
 
-  <div name="bandeau sup" class="app-header">
-    <h1 class="logo">Fitscale</h1>
-    <div class="app-header-navigation">
-      <div class="tabs m-2">
-        <h5 class="active">Dashboard</h2>
-        <h5>Settings</h2>
+    <div name="bandeau sup" class="app-header">
+      <h1 class="logo">Fitscale</h1>
+      <div class="app-header-navigation">
+        <div class="tabs m-2">
+          <h5 class="active">Dashboard</h2>
+          <h5>Settings</h2>
+        </div>
       </div>
+        <div class="d-flex align-items-center">
+          <h5 class="pe-3"><%= current_user.name %></h2>
+          <%= image_tag "profile.jpg", class: "avatar-large dropdown-toggle" %>
+        </div>
     </div>
-      <div class="d-flex align-items-center">
-        <h5 class="pe-3"><%= current_user.name %></h2>
-        <%= image_tag "profile.jpg", class: "avatar-large dropdown-toggle" %>
-      </div>
-  </div>
 
-  <div class="app-body">
+    <div class="app-body">
 
-    <nav>
-      <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Home</button>
-        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">My sessions</button>
-      </div>
-    </nav>
-    <div class="tab-content" id="nav-tabContent">
-      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-        <div>
-          <div>
-            <h2>Details</h2>
-            <p>Number of workouts created : <%= Workout.where(user_id: current_user.id).count %></p>
-            <p>Number of workouts added : <%= Training.where(user_id: current_user.id).count %></p>
-            <p>Total workouts : <%= Workout.where(user_id: current_user.id).count + Training.where(user_id: current_user.id).count %></p>
-          </div>
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Home</button>
+          <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">My sessions</button>
+        </div>
+      </nav>
+      <div name="content" class="tab-content" id="nav-tabContent" style="width: 50vw">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+          <div class="d-flex px-5">
+            <div class="pe-5 me-5">
+              <h2>Details</h2>
+              <p>Number of workouts created : <%= Workout.where(user_id: current_user.id).count %></p>
+              <p>Number of workouts added : <%= Training.where(user_id: current_user.id).count %></p>
+              <p>Total workouts : <%= Workout.where(user_id: current_user.id).count + Training.where(user_id: current_user.id).count %></p>
+            </div>
 
-          <div>
             <%= render "components/bar_chart_dashboard", hash: @hash, k: @k, v: @v  %>
           </div>
-        </div>
 
-        <div>
-
+          <div>
+            <%= render "components/multi_bar_chart_dashboard" %>
+          </div>
         </div>
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBBBBB</div>
       </div>
-      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBBBBB</div>
-    </div>
 
-    <div name="content">
-    </div>
+      <div name="content">
+      </div>
 
-    <div name="side menu" >
+      <div name="side menu" >
+      </div>
+
     </div>
 
   </div>
-
 </div>
