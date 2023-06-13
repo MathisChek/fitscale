@@ -48,31 +48,18 @@
 
         <%# TAB 3 %>
         <div class="tab-pane fade" id="nav-ratings" role="tabpanel" aria-labelledby="nav-ratings-tab">
-          <h5 class="text-success"><strong>ratings</strong></h5>
-          <ul>
-            <% @exercice.ratings.each do |item| %>
-              <li>
-                <%= item.muscular_effort %> // <%= item.breath_difficulty %> // <%= item.flexibility %>
-              </li>
-            <% end %>
-          </ul>
+          <h5 class="text-success"><strong>Ratings</strong></h5>
           <div>
-
-            <%= simple_form_for ([@exercice, @rating]) do |f| %>
-            <%= f.input :flexibility, as: :integer %>
-            <%= f.input :muscular_effort, as: :integer %>
-            <%= f.input :breath_difficulty, as: :integer %>
+            <%= simple_form_for([@exercice, @rating]) do |f| %>
+            <%= f.input :flexibility, as: :range, input_html: { min: 0, max: 10 } %>
+            <%= f.input :muscular_effort, as: :range, input_html: { min: 0, max: 10 } %>
+            <%= f.input :breath_difficulty, as: :range, input_html: { min: 0, max: 10 }%>
             <%= f.submit %>
-
             <% end %>
           </div>
         </div>
 
-
       </div>
-
-
-
 
     </div>
   </div>
