@@ -10,7 +10,7 @@ class Workout < ApplicationRecord
     self.workout_sets.each do |wo_set|
       array << wo_set.exercice.muscle
     end
-    array.uniq.sort
+    array.sort
   end
 
   def fake_time
@@ -50,4 +50,14 @@ class Workout < ApplicationRecord
   def score
     ((self.avg_dex + self.avg_str + self.avg_end) / 3).round(1)
   end
+
+  def muscle_hash
+    hash = {}
+    Exercice::MUSCLES.each do |element|
+      nbr = self.muscles.count(element)
+      hash[element.to_sym] = nbr unless nbr == 0
+    end
+    return hash
+  end
+
 end
