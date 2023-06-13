@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_time_zone, if: :user_signed_in?
 
-
   def my_dashboard
     @start_date = params.fetch(:start_date, Date.today).to_date
     @sessions = current_user.sessions
@@ -19,26 +18,18 @@ class UsersController < ApplicationController
       @v << value
     end
 
-    # recuperer les sessions de la semaine en cours
-    actual_week = Date.today.cweek
+    @actual_sessions = current_user.week_sessions
 
-    @actual_sessions = []
-    @sessions.each do |session|
-      session.programing_at.cweek == actual_week ? @actual_sessions << session : nil
-    end
-    @hash_session_exo = {
-      Mon: 0,
-      Tue: 0,
-      Wed: 0,
-      Thu: 0,
-      Fri: 0,
-      Sat: 0,
-      Sun: 0
-    }
+    @hash_session_exo = Session::HASH_SESSION_EXO
+
+    @hash_session_rating = Session::HASH_SESSION_RATING
+
     @actual_sessions.each do |session|
       nbr = session.training.workout.exercices.count
       @hash_session_exo[session.programing_at.strftime('%a').to_sym].nil? ? @hash_session_exo[session.programing_at.strftime('%a').to_sym] = nbr : @hash_session_exo[session.programing_at.strftime('%a').to_sym] += nbr
+      # @hash_session_rating[session.programing_at.strftime('%a').to_sym].nil? ?
     end
+    console
   end
 
   def my_sessions
