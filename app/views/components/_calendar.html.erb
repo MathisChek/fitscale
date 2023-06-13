@@ -20,5 +20,4 @@
   <% end %>
   <%= Session.dates(current_user, Date.today) %>
   <%= current_user.sessions.find { |s| s.programing_at == Date.today } %>
-  <% console %>
 </div>
