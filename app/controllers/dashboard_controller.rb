@@ -7,5 +7,4 @@ class DashboardController < ApplicationController
     raise
   end
 
-
 end

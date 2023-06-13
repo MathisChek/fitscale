@@ -13,7 +13,7 @@
             <p><strong><%= @workout.exercices.count %></strong> exercices</p>
             <%= render "components/pie_chart", workout: @workout %>
             <p class="text-end" style="backdrop-filter: brightness(1.5);"><%= @workout.user.name %></p>
-
+            <p><strong><%= current_user.trainings.count %></strong> trainings added to your profile</p>
 
                 <%# ADDING TRAINING %>
           <div class="top-card-wo"></div>

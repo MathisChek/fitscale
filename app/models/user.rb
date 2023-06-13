@@ -8,4 +8,15 @@ class User < ApplicationRecord
   has_many :exercices, dependent: :destroy
   has_many :ratings, dependent: :destroy
   has_many :trainings, dependent: :destroy
+  has_many :sessions, through: :trainings, dependent: :destroy
+
+  def week_sessions
+    # recuperer les sessions de la semaine en cours
+    actual_week = Date.today.cweek
+    actual_sessions = []
+    self.sessions.each do |session|
+      session.programing_at.cweek == actual_week ? actual_sessions << session : nil
+    end
+    return actual_sessions
+  end
 end
