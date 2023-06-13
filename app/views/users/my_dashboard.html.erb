@@ -15,10 +15,10 @@
           <%= image_tag "profile.jpg", class: "avatar-large dropdown-toggle" %>
         </div>
     </div>
-    
+
     <%# BODY %>
     <div class="app-body">
-      
+
       <%# TAB MENU %>
       <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -26,9 +26,11 @@
           <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">My sessions</button>
         </div>
       </nav>
-      
+
       <div name="content" class="tab-content" id="nav-tabContent" style="width: 50vw">
         <%# TABS %>
+
+        <%# USER STATS %>
         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
           <div class="d-flex px-5">
             <div class="pe-5 me-5">
@@ -37,19 +39,19 @@
               <p>Number of workouts added : <%= Training.where(user_id: current_user.id).count %></p>
               <p>Total workouts : <%= Workout.where(user_id: current_user.id).count + Training.where(user_id: current_user.id).count %></p>
             </div>
-
             <%= render "components/bar_chart_dashboard", hash: @hash, k: @k, v: @v  %>
           </div>
 
           <div>
-            <%= render "components/multi_bar_chart_dashboard" %>
+            <%= render "components/multi_bar_chart_dashboard", k: @k %>
           </div>
         </div>
-        
+
         <%# CALENDAR %>
         <div class="tab-pane fade active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
           <%= render "components/calendar", sessions: @sessions %>
         </div>
+
       </div>
 
       <div name="side menu" >

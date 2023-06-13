@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
     # recuperer les sessions de la semaine en cours
     actual_week = Date.today.cweek
-    
+
     @actual_sessions = []
     @sessions.each do |session|
       session.programing_at.cweek == actual_week ? @actual_sessions << session : nil

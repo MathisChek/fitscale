@@ -59,5 +59,4 @@ class Workout < ApplicationRecord
     end
     return hash
   end
-
 end
