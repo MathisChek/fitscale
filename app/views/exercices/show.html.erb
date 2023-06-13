@@ -10,6 +10,7 @@
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
           <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true"><span class="text-success">Home</span></button>
           <button class="nav-link" id="nav-instructions-tab text-success" data-bs-toggle="tab" data-bs-target="#nav-instructions" type="button" role="tab" aria-controls="nav-instructions" aria-selected="false"><span class="text-success">Instructions</span></button>
+          <button class="nav-link" id="nav-ratings-tab text-success" data-bs-toggle="tab" data-bs-target="#nav-ratings" type="button" role="tab" aria-controls="nav-ratings" aria-selected="false"><span class="text-success">ratings</span></button>
         </div>
       </nav>
 
@@ -44,7 +45,32 @@
           <h5 class="text-success"><strong>Instructions</strong></h5>
           <p class="scroller"><%= @exercice.instructions %></p>
         </div>
+
+        <%# TAB 3 %>
+        <div class="tab-pane fade" id="nav-ratings" role="tabpanel" aria-labelledby="nav-ratings-tab">
+          <h5 class="text-success"><strong>ratings</strong></h5>
+          <ul>
+            <% @exercice.ratings.each do |item| %>
+              <li>
+                <%= item.muscular_effort %> // <%= item.breath_difficulty %> // <%= item.flexibility %>
+              </li>
+            <% end %>
+          </ul>
+          <div>
+
+            <%= simple_form_for ([@exercice, @rating]) do |f| %>
+            <%= f.input :flexibility, as: :integer %>
+            <%= f.input :muscular_effort, as: :integer %>
+            <%= f.input :breath_difficulty, as: :integer %>
+            <%= f.submit %>
+
+            <% end %>
+          </div>
+        </div>
+
+
       </div>
+
 
 
 
