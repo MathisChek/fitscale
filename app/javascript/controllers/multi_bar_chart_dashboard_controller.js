@@ -6,29 +6,38 @@ import Chart from 'chart.js/auto';
 export default class extends Controller {
   static targets = ["card"]
   static values = {
-    keys: Array,
-    values: Array
+    days: Array,
+    count: Array,
+    la: Array
   }
 
   connect() {
 
     // DATA TO DISPLAY
-    const data = this.valuesValue;
+    const data = this.countValue;
+    const data2 = this.laValue;
 
     console.log(data)
 
-    const labels = this.keysValue;
+    const labels = this.daysValue;
     console.log(labels)
     // CONFIGUE THE CHART
     const cfg = {
-      type: 'bar',
       data: {
         labels: labels,
-        datasets: [{
+        datasets: [
+          {
+          type: 'bar',
           data: data,
-          backgroundColor: ["#1edd88", "#AE8E1C", "#116D6E","#1B9C85","#A27B5C", "#632626", "#711A75", "#E9A6A6", "#950101", "#801336" ],
+          backgroundColor: ["#1edd88", "#FF5EFA", "#B2FFDE","#A7F578","#91EBEE", "#3B8DFE", "#A92831"],
           borderWidth: 1,
-        }]
+        },
+        {
+          type: 'line',
+          data: data2,
+          borderColor: ["#1EDD88"],
+          borderWidth: 1,
+      }],
       },
       options: {
         plugins: {
@@ -37,7 +46,7 @@ export default class extends Controller {
 
           title: {
             display: true,
-            text: 'Muscles trained throught yours workouts'
+            text: 'weekly point'
           },
         },
         scales: {
