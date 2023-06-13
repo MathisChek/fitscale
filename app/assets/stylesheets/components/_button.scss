@@ -1,0 +1,23 @@
+.submit-button {
+  border: none;
+  size: 20px;
+  background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity));
+  padding: 3px;
+  color: white;
+}
+
+.delete-btn {
+  transition: 0.3s;
+  &:hover {
+    color: red;
+    scale: 1.2;
+  }
+}
+
+.add-btn {
+  transition: 0.3s;
+  &:hover {
+    scale: 1.2;
+    color: green
+  }
+}

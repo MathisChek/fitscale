@@ -1,24 +1,79 @@
-  <div class="d-flex justify-content-center">
-    <%= image_tag "2-7-768x537.jpg", alt: "image.png" %>
-  </div>
-<div class="d-flex align-items-center justify-content-between px-5 mx-5">
-  <div>
-    <h3>Name : <strong><%= @exercice.name %></strong></h3>
-    <h3><i class="fa-solid fa-square-xmark pe-3"></i>Details: </h3>
-    <h4>Muscle : <strong><%= @exercice.muscle %></strong></h4>
-    <h4>Type : <strong><%= @exercice.nature %></strong></h4>
-    <h4>Equipment : <strong><%= @exercice.equipment %></strong></h4>
-    <h3><i class="fa-solid fa-square-xmark pe-3"></i>Instructions : </h4>
-    <h4><%= @exercice.instructions %></h4>
-  </div>
-  <div>
-    <h3>Ratings : </h3>
-    <h4><strong><%= @flexibility_avg.round(2) %></strong></h4>
-    <h4><strong><%= @breath_avg.round(2) %></strong></h4>
-    <h4><strong><%= @muscular_avg.round(2) %></strong></h4>
-    <h4><strong><%= @rating_avg.round(2) %></strong></h4>
-  </div>
-  <div>
-    Reta this exercice !
+<div class="p-3 d-flex justify-content-between align-items-center bg-form-new" style="height: 100vh;">
+
+  <%# CONTAINER %>
+  <div class="d-flex justify-content-between m-3 p-3 border border-success container bg-dark text-white" style="height: 80vh">
+    <%= image_tag "2-7-768x537.jpg", width: 550, alt: "image.png", class: "border rounded border-5 border-dark" %>
+    <div class="ps-5 flex-grow-1">
+
+      <%# TAB MENU %>
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true"><span class="text-success">Home</span></button>
+          <button class="nav-link" id="nav-instructions-tab text-success" data-bs-toggle="tab" data-bs-target="#nav-instructions" type="button" role="tab" aria-controls="nav-instructions" aria-selected="false"><span class="text-success">Instructions</span></button>
+          <button class="nav-link" id="nav-ratings-tab text-success" data-bs-toggle="tab" data-bs-target="#nav-ratings" type="button" role="tab" aria-controls="nav-ratings" aria-selected="false"><span class="text-success">ratings</span></button>
+        </div>
+      </nav>
+
+      <%# TAB CONTENT %>
+      <div class="tab-content p-3" id="nav-tabContent">
+
+        <%# TAB 1 %>
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+          <%# NAME %>
+          <h3><%= @exercice.name %></h3>
+          <%# EXERCICE INFOS %>
+          <div class="d-flex flex-column justify-content-between">
+
+            <ul class="list-unstyled">
+              <li>
+                <span><i class="fa-solid fa-gear fa-spin"></i> <%= @exercice.equipment.gsub("_", " ").capitalize %></span>
+              </li>
+              <li>
+                <span>💪 <%= @exercice.muscle.capitalize %></span>
+              </li>
+            </ul>
+            <%# GRAPH %>
+            <div class="bg-white border border-success rounded" style="width: 200px; height: 200px">
+              <%= render "components/bar_chart", exercice: @exercice %>
+            </div>
+
+          </div>
+        </div>
+
+        <%# TAB 2 %>
+        <div class="tab-pane fade" id="nav-instructions" role="tabpanel" aria-labelledby="nav-instructions-tab">
+          <h5 class="text-success"><strong>Instructions</strong></h5>
+          <p class="scroller"><%= @exercice.instructions %></p>
+        </div>
+
+        <%# TAB 3 %>
+        <div class="tab-pane fade" id="nav-ratings" role="tabpanel" aria-labelledby="nav-ratings-tab">
+          <h5 class="text-success"><strong>ratings</strong></h5>
+          <ul>
+            <% @exercice.ratings.each do |item| %>
+              <li>
+                <%= item.muscular_effort %> // <%= item.breath_difficulty %> // <%= item.flexibility %>
+              </li>
+            <% end %>
+          </ul>
+          <div>
+
+            <%= simple_form_for ([@exercice, @rating]) do |f| %>
+            <%= f.input :flexibility, as: :integer %>
+            <%= f.input :muscular_effort, as: :integer %>
+            <%= f.input :breath_difficulty, as: :integer %>
+            <%= f.submit %>
+
+            <% end %>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+
+    </div>
   </div>
 </div>
