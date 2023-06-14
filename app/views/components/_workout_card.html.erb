@@ -4,10 +4,10 @@
 
     <%# IMAGE %>
     <%= image_tag "canyon_pic.jpg", class: "wo-card-image" %>
-
+  <div class="d-flex justify-content-between">
     <div class="d-flex wo-card-body justify-content-between m-2">
       <%# NAME SCORE TIME %>
-      <div name="left-infos" class="d-flex flex-column justify-content-between px-3" style="padding: 0px">
+      <div name="left-infos" class="d-flex flex-column" style="padding: 0px">
           <h5 style="margin-bottom: 0px;"><%= workout.name %></h5>
         <div name="workout-int-infos" class="d-flex flex-column justify-content-between">
           <p style="font-size: 24px; margin-bottom: 0px;"><strong><%= workout.score %></strong></p>
@@ -15,17 +15,14 @@
         </div>
       </div>
       <%# STATS %>
-      <div name="pie-graph" class="d-flex flex-grow-1 justify-content-center">
-        <%# <%= image_tag "pie-graph-2.png", style: "height: 90px" %>
-        <ul class="list-unstyled" style="font-size: 18px">
-          <li><i class="fa-solid fa-person-running"></i><strong class="text-warning"><%= workout.avg_dex %></strong></li>
-          <li><i class="fa-solid fa-dumbbell"></i><strong class="text-danger"><%= workout.avg_str %></strong></li>
-          <li><i class="fa-solid fa-lungs"></i><strong class="text-success"><%= workout.avg_end %></strong></li>
-        </ul>
-
-      </div>
 
     </div>
-
+    <div name="pie-graph" class="d-flex justify-content-center align-items-center me-5">
+      <%# <%= image_tag "pie-graph-2.png", style: "height: 90px" %>
+      <div class="list-unstyled">
+        <%= render "components/doughnut_chart", workout: workout %>
+      </div>
+    </div>
+  </div>
   </div>
 <% end %>
