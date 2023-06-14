@@ -1,26 +1,23 @@
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="<%= session.id.nil? ? "new" : session.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <%# MODAL TITLE %>
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">Plan your <span class="text-success">session</span></h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
       <%# MODAL BODY %>
-      <div class="modal-body">
-      <%= simple_form_for Session.last do |f|%>
-
-          <%= f.input :date, style: "border-radius: 5px;"%>
-          <%= f.input :select %>
-          <%= f.input :training, :collection => current_user.trainings, :label_method => :location_name,:value_method => :id,:label => "Location" ,:include_blank => false %>
-
-
-          <%= f.submit :submit, class: "btn px-3 py-2 rounded-pill border border-2 border border-success btn-submit btn-sub" %>
-        </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+      <div class="modal-body text-center text-dark">
+        <% btn_msg = session.id.present? ? "Update" : "Create" %>
+        <%= simple_form_for session do |f|%>
+          <%= f.input :programing_at, label: false, as: :date %>
+          <%= f.association :training, collection: current_user.trainings, :label_method => :wo_name, :value_method => :id %>
+          <%= f.button :submit, "#{btn_msg} your session", class: "btn btn-success" %>
+        <% end %>
+      </div>
+      <div class="modal-footer text-dark">
+        <p>You have <strong><%= current_user.trainings.size %></strong> workouts to choose from !</p>
       </div>
     </div>
   </div>

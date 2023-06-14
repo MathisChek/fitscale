@@ -8,8 +8,18 @@
 
 .delete-btn {
   transition: 0.3s;
+  color: white;
   &:hover {
     color: red;
+    scale: 1.2;
+  }
+}
+
+.edit-btn {
+  transition: 0.3s;
+  color: white;
+  &:hover {
+    color: cyan;
     scale: 1.2;
   }
 }

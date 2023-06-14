@@ -24,7 +24,8 @@ class Workout < ApplicationRecord
         array << rate.muscular_effort
       end
     end
-    (array.sum / array.size.to_f).round(1)
+    sum = (array.sum / array.size.to_f).round(1)
+    sum.nan? ? 0 : sum
   end
 
   def avg_dex
@@ -34,7 +35,8 @@ class Workout < ApplicationRecord
         array << rate.flexibility
       end
     end
-    (array.sum / array.size.to_f).round(1)
+    sum = (array.sum / array.size.to_f).round(1)
+    sum.nan? ? 0 : sum
   end
 
   def avg_end
@@ -44,11 +46,12 @@ class Workout < ApplicationRecord
         array << rate.breath_difficulty
       end
     end
-    (array.sum / array.size.to_f).round(1)
+    sum = (array.sum / array.size.to_f).round(1)
+    sum.nan? ? 0 : sum
   end
 
   def score
-    ((self.avg_dex + self.avg_str + self.avg_end) / 3).round(1)
+    score = ((self.avg_dex + self.avg_str + self.avg_end) / 3).round(1)
   end
 
   def muscle_hash
@@ -58,5 +61,15 @@ class Workout < ApplicationRecord
       hash[element.to_sym] = nbr unless nbr == 0
     end
     return hash
+  end
+
+  def focus
+    if self.avg_str > self.avg_dex && self.avg_str > self.avg_end
+      return ["Muscular Effort", "#FD1015"]
+    elsif self.avg_dex > self.avg_end
+      return ["Flexibility", "#1ED584"]
+    else
+      return ["Breath Difficulty", "#73BBC9"]
+    end
   end
 end

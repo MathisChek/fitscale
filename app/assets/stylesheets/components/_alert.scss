@@ -4,3 +4,11 @@
   right: 16px;
   z-index: 1000;
 }
+
+#to-show {
+  transition: 1s;
+  display: none;
+}
+#to-hover:hover > #to-show {
+  display: block;
+}

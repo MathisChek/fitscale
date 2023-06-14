@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_time_zone, if: :user_signed_in?
 
   def my_dashboard
+    @available_workouts = (current_user.trainings + Workout.where(user_id: current_user.id)).uniq
     @start_date = params.fetch(:start_date, Date.today).to_date
     @sessions = current_user.sessions
     @workouts = Workout.where(user_id: current_user.id)
