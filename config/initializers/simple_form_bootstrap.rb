@@ -133,7 +133,7 @@ SimpleForm.setup do |config|
   end
 
   # vertical range input
-  config.wrappers :vertical_range, class: 'mb-3' do |b|
+  config.wrappers :vertical_range do |b|
     b.use :html5
     b.use :placeholder
     b.optional :readonly

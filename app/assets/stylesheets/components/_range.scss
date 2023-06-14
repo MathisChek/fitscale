@@ -1,3 +1,30 @@
+@mixin disable-appearance {
+  appearance: auto !important;
+}
+
 .range-flex {
-  margin-top: 0;
+  color: green;
+
+}
+
+.range-musc {
+  color: red;
+}
+
+
+.range-diff {
+  color: blue;
+}
+
+.flexibility-input {
+  @include disable-appearance;
+  accent-color: green;
+}
+.muscularEffort-input {
+  @include disable-appearance;
+  accent-color: red;
+}
+.breathDifficulty-input {
+  @include disable-appearance;
+  accent-color: blue;
 }
