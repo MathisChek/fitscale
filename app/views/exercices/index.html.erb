@@ -1,5 +1,14 @@
-<div style="height: 80vh" class="scroller">
-  <% @exercices.each do |exercice| %>
-    <%= render "components/card_exo_index", exercice: exercice %>
-  <% end %>
+<div class="bg-index-exo">
+
+  <div class="container">
+
+    <div style="height: 80vh" class="d-flex flex-column align-items-center scroller" >
+
+      <% @exercices.each do |exercice| %>
+        <%= render "components/card_exo_index", exercice: exercice %>
+      <% end %>
+
+    </div>
+
+  </div>
 </div>
