@@ -2,22 +2,19 @@
 
   <%# SIMPLE CALENDAR %>
   <%= turbo_frame_tag 'calendar' do %>
-    <%= week_calendar(events: sessions) do |date| %>
+    <%= week_calendar(events: sessions, date: Date.today) do |date| %>
+      <%= date.strftime("%d/%m") %>
       <% if current_user.sessions.map(&:programing_at).include?(date) %>
 
         <%# RENDERING WORKOUTS OF THAT DAY %>
-        <ul class="list-unstyled">
-          <% current_user.sessions.find_all { |s| s.programing_at == date}.each do |item| %>
-            <li>
-              <%= render "components/pie_chart", workout: item.training.workout %>
-            </li>
-          <% end %>
-        </ul>
-        <% else %>
-        <p>not include</p>
-      <% end %>
-    <% end %>
-  <% end %>
-  <%= Session.dates(current_user, Date.today) %>
-  <%= current_user.sessions.find { |s| s.programing_at == Date.today } %>
+        <% current_user.sessions.find_all { |s| s.programing_at == date}.each do |item| %>
+          <div class="bg-success rounded p-1 m-1">
+            <h6><%= item.training.workout.name %></h6>
+            <p style="padding-bottom: 3px;"><%= item.training.workout.score %></p>
+          </div>
+        <% end %>
+      <% end %> <%# IF END %>
+    <% end %> <%# WEEK CALENDAR END %>
+  <% end %> <%# TURBO END %>
+
 </div>
