@@ -16,22 +16,22 @@
             <p><strong><%= current_user.trainings.count %></strong> trainings added to your profile</p>
 
                 <%# ADDING TRAINING %>
-          <div class="top-card-wo"></div>
+          <div class=""></div>
             <p><strong><%= current_user.trainings.count %></strong> trainings added to your profile</p>
 
               <% train = Training.where(user_id: current_user.id, workout_id: @workout.id) %>
               <% if train.empty? %>
-                <div class="mb-3">
+                <div class="mb-3 d-flex justify-content-center">
                     <%= simple_form_for([@workout, @training]) do |f| %>
                         <%= button_tag type: 'submit', class: "submit-button" do %>
-                          <i class="fa-regular fa-square-plus add-btn"></i>
+                          <i class="far fa-plus-square fa-lg add-btn"></i>
                         <% end %>
                     <% end %>
                 </div>
               <% else %>
-                  <div>
+                  <div class="mb-3 d-flex justify-content-center">
                     <%= link_to training_path(train.first), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-                        <i class="fa-regular fa-square-minus delete-btn"></i>
+                        <i class="far fa-minus-square fa-lg delete-btn"></i>
                      <% end %>
                   </div>
               <% end %>
