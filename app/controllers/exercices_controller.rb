@@ -14,7 +14,7 @@ class ExercicesController < ApplicationController
   end
 
   def index
-    raise
+    @exercices = Exercice.all
   end
 
   def show

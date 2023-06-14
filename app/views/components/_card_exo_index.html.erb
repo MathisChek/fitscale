@@ -1,4 +1,3 @@
-
   <div class="card-exo d-flex justify-content-between rounded m-3" style="width: 45vw">
 
               <%# IMAGE %>
@@ -6,9 +5,6 @@
 
               <%# INFO CARD %>
     <div style="width: 15vw">
-
-      <% repetitions = workout_set.repetition %>
-      <% exercice = Exercice.find(workout_set.exercice_id) %>
 
 
               <%# DETAILS %>
@@ -45,8 +41,7 @@
 
     <div class="div-img d-flex align-items-center p-3" style="width: 15vw">
 
-      <%= render "components/bar_chart", exercice: exercice %>
-
+      <%= render 'components/bar_chart', exercice: exercice %>
 
     </div>
 
