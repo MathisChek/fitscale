@@ -8,4 +8,12 @@ class SessionsController < ApplicationController
     raise
   end
 
+  def update
+    raise
+  end
+
+  def destroy
+    raise
+  end
+
 end

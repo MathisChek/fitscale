@@ -8,12 +8,10 @@
 
         <%# RENDERING WORKOUTS OF THAT DAY %>
         <% current_user.sessions.find_all { |s| s.programing_at == date}.each do |item| %>
-          <%= link_to workout_path(item.training.workout), class: "", style: "text-decoration: none;" do %>
-            <div class="bg-success rounded p-1 m-1">
-              <h6><%= item.training.workout.name %></h6>
-              <p style="padding-bottom: 3px;"><%= item.training.workout.score %></p>
-            </div>
-          <% end %>
+          <div class="bg-success rounded p-1 m-1">
+            <h6><%= item.training.workout.name %></h6>
+            <p style="padding-bottom: 3px;"><%= item.training.workout.score %></p>
+          </div>
         <% end %>
       <% end %> <%# IF END %>
     <% end %> <%# WEEK CALENDAR END %>

@@ -44,7 +44,7 @@ class Workout < ApplicationRecord
         array << rate.breath_difficulty
       end
     end
-    (array.sum / array.size.to_f).round(4)
+    (array.sum / array.size.to_f).round(1)
   end
 
   def score

@@ -27,9 +27,7 @@ class UsersController < ApplicationController
     @actual_sessions.each do |session|
       nbr = session.training.workout.exercices.count
       @hash_session_exo[session.programing_at.strftime('%a').to_sym].nil? ? @hash_session_exo[session.programing_at.strftime('%a').to_sym] = nbr : @hash_session_exo[session.programing_at.strftime('%a').to_sym] += nbr
-      # @hash_session_rating[session.programing_at.strftime('%a').to_sym].nil? ?
     end
-    console
   end
 
   def my_sessions
@@ -49,5 +47,4 @@ class UsersController < ApplicationController
   def set_time_zone
     # Time.zone = current_user.time_zone
   end
-
 end

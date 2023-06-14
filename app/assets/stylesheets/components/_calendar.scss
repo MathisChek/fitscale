@@ -1,5 +1,5 @@
 .simple-calendar {
-  width: max-content - 50px;
+  // width: max-content - 50px;
   .day {
     height: 450px;
     width: 9vw;
@@ -29,6 +29,6 @@
   // .current-month {}
 
   .has-events {
-    border: 2px solid $success;
+    border-top: 3px solid $success;
   }
 }

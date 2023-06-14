@@ -53,12 +53,37 @@
         </div>
 
       </div>
-
+      <%# SIDE MENU WITH SESSIONS %>
       <div name="side menu">
+        <ul class="list-unstyled">
+          <% current_user.week_sessions.each do |session| %>
+            <li class="d-flex">
+              <div class="d-flex bg-dark border border-success m-2 py-2 ps-3 rounded-start-pill">
 
+                <div class="d-flex flex-column justify-content-evenly pe-2" name="icon">
+                  <i class="fa-regular fa-circle-xmark delete-btn"></i>
+                  <%# link_to edit_session_path(session.id) do %>
+
+                  <button type="button" class="btn text-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <i class="fa-regular fa-pen-to-square"></i>
+                  </button>
+
+                  <%# end %>
+                  <%= link_to user_my_dashboard_path(current_user), data: {turbo_method: :delete, turbo_confirm: "Vous étes sure ?"} do %>
+                    <i class="fa-solid fa-trash delete-btn"></i>
+                  <% end %>
+                </div>
+
+                <%= session.programing_at.strftime("%A") %> // <%= session.training.workout.name %> // <%= session.training.workout.exercices.count %> exercices
+              </div>
+            </li>
+          <% end %>
+        </ul>
       </div>
 
     </div>
 
   </div>
 </div>
+
+<%= render "components/modal_session" %>
