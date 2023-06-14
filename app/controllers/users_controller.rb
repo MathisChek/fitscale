@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_time_zone, if: :user_signed_in?
 
   def my_dashboard
+    @available_workouts = (current_user.trainings + Workout.where(user_id: current_user.id)).uniq
     @start_date = params.fetch(:start_date, Date.today).to_date
     @sessions = current_user.sessions
     @workouts = Workout.where(user_id: current_user.id)
@@ -32,6 +33,7 @@ class UsersController < ApplicationController
 
     @actual_sessions.each do |session|
       nbr = session.training.workout.exercices.count
+
       @hash_session_exo[session.programing_at.strftime('%a').to_sym] += nbr
     end
     @days = []
@@ -52,7 +54,6 @@ class UsersController < ApplicationController
     #   @res << (ele * 10)
     # end
     # @zeb = current_user.week_sessions.map { |e| "#{e.programing_at.strftime('%a')} / #{e.programing_at.wday}" }
-    console
   end
 
   def my_sessions
@@ -72,5 +73,4 @@ class UsersController < ApplicationController
   def set_time_zone
     # Time.zone = current_user.time_zone
   end
-
 end

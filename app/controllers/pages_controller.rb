@@ -8,6 +8,6 @@ class PagesController < ApplicationController
   def actuality
     Workout.first.score
     @workouts_beg = Workout.all.sort_by(&:score)[0..5]
-    @workouts_exp = Workout.all.sort_by(&:score)[0..5].reverse
+    @workouts_exp = Workout.all.sort_by(&:score).reverse[0..5]
   end
 end

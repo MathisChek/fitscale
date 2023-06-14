@@ -4,20 +4,33 @@
   background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity));
   padding: 3px;
   color: white;
+
 }
 
 .delete-btn {
   transition: 0.3s;
+  color: white;
+  scale: 1.8;
   &:hover {
     color: red;
+    scale: 2.1;
+  }
+}
+
+.edit-btn {
+  transition: 0.3s;
+  color: white;
+  &:hover {
+    color: cyan;
     scale: 1.2;
   }
 }
 
 .add-btn {
   transition: 0.3s;
+  scale: 1.8;
   &:hover {
-    scale: 1.2;
+    scale: 2.1;
     color: green
   }
 }

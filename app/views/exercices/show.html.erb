@@ -1,7 +1,7 @@
-<div class="p-3 d-flex justify-content-between align-items-center bg-form-new" style="height: 100vh;">
+<div class="p-3 d-flex justify-content-center align-items-center bg-form-new" style="height: 700px;">
 
   <%# CONTAINER %>
-  <div class="d-flex justify-content-between m-3 p-3 border border-success container bg-dark text-white" style="height: 80vh">
+  <div class="d-flex justify-content-between m-3 p-3 border border-success container bg-dark text-white" style="height: 500px">
     <%= image_tag "2-7-768x537.jpg", width: 550, alt: "image.png", class: "border rounded border-5 border-dark" %>
     <div class="ps-5 flex-grow-1">
 
@@ -33,7 +33,7 @@
               </li>
             </ul>
             <%# GRAPH %>
-            <div class="bg-white border border-success rounded" style="width: 200px; height: 200px">
+            <div class="bg-white border border-success rounded" style="width: 200px; height: 150px">
               <%= render "components/bar_chart", exercice: @exercice %>
             </div>
 
@@ -41,9 +41,9 @@
         </div>
 
         <%# TAB 2 %>
-        <div class="tab-pane fade" id="nav-instructions" role="tabpanel" aria-labelledby="nav-instructions-tab">
+        <div class="tab-pane fade" id="nav-instructions" role="tabpanel" aria-labelledby="nav-instructions-tab" style="height: auto;">
           <h5 class="text-success"><strong>Instructions</strong></h5>
-          <p class="scroller"><%= @exercice.instructions %></p>
+          <span style="height: 400px;" class="hide-text"><p class=""><%= @exercice.instructions %></p></span>
         </div>
 
         <%# TAB 3 %>
@@ -52,6 +52,7 @@
           <div>
             <%= simple_form_for([@exercice, @rating]) do |f| %>
             <%= f.input :flexibility, as: :range, input_html: { min: 0, max: 10 } %>
+
             <%= f.input :muscular_effort, as: :range, input_html: { min: 0, max: 10 } %>
             <%= f.input :breath_difficulty, as: :range, input_html: { min: 0, max: 10 }%>
             <%= f.submit %>
