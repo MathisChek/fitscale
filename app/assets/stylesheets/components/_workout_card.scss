@@ -1,7 +1,7 @@
 .wo-card {
   transition: 0.4s ease-out;
   width: 380px;
-  height: 325px;
+  height: 335px;
   // border: 1px solid rgb(131, 131, 131);
   background: #F4F4F4;
   &:hover{
@@ -19,7 +19,6 @@
 
 .wo-card-body {
   background: #F4F4F4;
-  padding: 10px;
   overflow: hidden visible;
   &::-webkit-scrollbar {
     display: none;
