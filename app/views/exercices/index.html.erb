@@ -1,3 +1,5 @@
-<% @exercices.each do |exercice| %>
-  <%= render "components/card_exo_index", exercice: exercice %>
-<% end %>
+<div style="height: 80vh" class="scroller">
+  <% @exercices.each do |exercice| %>
+    <%= render "components/card_exo_index", exercice: exercice %>
+  <% end %>
+</div>
