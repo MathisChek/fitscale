@@ -21,9 +21,9 @@
 
       <%# TAB MENU %>
       <nav>
-        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-          <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Home</button>
-          <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">My sessions</button>
+        <div class="nav nav-tabs border border-0 d-flex flex-column align-items-end" id="nav-tab" role="tablist">
+          <button class="nav-link active text-success" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Home</button>
+          <button class="nav-link text-success" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">My sessions</button>
         </div>
       </nav>
 
@@ -32,24 +32,35 @@
 
         <%# USER STATS %>
         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-          <div class="d-flex px-5">
+
+          <div class="d-flex justify-content-between" style="width:45vw">
             <div class="pe-5 me-5">
-              <h2>Details</h2>
-              <p>Number of workouts created : <%= Workout.where(user_id: current_user.id).count %></p>
-              <p>Number of workouts added : <%= Training.where(user_id: current_user.id).count %></p>
-              <p>Total workouts : <%= Workout.where(user_id: current_user.id).count + Training.where(user_id: current_user.id).count %></p>
+              <h2 class="text-success mb-5"><strong>Details</strong></h2>
+              <p>Number of workouts created : <strong><%= Workout.where(user_id: current_user.id).count %></strong></p>
+              <p>Number of workouts added : <strong><%= Training.where(user_id: current_user.id).count %></strong></p>
+              <p>Total workouts : <strong><%= Workout.where(user_id: current_user.id).count + Training.where(user_id: current_user.id).count %></strong></p>
             </div>
-            <%= render "components/bar_chart_dashboard", hash: @hash, k: @k, v: @v  %>
+            <div>
+              <% if @workouts.size != 0 %>
+                <%= render "components/bar_chart_dashboard", hash: @hash, k: @k, v: @v  %>
+              <% else %>
+                <p class="text-success">You don't have any workout yet !</p>
+              <% end %>
+            </div>
+
           </div>
 
-          <div>
-            <%= render "components/multi_bar_chart_dashboard", k: @k %>
+          <div style="width: 45vw">
+            <%= render "components/multi_bar_chart_dashboard", days: @days, count_exo_day: @count_exo_day, la: @res  %>
           </div>
         </div>
 
         <%# CALENDAR %>
         <div class="tab-pane fade active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
           <%= render "components/calendar", sessions: @sessions %>
+          <div>
+            <%= render "components/multi_bar_chart_dashboard", days: @days, count_exo_day: @count_exo_day, la: @res  %>
+          </div>
         </div>
 
       </div>
@@ -95,6 +106,7 @@
             </li>
           <% end %>
         </ul>
+
       </div>
 
     </div>

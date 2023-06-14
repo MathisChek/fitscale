@@ -21,14 +21,39 @@ class UsersController < ApplicationController
 
     @actual_sessions = current_user.week_sessions
 
-    @hash_session_exo = Session::HASH_SESSION_EXO
-
-    @hash_session_rating = Session::HASH_SESSION_RATING
+    @hash_session_exo = {
+      Mon: 0,
+      Tue: 0,
+      Wed: 0,
+      Thu: 0,
+      Fri: 0,
+      Sat: 0,
+      Sun: 0
+    }
 
     @actual_sessions.each do |session|
       nbr = session.training.workout.exercices.count
-      @hash_session_exo[session.programing_at.strftime('%a').to_sym].nil? ? @hash_session_exo[session.programing_at.strftime('%a').to_sym] = nbr : @hash_session_exo[session.programing_at.strftime('%a').to_sym] += nbr
+
+      @hash_session_exo[session.programing_at.strftime('%a').to_sym] += nbr
     end
+    @days = []
+    @count_exo_day = []
+    @hash_session_exo.each do |key, value|
+      @days << key.to_s
+      @count_exo_day << value
+    end
+    # week_sessions.find_all { |d| d.programing_at.strftime("%A") == "Monday" }.map(&:training).map(&:workout).map(&:score)
+
+    la = (0..6).map do |nbr|
+      array = current_user.week_sessions.find_all { |d| d.programing_at.wday == nbr }.map(&:training).map(&:workout).map(&:score)
+      avg = (array.sum / array.size.to_f).round(1)
+    end.map { |e| e.nan? ? 0 : e }
+    la = la << la.delete_at(0)
+    @res = la
+    # la.each do |ele|
+    #   @res << (ele * 10)
+    # end
+    # @zeb = current_user.week_sessions.map { |e| "#{e.programing_at.strftime('%a')} / #{e.programing_at.wday}" }
   end
 
   def my_sessions

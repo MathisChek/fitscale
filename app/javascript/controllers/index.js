@@ -10,6 +10,9 @@ application.register("bar-chart-dashboard", BarChartDashboardController)
 import BarChartsController from "./bar_charts_controller"
 application.register("bar-charts", BarChartsController)
 
+import DoughnutController from "./doughnut_controller"
+application.register("doughnut", DoughnutController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 

@@ -1,7 +1,7 @@
-<div class="p-3 d-flex justify-content-between align-items-center bg-form-new" style="height: 100vh;">
+<div class="p-3 d-flex justify-content-center align-items-center bg-form-new" style="height: 700px;">
 
   <%# CONTAINER %>
-  <div class="d-flex justify-content-between m-3 p-3 border border-success container bg-dark text-white" style="height: 80vh">
+  <div class="d-flex justify-content-between m-3 p-3 border border-success container bg-dark text-white" style="height: 500px">
     <%= image_tag "2-7-768x537.jpg", width: 550, alt: "image.png", class: "border rounded border-5 border-dark" %>
     <div class="ps-5 flex-grow-1">
 
@@ -33,7 +33,7 @@
               </li>
             </ul>
             <%# GRAPH %>
-            <div class="bg-white border border-success rounded" style="width: 200px; height: 200px">
+            <div class="bg-white border border-success rounded" style="width: 200px; height: 150px">
               <%= render "components/bar_chart", exercice: @exercice %>
             </div>
 
@@ -48,31 +48,19 @@
 
         <%# TAB 3 %>
         <div class="tab-pane fade" id="nav-ratings" role="tabpanel" aria-labelledby="nav-ratings-tab">
-          <h5 class="text-success"><strong>ratings</strong></h5>
-          <ul>
-            <% @exercice.ratings.each do |item| %>
-              <li>
-                <%= item.muscular_effort %> // <%= item.breath_difficulty %> // <%= item.flexibility %>
-              </li>
-            <% end %>
-          </ul>
+          <h5 class="text-success"><strong>Ratings</strong></h5>
           <div>
+            <%= simple_form_for([@exercice, @rating]) do |f| %>
+            <%= f.input :flexibility, as: :range, input_html: { min: 0, max: 10 } %>
 
-            <%= simple_form_for ([@exercice, @rating]) do |f| %>
-            <%= f.input :flexibility, as: :integer %>
-            <%= f.input :muscular_effort, as: :integer %>
-            <%= f.input :breath_difficulty, as: :integer %>
+            <%= f.input :muscular_effort, as: :range, input_html: { min: 0, max: 10 } %>
+            <%= f.input :breath_difficulty, as: :range, input_html: { min: 0, max: 10 }%>
             <%= f.submit %>
-
             <% end %>
           </div>
         </div>
 
-
       </div>
-
-
-
 
     </div>
   </div>
