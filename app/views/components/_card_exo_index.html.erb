@@ -1,17 +1,13 @@
-  <div class="card-exo d-flex justify-content-between rounded m-3" style="width: 45vw">
 
+  <div class="card-exo d-flex justify-content-between rounded m-3" style="width: 45vw">
               <%# IMAGE %>
     <%# image_tag "giga_chad2.png", class:"", width: 200 %>
     <%= cl_image_tag exercice.image, height: 300, width: 400, crop: :fill, class: "" %>
 
               <%# INFO CARD %>
     <div style="width: 15vw">
-
-
               <%# DETAILS %>
-
         <div class= "card-exo-detail px-2 pt-3">
-
           <span><strong><%= exercice.name%></strong></span>
           <br>
           <span class="ps-2"><i class="fa-solid fa-dumbbell"></i> <%= exercice.nature  %></span>
@@ -20,30 +16,13 @@
           <br>
           <span class="ps-2"><i class="fa-solid fa-gear"></i> <%= exercice.equipment  %></span>
         </div>
-
             <%# INSTRUCTIONS %>
-
         <div class="d-flex flex-column align-items-center py-2">
-
-
-          <p> <a class="btn btn-outline-success text-clack" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                instructions
-              </a>
-              <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-                  <small><%= exercice.instructions  %></small></p>
-                </div>
-              </div>
-
+          <%= link_to 'Instruction', exercice_path(exercice), class: "btn btn-outline-success text-clack"%>
         </div>
               <%# RATING %>
-
     </div>
-
     <div class="div-img d-flex align-items-center p-3" style="width: 15vw">
-
       <%= render 'components/bar_chart', exercice: exercice %>
-
     </div>
-
   </div>

@@ -51,13 +51,17 @@
           <h5 class="text-success"><strong>Ratings</strong></h5>
           <div>
             <%= simple_form_for([@exercice, @rating]) do |f| %>
-            <%= f.input :flexibility, as: :range, input_html: { min: 0, max: 10,  data: { range_markers_target: "flexibility"} } %>
-            <div class="range-flex flexibility-marker d-flex justify-content-between" data-range-markers-target="flexibilityMarker"></div>
-            <%= f.input :muscular_effort, as: :range, input_html: { min: 0, max: 10, data: { range_markers_target: "muscularEffort"} } %>
-            <div class="range-musc muscular-effort-marker d-flex justify-content-between" data-range-markers-target="muscularEffortMarker"></div>
-            <%= f.input :breath_difficulty, as: :range, input_html: { min: 0, max: 10, data: { range_markers_target: "breathDifficulty"} } %>
-            <div class="range-diff breath-difficulty-marker d-flex justify-content-between" data-range-markers-target="breathDifficultyMarker"></div>
-            <%= f.submit %>
+
+              <%= f.input :flexibility, as: :range, input_html: { min: 0, max: 10,  data: { range_markers_target: "flexibility"}, class:'flexibility-input' } %>
+              <div class="range-flex flexibility-marker d-flex justify-content-between" data-range-markers-target="flexibilityMarker"></div>
+
+              <%= f.input :muscular_effort, as: :range, input_html: { min: 0, max: 10, data: { range_markers_target: "muscularEffort" }, class:'muscularEffort-input' } %>
+              <div class="range-musc muscular-effort-marker d-flex justify-content-between" data-range-markers-target="muscularEffortMarker"></div>
+
+              <%= f.input :breath_difficulty, as: :range, input_html: { min: 0, max: 10, data: { range_markers_target: "breathDifficulty"}, class:'breathDifficulty-input' } %>
+              <div class="range-diff breath-difficulty-marker d-flex justify-content-between mb-3" data-range-markers-target="breathDifficultyMarker"></div>
+              <%= f.submit %>
+
             <% end %>
           </div>
         </div>

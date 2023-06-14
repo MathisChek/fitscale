@@ -1,6 +1,13 @@
 .bg-index-wo {
   background-color: #080202;
-  background-image: asset-url('bg_exo.jpg');
+  background-image: asset-url('gym_room.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.bg-index-exo {
+  background-color: #080202;
+  background-image: asset-url('gym_room.jpg');
   background-attachment: fixed;
   background-size: cover;
 }
