@@ -18,7 +18,6 @@ class UsersController < ApplicationController
       @k << key.to_s
       @v << value
     end
-    console
     @actual_sessions = current_user.week_sessions
 
     @hash_session_exo = {
