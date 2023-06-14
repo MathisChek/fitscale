@@ -52,6 +52,7 @@
           <div>
             <%= simple_form_for([@exercice, @rating]) do |f| %>
             <%= f.input :flexibility, as: :range, input_html: { min: 0, max: 10 } %>
+
             <%= f.input :muscular_effort, as: :range, input_html: { min: 0, max: 10 } %>
             <%= f.input :breath_difficulty, as: :range, input_html: { min: 0, max: 10 }%>
             <%= f.submit %>
