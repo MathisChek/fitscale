@@ -1,7 +1,8 @@
   <div class="card-exo d-flex justify-content-between rounded m-3" style="width: 45vw">
 
               <%# IMAGE %>
-    <%= image_tag "giga_chad2.png", class:"", width: 200 %>
+    <%# image_tag "giga_chad2.png", class:"", width: 200 %>
+    <%= cl_image_tag exercice.image, height: 300, width: 400, crop: :fill, class: "" %>
 
               <%# INFO CARD %>
     <div style="width: 15vw">
