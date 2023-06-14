@@ -18,3 +18,6 @@ application.register("multi-bar-chart-dashboard", MultiBarChartDashboardControll
 
 import PieChartsController from "./pie_charts_controller"
 application.register("pie-charts", PieChartsController)
+
+import RangeMarkersController from "./range_markers_controller"
+application.register("range-markers", RangeMarkersController)

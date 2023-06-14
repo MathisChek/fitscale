@@ -47,14 +47,16 @@
         </div>
 
         <%# TAB 3 %>
-        <div class="tab-pane fade" id="nav-ratings" role="tabpanel" aria-labelledby="nav-ratings-tab">
+        <div class="tab-pane fade" id="nav-ratings" role="tabpanel" aria-labelledby="nav-ratings-tab" data-controller="range-markers">
           <h5 class="text-success"><strong>Ratings</strong></h5>
           <div>
             <%= simple_form_for([@exercice, @rating]) do |f| %>
-            <%= f.input :flexibility, as: :range, input_html: { min: 0, max: 10 } %>
-
-            <%= f.input :muscular_effort, as: :range, input_html: { min: 0, max: 10 } %>
-            <%= f.input :breath_difficulty, as: :range, input_html: { min: 0, max: 10 }%>
+            <%= f.input :flexibility, as: :range, input_html: { min: 0, max: 10,  data: { range_markers_target: "flexibility"} } %>
+            <div class="flexibility-marker" data-range-markers-target="flexibilityMarker"></div>
+            <%= f.input :muscular_effort, as: :range, input_html: { min: 0, max: 10, data: { range_markers_target: "muscularEffort"} } %>
+            <div class="muscular-effort-marker" data-range-markers-target="muscularEffort"></div>
+            <%= f.input :breath_difficulty, as: :range, input_html: { min: 0, max: 10, data: { range_markers_target: "breathDifficulty"} } %>
+            <div class="breath-difficulty-marker"></div>
             <%= f.submit %>
             <% end %>
           </div>
