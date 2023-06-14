@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_09_130446) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_14_121747) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,6 +23,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_09_130446) do
     t.string "muscle"
     t.string "equipment"
     t.string "instructions"
+    t.string "url_title"
+    t.string "url_content"
     t.index ["user_id"], name: "index_exercices_on_user_id"
   end
 
