@@ -5,6 +5,8 @@ class Workout < ApplicationRecord
   has_many :exercices, through: :workout_sets
   has_many :trainings, dependent: :destroy
 
+  has_one_attached :photo
+
   def muscles
     array = []
     self.workout_sets.each do |wo_set|

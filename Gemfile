@@ -82,3 +82,4 @@ end
 # gem "pry-rails", "~> 0.3.9"
 
 gem "font-awesome-rails"
+gem "cloudinary"
