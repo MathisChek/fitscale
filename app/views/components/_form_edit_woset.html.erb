@@ -6,7 +6,7 @@
     <%= simple_form_for(:filter, url: edit_workout_path(workout), method: :get) do |f| %>
 
       <div class="d-flex">
-        <div style="width: calc(80vw - 200px)">
+        <div style="width: 55vw">
           <%= f.input :query, label: "Search", placeholder: 'Enter a name or a muscle' %>
         </div>
 
@@ -19,7 +19,7 @@
 
   </div>
 
-    <div style="padding-left: 13vw" class="pb-3">
+    <div style="padding-left: 20vw" class="pb-3">
       <%= link_to "Submit workout", user_my_workouts_path(current_user.id), class: "btn btn-success text-dark" %>
     </div>
 

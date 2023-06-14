@@ -1,25 +1,60 @@
-<div class="border border-3 mb-3 d-flex bg-white" style="width: 92vw">
+<div class="card-exo d-flex justify-content-between rounded m-3" style="width: 55vw">
 
-  <%= image_tag "push_ups.jpg", width: 300%>
-  <div class="px-3 pt-3">
-    <h6>Name : <strong><%= exercice.name %></strong></h6>
-    <p><%= exercice.instructions %></p>
+            <%# IMAGE %>
+  <%= image_tag "giga_chad2.png", class:"", width: 300 %>
 
-    <% if workout.exercices.include?(exercice) %>
-      <p></p>
-      <p>Number of repetitions : <strong><%= workout.workout_sets.find_by(exercice: exercice).repetition %></strong></p>
-      <p class="text-success"><strong>You already have this exercice in the workout</strong></p>
-    <% else %>
-      <div class="mb-3">
-        <%= simple_form_for([workout, workout_set]) do |f| %>
-          <div style="width: 80%">
-            <strong><%= f.input :repetition, label: "How many repetitions ?" %></strong>
-          </div>
-          <%= f.hidden_field :exercice_id, value: exercice.id %>
-          <%= f.submit 'Submit exercice' %>
-        <% end %>
+            <%# INFO CARD %>
+  <div style="width: 15vw">
+
+            <%# DETAILS %>
+
+      <div class= "card-exo-detail px-2 pt-3">
+
+        <span><strong><%= exercice.name%></strong></span>
+        <br>
+        <span class="ps-2"><i class="fa-solid fa-dumbbell"></i> <%= exercice.nature  %></span>
+        <br>
+        <span class="ps-2"><i class="fa-solid fa-person"></i> <%= exercice.muscle  %></span>
+        <br>
+        <span class="ps-2"><i class="fa-solid fa-gear"></i> <%= exercice.equipment  %></span>
       </div>
-    <% end %>
+
+          <%# INSTRUCTIONS %>
+      <div class="d-flex flex-column align-items-center py-2">
+
+
+        <p> <a class="btn btn-outline-success text-clack" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+              instructions
+            </a>
+            <div class="collapse" id="collapseExample">
+              <div class="card card-body">
+                <small><%= exercice.instructions  %></small></p>
+              </div>
+            </div>
+
+      </div>
+      <% if workout.exercices.include?(exercice) %>
+        <p></p>
+        <p>Number of repetitions : <strong><%= workout.workout_sets.find_by(exercice: exercice).repetition %></strong></p>
+        <p class="text-success"><strong>You already have this exercice in the workout</strong></p>
+      <% else %>
+        <div class="mb-3">
+          <%= simple_form_for([workout, workout_set]) do |f| %>
+            <div style="width: 80%">
+              <strong><%= f.input :repetition, label: "How many repetitions ?" %></strong>
+            </div>
+            <%= f.hidden_field :exercice_id, value: exercice.id %>
+            <%= f.submit 'Submit exercice' %>
+          <% end %>
+        </div>
+      <% end %>
+
+  </div>
+
+  <div class="div-img d-flex align-items-center p-3" style="width: 15vw">
+
+    <%= render 'components/bar_chart', exercice: exercice %>
+
   </div>
 
 </div>
