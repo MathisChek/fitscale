@@ -8,7 +8,8 @@ class Exercice < ApplicationRecord
 
   def self.search(query = nil)
     return self.all if query.nil?
-    self.where("name ILIKE ?", "%#{query}%")
+    sql_subquery = "name ILIKE :query OR muscle ILIKE :query"
+    self.where(sql_subquery, query: "%#{query}%")
   end
 
   def str

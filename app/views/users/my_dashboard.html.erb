@@ -30,19 +30,20 @@
       <div name="content" class="tab-content" id="nav-tabContent" style="width: 50vw">
         <%# TABS %>
         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-          <div class="d-flex">
+          <div class="d-flex justify-content-between pe-2">
             <div class="pe-5 me-5">
               <h2 class="text-success mb-5"><strong>Details</strong></h2>
               <p>Number of workouts created : <strong><%= Workout.where(user_id: current_user.id).count %></strong></p>
               <p>Number of workouts added : <strong><%= Training.where(user_id: current_user.id).count %></strong></p>
               <p>Total workouts : <strong><%= Workout.where(user_id: current_user.id).count + Training.where(user_id: current_user.id).count %></strong></p>
             </div>
-
-            <% if @workouts.size != 0 %>
-              <%= render "components/bar_chart_dashboard", hash: @hash, k: @k, v: @v  %>
-            <% else %>
-              <p class="text-success">You don't have any workout yet !</p>
-            <% end %>
+            <div>
+              <% if @workouts.size != 0 %>
+                <%= render "components/bar_chart_dashboard", hash: @hash, k: @k, v: @v  %>
+              <% else %>
+                <p class="text-success">You don't have any workout yet !</p>
+              <% end %>
+            </div>
           </div>
 
           <div>

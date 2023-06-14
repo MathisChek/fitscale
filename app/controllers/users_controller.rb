@@ -52,7 +52,6 @@ class UsersController < ApplicationController
     #   @res << (ele * 10)
     # end
     # @zeb = current_user.week_sessions.map { |e| "#{e.programing_at.strftime('%a')} / #{e.programing_at.wday}" }
-    console
   end
 
   def my_sessions
