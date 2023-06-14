@@ -24,7 +24,8 @@ class Workout < ApplicationRecord
         array << rate.muscular_effort
       end
     end
-    (array.sum / array.size.to_f).round(1)
+    sum = (array.sum / array.size.to_f).round(1)
+    sum.nan? ? 0 : sum
   end
 
   def avg_dex
@@ -34,7 +35,8 @@ class Workout < ApplicationRecord
         array << rate.flexibility
       end
     end
-    (array.sum / array.size.to_f).round(1)
+    sum = (array.sum / array.size.to_f).round(1)
+    sum.nan? ? 0 : sum
   end
 
   def avg_end
@@ -44,7 +46,8 @@ class Workout < ApplicationRecord
         array << rate.breath_difficulty
       end
     end
-    (array.sum / array.size.to_f).round(4)
+    sum = (array.sum / array.size.to_f).round(1)
+    sum.nan? ? 0 : sum
   end
 
   def score

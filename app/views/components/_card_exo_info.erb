@@ -2,7 +2,7 @@
   <div class="card-exo d-flex justify-content-between rounded m-3" style="width: 45vw">
 
               <%# IMAGE %>
-    <%= image_tag "giga_chad2.png", class:"card-img" %>
+    <%= image_tag "giga_chad2.png", class:"", width: 200 %>
 
               <%# INFO CARD %>
     <div style="width: 15vw">
@@ -42,9 +42,9 @@
 
     </div>
 
-    <div class="div-img d-flex align-items-center px-2" style="width: 15vw">
+    <div class="div-img d-flex align-items-center p-3" style="width: 15vw">
 
-      <%= image_tag "pie-graph-2.png", width: 200 %>
+      <%= render 'components/bar_chart', exercice: exercice %>
 
     </div>
 
