@@ -5,7 +5,6 @@
 
         <%# WORKOUT INFOS CARD %>
         <div class="p-3" style="width: 300px;">
-          <%# <div class= "border border-3 rounded-3 border-dark mb-1 p-3 border-dark background_form bg-secondary bg-gradient sticky"> %>
           <div class="sticky border border-success p-3 bg-dark rounded text-light">
             <h5 class="text-success"><%= @workout.name %></h5>
             <p><em>Description:</em></p>
@@ -14,30 +13,28 @@
             <p><strong><%= @workout.exercices.count %></strong> exercices</p>
             <%= render "components/pie_chart", workout: @workout %>
             <p class="text-end" style="backdrop-filter: brightness(1.5);"><%= @workout.user.name %></p>
-
             <p><strong><%= current_user.trainings.count %></strong> trainings added to your profile</p>
 
-
                 <%# ADDING TRAINING %>
+          <div class=""></div>
+            <p><strong><%= current_user.trainings.count %></strong> trainings added to your profile</p>
 
               <% train = Training.where(user_id: current_user.id, workout_id: @workout.id) %>
               <% if train.empty? %>
-                <div class="mb-3">
+                <div class="mb-3 d-flex justify-content-center">
                     <%= simple_form_for([@workout, @training]) do |f| %>
                         <%= button_tag type: 'submit', class: "submit-button" do %>
-                          <i class="fa-regular fa-square-plus add-btn"></i>
+                          <i class="far fa-plus-square fa-lg add-btn"></i>
                         <% end %>
                     <% end %>
                 </div>
               <% else %>
-                  <div>
+                  <div class="mb-3 d-flex justify-content-center">
                     <%= link_to training_path(train.first), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-                        <i class="fa-regular fa-square-minus delete-btn"></i>
+                        <i class="far fa-minus-square fa-lg delete-btn"></i>
                      <% end %>
                   </div>
               <% end %>
-
-
 
           </div>
         </div>

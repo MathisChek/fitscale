@@ -18,8 +18,10 @@ class ExercicesController < ApplicationController
   end
 
   def show
-      @rating = Rating.new
-      @ratings = @exercice.ratings
+    @rating = Rating.find_by(user: current_user, exercice: @exercice)
+    @rating = @rating.nil? ? Rating.new : @rating
+    #@rating = Rating.where(user_id: current_user.id, exercice_id: @exercice.id).empty? ? Rating.new : Rating.where(user_id: current_user.id, exercice_id: @exercice.id).first
+    @ratings = @exercice.ratings
   end
 
 
