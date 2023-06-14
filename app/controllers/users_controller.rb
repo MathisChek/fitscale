@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @available_workouts = (current_user.trainings + Workout.where(user_id: current_user.id)).uniq
     @start_date = params.fetch(:start_date, Date.today).to_date
     @sessions = current_user.sessions
-    @workouts = Workout.where(user_id: current_user.id)
+    @workouts = Training.where(user_id: current_user.id).map(&:workout)
     @hash = {}
     @workouts.each do |workout|
       workout.muscle_hash.each do |key, value|
@@ -42,7 +42,6 @@ class UsersController < ApplicationController
       @days << key.to_s
       @count_exo_day << value
     end
-    # week_sessions.find_all { |d| d.programing_at.strftime("%A") == "Monday" }.map(&:training).map(&:workout).map(&:score)
 
     la = (0..6).map do |nbr|
       array = current_user.week_sessions.find_all { |d| d.programing_at.wday == nbr }.map(&:training).map(&:workout).map(&:score)

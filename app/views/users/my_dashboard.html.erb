@@ -42,7 +42,7 @@
             </div>
             <div>
               <% if @workouts.size != 0 %>
-                <%= render "components/bar_chart_dashboard", hash: @hash, k: @k, v: @v  %>
+                <%= render "components/bar_chart_dashboard", k: @k, v: @v  %>
               <% else %>
                 <p class="text-success">You don't have any workout yet !</p>
               <% end %>
@@ -88,7 +88,7 @@
                     <i class="fa-regular fa-pen-to-square edit-btn"></i>
                   </button>
 
-                  <%= link_to session_path(session.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"} do %>
+                  <%= link_to gym_session_path(session.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"} do %>
                     <button type="button" class="btn text-success rounded-5">
                       <i class="fa-solid fa-trash delete-btn"></i>
                     </button>
