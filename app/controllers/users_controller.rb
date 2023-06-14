@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @available_workouts = (current_user.trainings + Workout.where(user_id: current_user.id)).uniq
     @start_date = params.fetch(:start_date, Date.today).to_date
     @sessions = current_user.sessions
-    @workouts = Workout.where(user_id: current_user.id)
+    @workouts = Training.where(user_id: current_user.id).map(&:workout)
     @hash = {}
     @workouts.each do |workout|
       workout.muscle_hash.each do |key, value|
