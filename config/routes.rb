@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :exercices do
     resources :ratings, only: %i[create update]
   end
-  resources :sessions, only: %i[create destroy update]
+  resources :sessions, only: %i[create]
 
   resources :users, only: %i[index] do
     get "my_dashboard", to: "users#my_dashboard"
