@@ -51,7 +51,7 @@ class Workout < ApplicationRecord
   end
 
   def score
-    ((self.avg_dex + self.avg_str + self.avg_end) / 3).round(1)
+    score = ((self.avg_dex + self.avg_str + self.avg_end) / 3).round(1)
   end
 
   def muscle_hash
@@ -63,4 +63,13 @@ class Workout < ApplicationRecord
     return hash
   end
 
+  def focus
+    if self.avg_str > self.avg_dex && self.avg_str > self.avg_end
+      return ["Muscular Effort", "#FD1015"]
+    elsif self.avg_dex > self.avg_end
+      return ["Flexibility", "#1ED584"]
+    else
+      return ["Breath Difficulty", "#73BBC9"]
+    end
+  end
 end
