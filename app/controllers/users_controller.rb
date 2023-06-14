@@ -42,7 +42,6 @@ class UsersController < ApplicationController
       @days << key.to_s
       @count_exo_day << value
     end
-    # week_sessions.find_all { |d| d.programing_at.strftime("%A") == "Monday" }.map(&:training).map(&:workout).map(&:score)
 
     la = (0..6).map do |nbr|
       array = current_user.week_sessions.find_all { |d| d.programing_at.wday == nbr }.map(&:training).map(&:workout).map(&:score)
