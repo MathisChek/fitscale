@@ -5,7 +5,6 @@
 
         <%# WORKOUT INFOS CARD %>
         <div class="p-3" style="width: 300px;">
-          <%# <div class= "border border-3 rounded-3 border-dark mb-1 p-3 border-dark background_form bg-secondary bg-gradient sticky"> %>
           <div class="sticky border border-success p-3 bg-dark rounded text-light">
             <h5 class="text-success"><%= @workout.name %></h5>
             <p><em>Description:</em></p>
@@ -14,11 +13,11 @@
             <p><strong><%= @workout.exercices.count %></strong> exercices</p>
             <%= render "components/pie_chart", workout: @workout %>
             <p class="text-end" style="backdrop-filter: brightness(1.5);"><%= @workout.user.name %></p>
-
             <p><strong><%= current_user.trainings.count %></strong> trainings added to your profile</p>
 
-
                 <%# ADDING TRAINING %>
+          <div class="top-card-wo"></div>
+            <p><strong><%= current_user.trainings.count %></strong> trainings added to your profile</p>
 
               <% train = Training.where(user_id: current_user.id, workout_id: @workout.id) %>
               <% if train.empty? %>
@@ -36,8 +35,6 @@
                      <% end %>
                   </div>
               <% end %>
-
-
 
           </div>
         </div>
