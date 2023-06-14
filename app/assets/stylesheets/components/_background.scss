@@ -1,13 +1,19 @@
 .bg-index-wo {
-  background-color: #080202;
-  background-image: asset-url('gym_room.jpg');
+  background-color: #D8D8D8;
+  // background-image: linear-gradient(to bottom, #D8D8D8, #233329 74%);
+  // background-image: linear-gradient(to bottom, #233329, #2f583d, #3c8050, #4da962, #63d471);
+
+// background-image: linear-gradient(315deg, #63d471 0%, #233329 74%);
+
+
   background-attachment: fixed;
   background-size: cover;
 }
 
 .bg-index-exo {
-  background-color: #080202;
-  background-image: asset-url('gym_room.jpg');
+  background-color: #D8D8D8;
+  // background-image: linear-gradient(to bottom, #378b29, #ffffff);
+  // background-image: linear-gradient(315deg, #378b29 0%, #ffffff 74%);
   background-attachment: fixed;
   background-size: cover;
 }
