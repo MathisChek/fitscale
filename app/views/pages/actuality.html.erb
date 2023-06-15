@@ -11,21 +11,17 @@
 
 <%# BODY %>
 <div class=" py-5">
-  <div class="container d-flex justify-content-between mb-5">
+  <div class=" container px-5 d-flex justify-content-around mb-5">
     <% if current_user.present? %>
       <div class="d-flex flex-column">
         <h2><strong>Begin your <span class="text-success">journey</span></strong></h2>
         <div class="">
-          <% if current_user.workouts.empty? %>
-            <p>Don't have a workout yet ?</p>
+          <% if Training.where(user_id: current_user.id).empty? %>
+            <p>Don't have a workout yet ! Try to find fitting <%= link_to "workouts", workouts_path, class: "text-success" %> !</p>
           <% else %>
-            <p>You currently have <strong><%= current_user.workouts.size %></strong> !</p>
-            <p>But if you're tired of your current workouts, try to create a new one !</p>
+            <p>You have <%= current_user.week_sessions.size %> <strong class="text-success">sessions</strong> this week !</p>
           <% end %>
         </div>
-      </div>
-      <div class="flex-grow-1 text-center">
-        <%= link_to "Create your own workout !", new_workout_path, class: "btn btn-lg btn-outline-success text-dark shadow" %>
       </div>
     <% end %>
   </div>
