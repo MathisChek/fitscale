@@ -4,7 +4,7 @@
     <%= form_with url: workouts_path, method: :get, data: {ajax_target: 'form'}, class: "d-flex" do %>
           <%= text_field_tag :query,
                 params[:query],
-                class: "form-control",
+                class: "form-control mb-3",
                 placeholder: "Find your workout",
                 data: { action: "keyup->ajax#searching",
                         ajax_target: "input"
