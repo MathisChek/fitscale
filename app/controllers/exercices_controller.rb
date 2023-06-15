@@ -25,10 +25,11 @@ class ExercicesController < ApplicationController
         @exercices = Exercice.where("name ILIKE ?", "%#{params[:query]}%")
       end
     end
-    # raise
-    respond_to do |format|
-      format.html # Follow regular flow of Rails
-      format.text { render partial: "components/list_exercices", locals: {exercices: @exercices}, formats: [:html] }
+    unless params[:format].present?
+      respond_to do |format|
+        format.html # Follow regular flow of Rails
+        format.text { render partial: "components/list_exercices", locals: {exercices: @exercices}, formats: [:html] }
+      end
     end
   end
 

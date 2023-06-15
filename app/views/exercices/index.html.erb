@@ -9,11 +9,11 @@
           Muscles
         </button>
         <ul class="dropdown-menu">
-        <% Exercice::MUSCLES.each do |muscle| %>
-          <li>
-            <%= link_to "#{Exercice.where("muscle ILIKE ?", "%#{muscle}%").count} - #{muscle.gsub("_", " ").capitalize}", exercices_path(muscle), class: "dropdown-item" %>
-          </li>
-        <% end %>
+          <% Exercice::MUSCLES.each do |muscle| %>
+            <li>
+              <%= link_to "#{Exercice.where("muscle ILIKE ?", "%#{muscle}%").count} - #{muscle.gsub("_", " ").capitalize}", exercices_path(muscle), class: "dropdown-item" %>
+            </li>
+          <% end %>
         </ul>
       </div>
 
@@ -31,14 +31,6 @@
                       }
             %>
       <% end %>
-
-
-
-
-
-
-
-
     </div>
 
     <div style="height: 80vh" class="d-flex flex-column align-items-center scroller" data-ajax-target="list" >
