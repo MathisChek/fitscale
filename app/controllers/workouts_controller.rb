@@ -3,13 +3,12 @@ class WorkoutsController < ApplicationController
 
   def index
     @workouts = Workout.all
+    if params[:query].present? # && !params[:query].empty?
+      if ("a".."z").to_a.include?(params[:query])
+        @workouts = Workout.where("name ILIKE ?", "%#{params[:query]}%")
+      end
 
-    if params[:query].present?
-      @workouts = Workout.where("name ILIKE ?", "%#{params[:query]}%")
     end
-
-
-
     respond_to do |format|
       format.html # Follow regular flow of Rails
       format.text { render partial: "components/list_workouts", locals: {workouts: @workouts}, formats: [:html] }
