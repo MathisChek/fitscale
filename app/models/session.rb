@@ -1,5 +1,7 @@
 class Session < ApplicationRecord
   belongs_to :training
+  validate :not_past
+  validates :programing_at, presence: true
 
   def start_time
     self.programing_at ##Where 'start' is a attribute of type 'Date' accessible through MyModel's relationship
@@ -28,4 +30,12 @@ class Session < ApplicationRecord
     Sat: 0,
     Sun: 0
   }
+
+  private
+
+  def not_past
+    if programing_at.present? && programing_at < Date.today
+      errors.add(:programing_at, "can't be in the past")
+    end
+  end
 end

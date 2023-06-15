@@ -8,11 +8,11 @@
       </div>
 
       <%# MODAL BODY %>
-      <div class="modal-body text-center text-dark" data-controller="flatpickr">
+      <div class="modal-body text-center text-dark">
         <% btn_msg = session.id.present? ? "Update" : "Create" %>
         <% action = session.id.present? ? gym_session_path(session) : gym_session_index_path %>
-        <%= simple_form_for session, url: action do |f|%>
-          <%= f.input :programing_at, label: false, as: :date, input_html: { data: { flatpickr_target: "session" } } %>
+        <%= simple_form_for session, url: action, data: { controller: 'flatpickr' } do |f|%>
+          <%= f.input :programing_at, label: false, as: :string, input_html: { data: { flatpickr_target: "session" } } %>
           <%= f.association :training, collection: current_user.trainings, :label_method => :wo_name, :value_method => :id %>
           <%= f.button :submit, "#{btn_msg} your session", class: "btn btn-success" %>
         <% end %>
