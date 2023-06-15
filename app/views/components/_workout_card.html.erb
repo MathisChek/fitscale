@@ -1,10 +1,19 @@
 <%= link_to workout_path(workout), style: "text-decoration: none; color: black; width: 380px" do %>
   <div class="wo-card d-flex flex-column flex-nowrap justify-content-between nostylin">
-
-
     <%# IMAGE %>
     <%= image_tag "canyon_pic.jpg", class: "wo-card-image" %>
+
+    <%# DELETE BUTTON %>
+    <div>
+      <% if workout.user_id  == current_user.id %>
+        <%=link_to workout_path(workout), data: {turbo_method: :delete} do %>
+          <i class="fa-solid fa-xmark delete-btn"></i>
+        <% end %>
+      <% end %>
+    </div>
+
   <div class="d-flex justify-content-between">
+
     <div class="d-flex wo-card-body justify-content-between m-2">
       <%# NAME SCORE TIME %>
       <div name="left-infos" class="d-flex flex-column ps-2">
@@ -22,6 +31,7 @@
       <div class="list-unstyled">
         <%= render "components/doughnut_chart", workout: workout %>
       </div>
+
     </div>
   </div>
   </div>
