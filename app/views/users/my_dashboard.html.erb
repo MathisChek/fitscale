@@ -17,7 +17,7 @@
     </div>
 
     <%# BODY %>
-    <div class="app-body">
+    <div class="app-body mb-3">
 
       <%# TAB MENU %>
       <nav>
@@ -27,18 +27,20 @@
         </div>
       </nav>
 
-      <div name="content" class="tab-content" id="nav-tabContent" style="width: 50vw">
+      <div name="content" class="tab-content bg-dashboard p-4" id="nav-tabContent" style="width: 50vw">
         <%# TABS %>
 
         <%# USER STATS %>
         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 
-          <div class="d-flex justify-content-between" style="width:45vw">
-            <div class="pe-5 me-5">
-              <h2 class="text-success mb-5"><strong>Details</strong></h2>
-              <p>Number of workouts created : <strong><%= Workout.where(user_id: current_user.id).count %></strong></p>
-              <p>Number of workouts added : <strong><%= Training.where(user_id: current_user.id).count %></strong></p>
-              <p>Total workouts : <strong><%= Workout.where(user_id: current_user.id).count + Training.where(user_id: current_user.id).count %></strong></p>
+          <div class="d-flex justify-content-between mb-3" style="width:48vw">
+            <div>
+              <h1 class="text-color mb-3 mt-3"><strong>Details</strong></h1>
+              <p class="text-black fs-5 ps-3 ">Workouts created : <strong><%= Workout.where(user_id: current_user.id).count %></strong></p>
+              <p class="text-black fs-5 ps-3">Workouts added : <strong><%= Training.where(user_id: current_user.id).count %></strong></p>
+              <p class="text-black fs-5 ps-3">Total workouts : <strong><%= Workout.where(user_id: current_user.id).count + Training.where(user_id: current_user.id).count %></strong></p>
+              <p class="text-black fs-5 ps-3">Sessions : <strong><%= current_user.sessions.count %></strong></p>
+              <p class="text-black fs-5 ps-3">Weakest muscle : <br> <strong class="ps-2"><%= @hash.sort_by{ |_key, value| value }.first[0].to_s %></strong> trained only <%= @hash.sort_by{ |_key, value| value }.first[1].to_s %> times</p>
             </div>
             <div>
               <% if @workouts.size != 0 %>
@@ -50,13 +52,13 @@
 
           </div>
 
-          <div style="width: 45vw">
+          <div style="width: 48vw">
             <%= render "components/multi_bar_chart_dashboard", days: @days, count_exo_day: @count_exo_day, la: @res  %>
           </div>
         </div>
 
         <%# CALENDAR %>
-        <div class="tab-pane fade active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
           <%= render "components/calendar", sessions: @sessions %>
           <div>
             <%= render "components/multi_bar_chart_dashboard", days: @days, count_exo_day: @count_exo_day, la: @res  %>
@@ -65,7 +67,7 @@
 
       </div>
       <%# SIDE MENU WITH SESSIONS %>
-      <div name="side menu">
+      <div name="side menu bg-dashboard">
         <h3 class="text-center">This week's <span class="text-success">sessions</span></h3>
         <ul class="list-unstyled">
 

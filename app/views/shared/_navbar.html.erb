@@ -35,17 +35,15 @@
 
       </ul>
       <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success text-white" type="submit">Search</button>
+        <%= link_to "My dashboard", user_my_dashboard_path(current_user.id), class: "text-success nav-link active" %>
       </form>
       <% if current_user.present? %>
         <div class="nav-item dropdown ms-3">
               <%= image_tag "profile.jpg", class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to "My workouts", user_my_workouts_path(current_user.id), class: "dropdown-item text-white" %>
-                <%= link_to "My sessions", '#', class: "dropdown-item text-white" %>
-                <hr class="dropdown-divider">
                 <%= link_to "My dashboard", user_my_dashboard_path(current_user.id), class: "dropdown-item text-white" %>
+                <hr class="dropdown-divider">
                 <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
               </div>
         </div>
