@@ -7,7 +7,7 @@ export default class extends Controller {
   static targets = ["card"]
 
   connect() {
-    console.log("hellooodosdos")
+    Chart.defaults.color = "#ffffff";
 
     const labels = ["Breath Difficulty", "Muscular Effort", "Flexibility"]
 
