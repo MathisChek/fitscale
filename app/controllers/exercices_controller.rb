@@ -22,6 +22,7 @@ class ExercicesController < ApplicationController
     @rating = @rating.nil? ? Rating.new : @rating
     #@rating = Rating.where(user_id: current_user.id, exercice_id: @exercice.id).empty? ? Rating.new : Rating.where(user_id: current_user.id, exercice_id: @exercice.id).first
     @ratings = @exercice.ratings
+    @rating_user = Rating.where(user_id: current_user.id, exercice_id: @exercice.id).first
   end
 
 

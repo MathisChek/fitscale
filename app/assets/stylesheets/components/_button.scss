@@ -10,21 +10,21 @@
 .delete-btn {
   transition: 0.3s;
   color: white;
-  scale: 1.8;
+  scale: 1.5;
   &:hover {
     color: red;
-    scale: 2.1;
+    scale: 1.8;
   }
 }
 
 .edit-btn {
   transition: 0.3s;
   color: white;
-  scale: 1.8;
+  scale: 1.5;
 
   &:hover {
     color: cyan;
-    scale: 2.1;
+    scale: 1.8;
   }
 }
 
