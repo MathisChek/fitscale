@@ -1,38 +1,41 @@
 <%= link_to workout_path(workout), style: "text-decoration: none; color: black; width: 380px" do %>
   <div class="wo-card d-flex flex-column flex-nowrap justify-content-between nostylin">
     <%# IMAGE %>
+
+
     <%= image_tag "canyon_pic.jpg", class: "wo-card-image" %>
 
-    <%# DELETE BUTTON %>
-    <div>
-      <% if workout.user_id  == current_user.id %>
-        <%=link_to workout_path(workout), data: {turbo_method: :delete} do %>
-          <i class="fa-solid fa-xmark delete-btn"></i>
-        <% end %>
-      <% end %>
-    </div>
+    <div class="d-flex justify-content-between">
 
-  <div class="d-flex justify-content-between">
-
-    <div class="d-flex wo-card-body justify-content-between m-2">
-      <%# NAME SCORE TIME %>
-      <div name="left-infos" class="d-flex flex-column ps-2">
-          <h5 style="margin-bottom: 0px;"><%= workout.name %></h5>
-        <div name="workout-int-infos" class="d-flex flex-column justify-content-between ps-1">
-          <p style="font-size: 24px; margin-bottom: 0px;"><strong><%= workout.score %></strong></p>
-          <p style="font-size: 16px; margin-bottom: 0px;" class=""><%= workout.fake_time / 5 %>:00 <i class="fa-solid fa-clock-rotate-left"></i></p>
+      <div class="d-flex wo-card-body justify-content-between m-2">
+        <%# NAME SCORE TIME %>
+        <div name="left-infos" class="d-flex flex-column ps-2">
+            <h5 style="margin-bottom: 0px;"><%= workout.name %></h5>
+          <div name="workout-int-infos" class="d-flex flex-column ps-1">
+            <p style="font-size: 24px; margin-bottom: 0px;"><strong><%= workout.score %></strong></p>
+            <p style="font-size: 16px; margin-bottom: 0px;" class=""><%= workout.fake_time / 5 %>:00 <i class="fa-solid fa-clock-rotate-left"></i></p>
+          </div>
         </div>
-      </div>
-      <%# STATS %>
+        <%# STATS %>
 
-    </div>
-    <div name="pie-graph" class="d-flex justify-content-center align-items-center me-5">
-      <%# <%= image_tag "pie-graph-2.png", style: "height: 90px" %>
-      <div class="list-unstyled">
-        <%= render "components/doughnut_chart", workout: workout %>
       </div>
 
+         <%# DELETE BUTTON %>
+      <div style="position: relative; bottom: 200px; left: 150px">
+        <% if workout.user_id  == current_user.id %>
+          <%=link_to workout_path(workout), data: {turbo_method: :delete} do %>
+            <i class="fa-solid fa-xmark delete-btn"></i>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div name="pie-graph" class="d-flex justify-content-center align-items-center me-5">
+        <%# <%= image_tag "pie-graph-2.png", style: "height: 90px" %>
+        <div class="list-unstyled">
+          <%= render "components/doughnut_chart", workout: workout %>
+        </div>
+
+      </div>
     </div>
-  </div>
   </div>
 <% end %>
