@@ -1,15 +1,18 @@
-<div class="bg-index-wo pt-3">
+<div class="bg-index-wo pt-3" style="min-height: 80vh">
+  <div data-controller="ajax" class="container">
 
-  <div class="container">
-
-    <div class="row pb-3">
-
-      <% @workouts.each do |workout| %>
-      <div class="col m-3"><%= render "components/workout_card", workout: workout %></div>
-
-      <% end %>
-
+    <%= form_with url: workouts_path, method: :get, data: {ajax_target: 'form'}, class: "d-flex" do %>
+          <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: "Find your workout",
+                data: { action: "keyup->ajax#searching",
+                        ajax_target: "input"
+                      }
+            %>
+        <% end %>
+    <div data-ajax-target="list">
+      <%= render "components/list_workouts", workouts: @workouts %>
     </div>
-
   </div>
 </div>

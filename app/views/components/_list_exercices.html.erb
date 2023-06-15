@@ -1,0 +1,7 @@
+<ul class="list-unstyled">
+  <% exercices.each do |exercice| %>
+    <li class="m-3">
+      <%= render "components/card_exo_info", workout_set: nil, exercice: exercice %>
+    </li>
+  <% end %>
+</ul>

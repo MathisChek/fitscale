@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import AjaxController from "./ajax_controller"
+application.register("ajax", AjaxController)
+
 import BarChartDashboardController from "./bar_chart_dashboard_controller"
 application.register("bar-chart-dashboard", BarChartDashboardController)
 
@@ -13,8 +16,8 @@ application.register("bar-charts", BarChartsController)
 import DoughnutController from "./doughnut_controller"
 application.register("doughnut", DoughnutController)
 
-// import FlatpickrController from "./flatpickr_controller"
-// application.register("flatpickr", FlatpickrController)
+import FlatpickrController from "./flatpickr_controller"
+application.register("flatpickr", FlatpickrController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
