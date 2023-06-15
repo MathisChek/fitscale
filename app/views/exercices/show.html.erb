@@ -37,13 +37,25 @@
                 <span><i class="fa-solid fa-dumbbell"></i> <%= @exercice.nature.capitalize  %></span>
               </li>
             </ul>
-            <%# GRAPH %>
-            <div class="d-flex bg-white border border-success rounded" style="width: 200px; height: 150px">
-              <% exercice = {str: @exercice.str, dex: @exercice.dex, end: @exercice.end} %>
-              <%= render "components/bar_chart", exercice: exercice %>
+            <%# GRAPHS %>
+            <div class="d-flex justify-content-around">
+              <div class="border border-2 border border-success" style="height: 260px">
+                <% exercice_hash = {str: @exercice.str, dex: @exercice.dex, end: @exercice.end} %>
+                <h3 class="d-flex justify-content-center">Ratings</h3>
+                <div style="position: relative; top: -12px">
+                  <%= render "components/bar_chart", exercice: exercice_hash %>
+                  <p style="position: relative; bottom: 110px; left:84px"><%= (exercice_hash.values.sum / 3.to_f).round(1) %></p>
+                </div>
+              </div>
               <% if @rating_user.present? %>
-                <% user_rate = {str: @rating_user.muscular_effort, dex: @rating_user.flexibility, end: @rating_user.breath_difficulty} %>
-                <%= render "components/bar_chart", exercice: user_rate %>
+                <div class="border border-2 border border-success" style="height: 260px">
+                  <% user_rate = {str: @rating_user.muscular_effort, dex: @rating_user.flexibility, end: @rating_user.breath_difficulty} %>
+                  <h3 class="d-flex justify-content-center">Your ratings</h3>
+                  <div style="position: relative; top: -12px">
+                    <%= render "components/bar_chart", exercice: user_rate %>
+                    <p style="position: relative; bottom: 110px; left:84px"><%= (user_rate.values.sum / 3.to_f).round(1) %></p>
+                  </div>
+                </div>
               <% end %>
             </div>
 

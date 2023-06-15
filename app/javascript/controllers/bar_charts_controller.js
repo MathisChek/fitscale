@@ -7,7 +7,7 @@ export default class extends Controller {
   static targets = ["card"]
 
   connect() {
-
+    console.log("flocon2")
     // DATA TO DISPLAY
     const data = [
       Number(this.cardTarget.dataset.end),
@@ -19,13 +19,13 @@ export default class extends Controller {
 
     // CONFIGUE THE CHART
     const cfg = {
-      type: 'bar',
+      type: 'doughnut',
       data: {
         labels: labels,
         datasets: [{
           data: data,
           backgroundColor: ["#73BBC9", "#FD1015", "#1ED584"],
-          borderWidth: 1,
+          hoverOffset: 30
         }]
       },
       options: {
@@ -36,29 +36,11 @@ export default class extends Controller {
         title: {
           display: false
         },
-        scales: {
-          color: "#FD1015",
-          y: {
-            grid: {
-              display:false
-            },
-            max: 10,
-            min: 0,
-            ticks: {
-              stepSize: 5
-            }
-          },
-          x: {
-            grid: {
-              display:false
-            },
-            title: { display:false },
-            display:false
-
-          }
+        layout: {
+          padding: 20
         }
       }
-    }
+    };
 
     // CREATE THE CHART
     new Chart(this.cardTarget, cfg);

@@ -37,7 +37,7 @@ export default class extends Controller {
         },
         layout: {
           padding: 20
-      }
+        }
       }
     };
 

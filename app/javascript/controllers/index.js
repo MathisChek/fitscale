@@ -13,6 +13,9 @@ application.register("bar-charts", BarChartsController)
 import DoughnutController from "./doughnut_controller"
 application.register("doughnut", DoughnutController)
 
+// import FlatpickrController from "./flatpickr_controller"
+// application.register("flatpickr", FlatpickrController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
