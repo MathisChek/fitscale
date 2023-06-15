@@ -3,12 +3,13 @@
   <div class="container">
 
     <div style="height: 80vh" class="d-flex flex-column align-items-center scroller" >
-
-      <% @exercices.each do |exercice| %>
-        <%= render "components/card_exo_index", exercice: exercice %>
-      <% end %>
-
+      <ul class="list-unstyled">
+        <% @exercices.each do |exercice| %>
+          <li class="mb-3">
+            <%= render "components/card_exo_info", workout_set: nil, exercice: exercice %>
+          </li>
+        <% end %>
+      </ul>
     </div>
-
   </div>
 </div>

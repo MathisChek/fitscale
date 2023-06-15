@@ -45,11 +45,13 @@
 
         <%# EXERCICES INFOS %>
         <div class="margin_card">
+        <ul class="list-unstyled">
           <% @workout.workout_sets.each do |workout_set| %>
-
-            <%= render "components/card_exo_info", workout: @workout, workout_set: workout_set  %>
-
+            <li class="mb-3">
+              <%= render "components/card_exo_info", workout_set: workout_set, exercice: workout_set.exercice  %>
+            </li>
           <% end %>
+          </ul>
         </div>
       </div>
 

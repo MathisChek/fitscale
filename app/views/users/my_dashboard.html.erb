@@ -81,7 +81,7 @@
           <% current_user.week_sessions.sort_by(&:programing_at).each do |session| %>
 
             <%# SINGLE SESSION %>
-            <li class="d-flex">
+            <li class="d-flex animate__animated animate__backInRight animate__delay-0.5s">
               <% session_part = session.id.present? ? session : Session.new %>
               <%= render "components/modal_session", session: session_part %>
               <div class="d-flex bg-dark border border-success m-2 py-2 ps-3 rounded-start-pill" style="width: 100%">
@@ -102,7 +102,6 @@
                   <h6><%= session.training.workout.exercices.count %> exercices</h6>
                   <% wo_focus = session.training.workout.focus %>
                   <h6>Focus on <span style="color: <%= wo_focus[1] %>"><%= wo_focus[0] %></span></h6>
-
                 </div>
               </div>
             </li>
