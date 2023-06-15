@@ -1,11 +1,11 @@
-<div class="bg-index-exo">
+<div class="bg-index-exo pt-5">
 
   <div class="container">
 
     <div style="height: 80vh" class="d-flex flex-column align-items-center scroller" >
       <ul class="list-unstyled">
         <% @exercices.each do |exercice| %>
-          <li class="mb-3">
+          <li class="m-3">
             <%= render "components/card_exo_info", workout_set: nil, exercice: exercice %>
           </li>
         <% end %>
