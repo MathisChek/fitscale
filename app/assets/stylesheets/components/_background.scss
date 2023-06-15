@@ -1,13 +1,14 @@
 .bg-index-wo {
-  background-color: #D8D8D8;
+  // background-color: #c5c5c5;
   // background-image: linear-gradient(to bottom, #D8D8D8, #233329 74%);
   // background-image: linear-gradient(to bottom, #233329, #2f583d, #3c8050, #4da962, #63d471);
 
 // background-image: linear-gradient(315deg, #63d471 0%, #233329 74%);
 
-
-  background-attachment: fixed;
-  background-size: cover;
+  background: rgb(244,244,244);
+  background: linear-gradient(0deg, rgba(244,244,244,1) 0%, rgba(54,54,54,1) 100%);
+  // background-attachment: fixed;
+  // background-size: cover;
 }
 
 .bg-index-exo {

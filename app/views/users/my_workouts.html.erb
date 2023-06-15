@@ -2,15 +2,13 @@
 
   <div class="container">
 
-    <h1 class="text-white">My workouts</h1>
+    <h1 class="text-dark">My <span class="text-success">workouts</span></h1>
 
     <div class="row">
 
-      <% @workouts.each do |workout| %>
-      <div class="col-4 my-3"><%= render "components/workout_card", workout: workout %></div>
-
+      <% @trainings.each do |training| %>
+        <div class="col-4 my-3"><%= render "components/workout_card", workout: training.workout %></div>
       <% end %>
-
     </div>
 
   </div>

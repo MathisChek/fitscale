@@ -1,11 +1,11 @@
-<div class="bg-image">
+<div class="bg-image" style="min-height: 80vh">
     <div class="">
 
       <div class="card-wo d-flex justify-content-center">
 
         <%# WORKOUT INFOS CARD %>
 
-        <div class="p-3" style="width: 450px;">
+        <div class="p-5" style="width: 450px;">
           <div class="sticky border border-success p-3 bg-dark rounded text-light">
             <div name="placer" class="d-flex justify-content-between align-items-center">
               <div name="infos-text">
@@ -44,13 +44,13 @@
 
 
         <%# EXERCICES INFOS %>
-        <div class="margin_card">
-        <ul class="list-unstyled">
-          <% @workout.workout_sets.each do |workout_set| %>
-            <li class="mb-3">
-              <%= render "components/card_exo_info", workout_set: workout_set, exercice: workout_set.exercice  %>
-            </li>
-          <% end %>
+        <div class="margin_card mt-5">
+          <ul class="list-unstyled">
+            <% @workout.workout_sets.each do |workout_set| %>
+              <li class="mb-3">
+                <%= render "components/card_exo_info", workout_set: workout_set, exercice: workout_set.exercice  %>
+              </li>
+            <% end %>
           </ul>
         </div>
       </div>

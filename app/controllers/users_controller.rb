@@ -60,6 +60,7 @@ class UsersController < ApplicationController
 
   def my_workouts
     @workouts = current_user.workouts
+    @trainings = current_user.trainings
   end
 
   def my_exercises
