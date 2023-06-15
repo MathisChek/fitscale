@@ -11,7 +11,7 @@ require 'csv'
 require 'json'
 require 'rest-client'
 
-EXERCICES = []
+
 header = ["name", "nature", "muscle", "equipment", "instructions"]
 # csv_path = File.join(__dir__, 'exercices.csv')
 
@@ -28,7 +28,7 @@ puts "All Users deleted"
 
 
 # CREATING USERS
-15.times do
+40.times do
   user = User.new(
     name: Faker::Name.name,
     email: Faker::Internet.email,
@@ -357,13 +357,14 @@ exo.gif.attach(
   io: URI.open(exo.url_content)
 )
 
+EXERCICES = Exercice.all
 # GENERATING WORKOUTS AND WORKOUTS_SET
 number_of_workouts = 5
 number_of_workoutsets = rand(3..8)
 
 number_of_workouts.times do
   workout = Workout.new(
-    name: "Train like #{Faker::JapaneseMedia::DragonBall.character}",
+    name: Faker::JapaneseMedia::DragonBall.character,
     description: "If you love challenge, this workout should pick your interest. It's beginner friendly and a great way to start your fitness journey !"
   )
   workout.user = USERS.sample
@@ -405,29 +406,21 @@ puts "#{Session.count} Sessions created"
 
 # RATINGS
 
-def rate
-  rates = [
-    rand(1..2),
-    rand(3..4),
-    rand(5..6),
-    rand(7..8),
-    rand(9..10)
-  ]
-  rate_picker = rand(0..(rates.size-1))
-  rates[rate_picker]
-end
 
 
 users = User.all
 exercices = Exercice.all
 users.each do |user|
   exercices.each do |exercice|
+    factor = user.name.length % 10
+    factor += 1 if factor == 0
+    factor -= 1 if factor == 10
     rating = Rating.new(
       user_id: user.id,
       exercice_id: exercice.id,
-      muscular_effort: rate(),
-      breath_difficulty: rate(),
-      flexibility: rate()
+      muscular_effort: rand(0..factor),
+      breath_difficulty: rand(1..10),
+      flexibility: rand(1..factor)
     )
     rating.save
   end

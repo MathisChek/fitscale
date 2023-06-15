@@ -1,25 +1,27 @@
 <div class="bg-image">
-    <div class="container">
+    <div class="">
 
       <div class="card-wo d-flex justify-content-center">
 
         <%# WORKOUT INFOS CARD %>
 
-        <div class="p-3" style="width: 300px;">
+        <div class="p-3" style="width: 450px;">
           <div class="sticky border border-success p-3 bg-dark rounded text-light">
-            <h5 class="text-success"><%= @workout.name %></h5>
-            <p><em>Description:</em></p>
-            <p><%= @workout.description  %></p>
-            <p><em>Specs:</em></p>
-            <p><strong><%= @workout.exercices.count %></strong> exercices</p>
-            <%= render "components/pie_chart", workout: @workout %>
+            <div name="placer" class="d-flex justify-content-between align-items-center">
+              <div name="infos-text">
+                <h5 class="text-success"><%= @workout.name %></h5>
+                <p><em>Description:</em></p>
+                <p><%= @workout.description  %></p>
+                <p><em>Specs:</em></p>
+                <p><strong><%= @workout.exercices.count %></strong> exercices</p>
+              </div>
+              <%= render "components/pie_chart", workout: @workout, style: "width: 200px" %>
+            </div>
+
+
             <p class="text-end" style="backdrop-filter: brightness(1.5);"><%= @workout.user.name %></p>
-            <p><strong><%= current_user.trainings.count %></strong> trainings added to your profile</p>
 
-                <%# ADDING TRAINING %>
-          <div class=""></div>
-            <p><strong><%= current_user.trainings.count %></strong> trainings added to your profile</p>
-
+          <%# ADDING TRAINING %>
               <% train = Training.where(user_id: current_user.id, workout_id: @workout.id) %>
               <% if train.empty? %>
                 <div class="mb-3 d-flex justify-content-center">
@@ -31,7 +33,7 @@
                 </div>
               <% else %>
                   <div class="mb-3 d-flex justify-content-center">
-                    <%= link_to training_path(train.first), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+                    <%= link_to training_path(train.first), data: {turbo_method: :delete} do %>
                         <i class="far fa-minus-square fa-lg delete-btn"></i>
                      <% end %>
                   </div>
