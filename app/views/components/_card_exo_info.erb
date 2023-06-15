@@ -32,8 +32,8 @@
 
     <%# RATING %>
     <div class="div-img d-flex align-items-center p-3" style="width: 15vw; border: 1px solid #D8D8D8; border-right: 0px">
-
-      <%= render "components/bar_chart", exercice: exercice %>
+      <% hash = {str: exercice.str, dex: exercice.dex, end: exercice.end} %>
+      <%= render "components/bar_chart", exercice: hash %>
 
 
     </div>
