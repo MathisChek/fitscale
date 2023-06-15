@@ -1,49 +1,33 @@
-
-  <div class="card-exo d-flex justify-content-between rounded m-3" style="width: 45vw">
+<% exercice = Exercice.find(workout_set.exercice_id) %>
+<%= link_to exercice_path(exercice), style: "text-decoration: none" do %>
+  <div class="card-exo d-flex justify-content-center align-items-center rounded m-3 scaller pe-4" style="width: auto">
+    <% repetitions = workout_set.repetition %>
 
               <%# IMAGE %>
-    <%= image_tag "giga_chad2.png", class:"", width: 200 %>
+    <%= cl_image_tag exercice.image.key, height: 300, width: 300, crop: :fill, class: "" %>
 
               <%# INFO CARD %>
     <div style="width: 15vw">
 
-      <% repetitions = workout_set.repetition %>
-      <% exercice = Exercice.find(workout_set.exercice_id) %>
 
 
               <%# DETAILS %>
 
-        <div class= "card-exo-detail px-2 pt-3">
+        <div class= "card-exo-detail flex-grow-1 px-2 pt-3 mx-3">
 
           <span><strong><%= exercice.name%></strong></span>
           <br>
-          <span class="ps-2"><i class="fa-solid fa-dumbbell"></i> <%= exercice.nature  %></span>
+          <span class="ps-2"><i class="fa-solid fa-dumbbell"></i> <%= exercice.nature.capitalize  %></span>
           <br>
-          <span class="ps-2"><i class="fa-solid fa-person"></i> <%= exercice.muscle  %></span>
+          <span class="ps-2"><i class="fa-solid fa-person"></i> <%= exercice.muscle.capitalize  %></span>
           <br>
-          <span class="ps-2"><i class="fa-solid fa-gear"></i> <%= exercice.equipment  %></span>
+          <span class="ps-2"><i class="fa-solid fa-gear"></i> <%= exercice.equipment.capitalize  %></span>
+          <p><strong class="ps-2"><%= repetitions %></strong> Reps</p>
         </div>
+      </div>
 
-            <%# INSTRUCTIONS %>
-
-        <div class="d-flex flex-column align-items-center py-2">
-
-
-          <p> <a class="btn btn-outline-success text-clack" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                instructions
-              </a>
-              <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-                  <small><%= exercice.instructions  %></small></p>
-                </div>
-              </div>
-
-        </div>
-              <%# RATING %>
-
-    </div>
-
-    <div class="div-img d-flex align-items-center p-3" style="width: 15vw">
+    <%# RATING %>
+    <div class="div-img d-flex align-items-center p-3" style="width: 15vw; border: 1px solid #D8D8D8; border-right: 0px">
 
       <%= render "components/bar_chart", exercice: exercice %>
 
@@ -51,3 +35,4 @@
     </div>
 
   </div>
+<% end %>

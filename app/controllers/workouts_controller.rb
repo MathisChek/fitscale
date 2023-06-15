@@ -17,6 +17,10 @@ class WorkoutsController < ApplicationController
     @workout = Workout.new(workout_params)
     @workout.user = current_user
     if @workout.save
+      training = Training.new()
+      training.workout = @workout
+      training.user = current_user
+      training.save
       redirect_to edit_workout_path(@workout)
     else
       render :new, status: :unprocessable_entity

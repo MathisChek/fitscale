@@ -1,5 +1,7 @@
 class Exercice < ApplicationRecord
   belongs_to :user
+  has_one_attached :image
+  has_one_attached :gif
 
   has_many :workout_sets, dependent: :destroy
   has_many :ratings, dependent: :destroy

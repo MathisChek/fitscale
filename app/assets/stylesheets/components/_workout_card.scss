@@ -35,3 +35,11 @@
     display: none;
   }
 }
+
+.scaller {
+  transition: 0.4s ease-out;
+
+  &:hover{
+    scale: 1.07;
+  }
+}
