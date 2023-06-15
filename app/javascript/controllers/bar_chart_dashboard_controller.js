@@ -10,14 +10,14 @@ export default class extends Controller {
   }
 
   connect() {
+    Chart.defaults.font.size = 20;
+    Chart.defaults.color = "#ffffff";
+    Chart.defaults.backgroundColor = '#ffffff';
 
     // DATA TO DISPLAY
     const data = this.valuesValue;
 
-    console.log(data)
-
     const labels = this.keysValue;
-    console.log(labels)
     // CONFIGUE THE CHART
     const cfg = {
       type: 'bar',
@@ -25,13 +25,21 @@ export default class extends Controller {
         labels: labels,
         datasets: [{
           data: data,
-          backgroundColor: ["#1edd88", "#FF5EFA", "#B2FFDE","#A7F578","#91EBEE", "#3B8DFE", "#A92831", "#ABA0F9", "#1B9476", "#82F2A7" ],
+          backgroundColor: ["#ff8c4f", "#ffd65d", "#fe7998","#e60026","#028674", "#03b47b", "#02a89e", "#3e83fe", "#52b8e1", "#a3004c" ],
           borderWidth: 1,
         }]
       },
       options: {
         plugins: {
-          legend: { display: false },
+          legend: {
+            display: false,
+            labels: {
+              // This more specific font property overrides the global property
+              font: {
+                  size: 24
+              }
+            }
+          },
           tooltip: { enabled: true },
 
           title: {

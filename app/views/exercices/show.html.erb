@@ -12,7 +12,7 @@
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
           <button class="nav-link btn btn-success active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true"><span class="text-success">Home</span></button>
           <button class="nav-link" id="nav-instructions-tab text-success" data-bs-toggle="tab" data-bs-target="#nav-instructions" type="button" role="tab" aria-controls="nav-instructions" aria-selected="false"><span class="text-success">Instructions</span></button>
-          <button class="nav-link" id="nav-ratings-tab text-success" data-bs-toggle="tab" data-bs-target="#nav-ratings" type="button" role="tab" aria-controls="nav-ratings" aria-selected="false"><span class="text-success">ratings</span></button>
+          <button class="nav-link" id="nav-ratings-tab text-success" data-bs-toggle="tab" data-bs-target="#nav-ratings" type="button" role="tab" aria-controls="nav-ratings" aria-selected="false"><span class="text-success">Ratings</span></button>
         </div>
       </nav>
 
@@ -71,7 +71,7 @@
 
               <%= f.input :breath_difficulty, as: :range, input_html: { min: 0, max: 10, data: { range_markers_target: "breathDifficulty"}, class:'breathDifficulty-input' } %>
               <div class="range-diff breath-difficulty-marker d-flex justify-content-between mb-3" data-range-markers-target="breathDifficultyMarker"></div>
-              <%= f.submit %>
+              <%= f.submit class: "btn btn-success text-dark"%>
 
             <% end %>
           </div>

@@ -10,7 +10,9 @@
 .delete-btn {
   transition: 0.3s;
   color: white;
-  scale: 1.5;
+
+  scale: 1.3;
+
   &:hover {
     color: red;
     scale: 1.8;
