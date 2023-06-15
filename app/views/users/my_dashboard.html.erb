@@ -90,7 +90,7 @@
                     <i class="fa-regular fa-pen-to-square edit-btn"></i>
                   </button>
 
-                  <%= link_to gym_session_path(session.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?"} do %>
+                  <%= link_to gym_session_path(session.id), data: {turbo_method: :delete} do %>
                     <button type="button" class="btn text-success rounded-5">
                       <i class="fa-solid fa-trash delete-btn"></i>
                     </button>

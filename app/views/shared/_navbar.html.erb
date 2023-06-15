@@ -34,10 +34,10 @@
         <%# form search %>
 
       </ul>
-      <form class="d-flex" role="search">
-        <%= link_to "My dashboard", user_my_dashboard_path(current_user.id), class: "text-success nav-link active" %>
-      </form>
       <% if current_user.present? %>
+        <form class="d-flex" role="search">
+          <%= link_to "My dashboard", user_my_dashboard_path(current_user.id), class: "text-success nav-link active" %>
+        </form>
         <div class="nav-item dropdown ms-3">
               <%= image_tag "profile.jpg", class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
