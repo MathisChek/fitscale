@@ -29,7 +29,7 @@ export default class extends Controller {
           {
           type: 'bar',
           data: data,
-          backgroundColor: ["#1edd88", "#FF5EFA", "#B2FFDE","#A7F578","#91EBEE", "#3B8DFE", "#A92831"],
+          backgroundColor: ["#ff8c4f", "#ffd65d", "#fe7998","#e60026","#028674", "#03b47b", "#02a89e"],
           borderWidth: 1,
         },
         {
@@ -45,8 +45,7 @@ export default class extends Controller {
           tooltip: { enabled: true },
 
           title: {
-            display: true,
-            text: 'weekly point'
+            display: false,
           },
         },
         scales: {
