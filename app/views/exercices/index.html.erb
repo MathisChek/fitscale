@@ -1,7 +1,7 @@
 <div class="bg-index-exo">
 
   <div class="container" data-controller="ajax">
-    <div name="search" class="d-flex">
+    <div name="search" class="d-flex justify-content-center pt-3">
 
 
       <div class="dropdown">
@@ -24,6 +24,7 @@
           <%= text_field_tag :query,
                 params[:query],
                 class: "form-control",
+                style: "width: 60vw",
                 placeholder: "Find your exercice",
                 data: { action: "keyup->ajax#searching",
                         ajax_target: "input"

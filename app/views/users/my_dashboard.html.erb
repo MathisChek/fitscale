@@ -35,12 +35,12 @@
 
           <div class="d-flex justify-content-between mb-3" style="width:48vw">
             <div>
-              <h1 class="text-color mb-3 mt-3"><strong>Details</strong></h1>
-              <p class="text-black fs-5 ps-3 ">Workouts created : <strong><%= Workout.where(user_id: current_user.id).count %></strong></p>
-              <p class="text-black fs-5 ps-3">Workouts added : <strong><%= Training.where(user_id: current_user.id).count %></strong></p>
-              <p class="text-black fs-5 ps-3">Total workouts : <strong><%= Workout.where(user_id: current_user.id).count + Training.where(user_id: current_user.id).count %></strong></p>
-              <p class="text-black fs-5 ps-3">Sessions : <strong><%= current_user.sessions.count %></strong></p>
-              <p class="text-black fs-5 ps-3">Weakest muscle : <br> <strong class="ps-2"><%= @hash.sort_by{ |_key, value| value }.first[0].to_s %></strong> trained only <%= @hash.sort_by{ |_key, value| value }.first[1].to_s %> times</p>
+              <h1 class="text-color my-3"><strong>Details</strong></h1>
+              <p class="text-black ps-3 ">Workouts created : <strong><%= Workout.where(user_id: current_user.id).count %></strong></p>
+              <p class="text-black ps-3">Workouts added : <strong><%= Training.where(user_id: current_user.id).count %></strong></p>
+              <p class="text-black ps-3">Total workouts : <strong><%= Workout.where(user_id: current_user.id).count + Training.where(user_id: current_user.id).count %></strong></p>
+              <p class="text-black ps-3">Sessions : <strong><%= current_user.sessions.count %></strong></p>
+              <p class="text-black ps-3">Weakest muscle : <br> <strong class="ps-2"><%= @hash.sort_by{ |_key, value| value }.first[0].to_s %></strong> trained only <%= @hash.sort_by{ |_key, value| value }.first[1].to_s %> times</p>
             </div>
             <div>
               <% if @workouts.size != 0 %>
@@ -82,7 +82,7 @@
 
             <%# SINGLE SESSION %>
             <li class="d-flex animate__animated animate__backInRight animate__delay-0.5s">
-              <div class="d-flex bg-dark border border-success m-2 py-2 ps-3 rounded-start-pill" style="width: 100%">
+              <div class="d-flex bg-dark border border-success border border-3 m-2 py-2 ps-3 rounded-start-pill" style="width: 100%">
                 <div class="d-flex flex-column justify-content-evenly pe-2" name="icon">
                   <button type="button" class="btn text-success rounded-5" data-bs-toggle="modal" data-bs-target="#<%= session.id %>">
                     <i class="fa-regular fa-pen-to-square edit-btn"></i>
