@@ -48,7 +48,6 @@ export default class extends Controller {
           },
         },
         scales: {
-          color: "#FD1015",
           y: {
             grid: {
               display:false
