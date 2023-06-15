@@ -6,6 +6,7 @@ export default class extends Controller {
   static targets = ["session"]
 
   connect() {
-    flatpickr(this.sessionTarget, {})
+    flatpickr(this.sessionTarget, {});
   }
+
 }

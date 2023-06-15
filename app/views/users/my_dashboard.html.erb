@@ -82,8 +82,6 @@
 
             <%# SINGLE SESSION %>
             <li class="d-flex animate__animated animate__backInRight animate__delay-0.5s">
-              <% session_part = session.id.present? ? session : Session.new %>
-              <%= render "components/modal_session", session: session_part %>
               <div class="d-flex bg-dark border border-success m-2 py-2 ps-3 rounded-start-pill" style="width: 100%">
                 <div class="d-flex flex-column justify-content-evenly pe-2" name="icon">
                   <button type="button" class="btn text-success rounded-5" data-bs-toggle="modal" data-bs-target="#<%= session.id %>">
@@ -113,4 +111,10 @@
     </div>
 
   </div>
+</div>
+<div>
+  <% current_user.week_sessions.sort_by(&:programing_at).each do |session| %>
+    <% session_part = session.id.present? ? session : Session.new %>
+    <%= render "components/modal_session", session: session_part %>
+<% end %>
 </div>
