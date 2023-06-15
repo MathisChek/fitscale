@@ -22,6 +22,7 @@ puts "All Workouts deleted (WorkoutSets deleted too)"
 Exercice.destroy_all
 puts "All Exercices deleted"
 Workout.destroy_all
+puts "All Workouts deleted"
 User.destroy_all
 puts "All Users deleted"
 
