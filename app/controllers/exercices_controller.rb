@@ -16,23 +16,21 @@ class ExercicesController < ApplicationController
   def index
     @exercices = Exercice.all
 
-    if params[:format]
+    if params[:format].present?
       @exercices = Exercice.where("muscle ILIKE ?", "%#{params[:format]}%")
     end
 
     if params[:query].present? # && !params[:query].empty?
       if ("a".."z").to_a.include?(params[:query])
-        @workouts = Workout.where("name ILIKE ?", "%#{params[:query]}%")
+        @exercices = Exercice.where("name ILIKE ?", "%#{params[:query]}%")
       end
     end
-
-    respond_to do |format|
-      format.html # Follow regular flow of Rails
-      format.text { render partial: "components/list_exercices", locals: {exercices: @exercices}, formats: [:html] }
+    unless params[:format].present?
+      respond_to do |format|
+        format.html # Follow regular flow of Rails
+        format.text { render partial: "components/list_exercices", locals: {exercices: @exercices}, formats: [:html] }
+      end
     end
-
-
-
   end
 
   def show
