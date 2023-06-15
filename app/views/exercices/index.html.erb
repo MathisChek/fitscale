@@ -1,15 +1,50 @@
 <div class="bg-index-exo pt-5">
 
-  <div class="container">
+  <div class="container" data-controller="ajax">
+    <div name="search" class="d-flex">
 
-    <div style="height: 80vh" class="d-flex flex-column align-items-center scroller" >
-      <ul class="list-unstyled">
-        <% @exercices.each do |exercice| %>
-          <li class="m-3">
-            <%= render "components/card_exo_info", workout_set: nil, exercice: exercice %>
+
+
+
+
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Muscles
+        </button>
+        <ul class="dropdown-menu">
+        <% Exercice::MUSCLES.each do |muscle| %>
+          <li>
+            <%= link_to "#{Exercice.where("muscle ILIKE ?", "%#{muscle}%").count} - #{muscle.gsub("_", " ").capitalize}", exercices_path(muscle), class: "dropdown-item" %>
           </li>
         <% end %>
-      </ul>
+        </ul>
+      </div>
+
+
+
+
+      <%= form_with url: exercices_path, method: :get, data: {ajax_target: 'form'}, class: "d-flex" do %>
+          <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: "Find your exercice",
+                data: { action: "keyup->ajax#searching",
+                        ajax_target: "input"
+                      }
+            %>
+      <% end %>
+
+
+
+
+
+
+
+
+    </div>
+
+    <div style="height: 80vh" class="d-flex flex-column align-items-center scroller" data-ajax-target="list" >
+      <%= render "components/list_exercices", exercices: @exercices %>
     </div>
   </div>
 </div>

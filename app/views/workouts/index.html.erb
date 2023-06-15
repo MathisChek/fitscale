@@ -1,10 +1,11 @@
 <div class="bg-index-wo pt-5" style="min-height: 80vh">
   <div data-controller="ajax" class="container">
+
     <%= form_with url: workouts_path, method: :get, data: {ajax_target: 'form'}, class: "d-flex" do %>
           <%= text_field_tag :query,
                 params[:query],
                 class: "form-control",
-                placeholder: "Trouve ton pokemon !",
+                placeholder: "Find your workout",
                 data: { action: "keyup->ajax#searching",
                         ajax_target: "input"
                       }
