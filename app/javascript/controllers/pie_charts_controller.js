@@ -25,6 +25,7 @@ export default class extends Controller {
           data: data,
           backgroundColor: ["#73BBC9", "#FD1015", "#1ED584"],
           borderWidth: 1,
+          hoverOffset: 20
         }]
       },
       options: {

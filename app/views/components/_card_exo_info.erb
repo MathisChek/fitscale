@@ -6,10 +6,10 @@
   <div class="card-exo d-flex justify-content-center align-items-center rounded scaller pe-4 border border-success" style="width: auto">
 
               <%# IMAGE %>
-    <%= cl_image_tag exercice.image.key, height: 200, width: 300, crop: :fill, class: "" %>
+    <%= cl_image_tag exercice.image.key, height: 220, width: 300, crop: :fill, class: "" %>
 
               <%# INFO CARD %>
-    <div style="width: 15vw">
+    <div class="p-2" style="width: 15vw">
 
 
 
@@ -31,11 +31,9 @@
       </div>
 
     <%# RATING %>
-    <div class="div-img d-flex align-items-center p-3" style="width: 15vw; border: 1px solid #D8D8D8; border-right: 0px">
+    <div class="div-img d-flex align-items-center justify-content-center m-3" style="width: 15vw; border: 1px solid #D8D8D8">
       <% hash = {str: exercice.str, dex: exercice.dex, end: exercice.end} %>
       <%= render "components/bar_chart", exercice: hash %>
-
-
     </div>
 
   </div>
