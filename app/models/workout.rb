@@ -67,11 +67,28 @@ class Workout < ApplicationRecord
 
   def focus
     if self.avg_str > self.avg_dex && self.avg_str > self.avg_end
-      return ["Muscular Effort", "#FD1015"]
+      return ["Muscular Effort", "#FD1015", "rgba(255,16,0,1)"]
     elsif self.avg_dex > self.avg_end
-      return ["Flexibility", "#1ED584"]
+      return ["Flexibility", "#1ED584", "rgba(65,255,0,1)"]
     else
-      return ["Breath Difficulty", "#73BBC9"]
+      return ["Breath Difficulty", "#73BBC9", "rgba(0,129,255,1)"]
     end
+  end
+
+  def styling
+    {
+      str: {
+        value: self.avg_str,
+        color: "rgba(255,16,0,1)"
+      },
+      end: {
+        value: self.avg_end,
+        color: "rgba(0,129,255,1)"
+      },
+      dex: {
+        value: self.avg_dex,
+        color: "rgba(65,255,0,1)"
+      }
+    }
   end
 end

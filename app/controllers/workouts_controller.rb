@@ -2,12 +2,12 @@ class WorkoutsController < ApplicationController
   before_action :set_workout, only: %i[edit update show destroy]
 
   def index
+    Workout.all.find_all { |wo| wo.workout_sets.empty? }.each { |wo| wo.destroy }
+
     @workouts = Workout.all
     if params[:query].present? # && !params[:query].empty?
-      if ("a".."z").to_a.include?(params[:query])
-        @workouts = Workout.where("name ILIKE ?", "%#{params[:query]}%")
-      end
-
+      @query = params[:query]
+      @workouts = Workout.where("name ILIKE ?", "%#{params[:query]}%")
     end
     respond_to do |format|
       format.html # Follow regular flow of Rails
