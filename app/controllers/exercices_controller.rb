@@ -21,10 +21,12 @@ class ExercicesController < ApplicationController
     end
 
     if params[:query].present? # && !params[:query].empty?
-      if ("a".."z").to_a.include?(params[:query])
-        @exercices = Exercice.where("name ILIKE ?", "%#{params[:query]}%")
-      end
+      # if ("a".."z").to_a.include?(params[:query])
+      @query = params[:query]
+      @exercices = Exercice.where("name ILIKE ?", "%#{params[:query]}%")
+      # end
     end
+
     unless params[:format].present?
       respond_to do |format|
         format.html # Follow regular flow of Rails

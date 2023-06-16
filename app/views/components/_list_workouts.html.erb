@@ -1,3 +1,6 @@
+<% if @query.present? %>
+  <p class="text-white">Results for <strong class="text-success"><%= @query.capitalize %></strong></p>
+<% end %>
 <div class="row pb-3">
 
   <% workouts.each do |workout| %>

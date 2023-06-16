@@ -18,24 +18,26 @@ header = ["name", "nature", "muscle", "equipment", "instructions"]
 
 # CLEARING DB
 WorkoutSet.destroy_all
-puts "All Workouts deleted (WorkoutSets deleted too)"
+puts "All Workouts deleted (#{WorkoutSet.count})"
 Exercice.destroy_all
-puts "All Exercices deleted"
+puts "All Exercices deleted (#{Exercice.count})"
 Workout.destroy_all
-puts "All Workouts deleted"
+puts "All Workouts deleted (#{Workout.count})"
 User.destroy_all
-puts "All Users deleted"
+puts "All Users deleted (#{User.count})"
 
 
 
 # CREATING USERS
-40.times do
+identificator = 1
+3.times do
   user = User.new(
     name: Faker::Name.name,
-    email: Faker::Internet.email,
+    email: "user#{identificator}@mail.com",
     password: "azerty"
   )
   user.save
+  identificator += 1
 end
 USERS = User.all
 puts "#{User.count} users added"
@@ -113,17 +115,17 @@ exo = Exercice.create!(
   muscle: "quadriceps",
   equipment: "barbell",
   instructions: "Set the bar to the proper height in a power rack. Kneel behind the bar; it may be beneficial to put a mat down to pad your knees. Slide under the bar, racking it across the back of your shoulders. Your shoulder blades should be retracted and the bar tight across your back. Unrack the weight. With your head looking forward, sit back with your butt until you touch your calves. Reverse the motion, returning the torso to an upright position.",
-  url_title: "https://cdn.shopify.com/s/files/1/1633/7705/articles/kneeling_squat_2000x.jpg?v=1636617009",
+  url_title: "https://www.elitefts.com/wp/wp-content/uploads/2018/04/IMG_4121-e1523974281932.png",
   url_content: "https://www.inspireusafoundation.org/wp-content/uploads/2021/12/how-to-do-a-kneeling-squat.gif"
 )
 
 exo.image.attach(
-  filename: "#{exo.name.downcase.gsub(" ", "_")}.jpg",
-  io: URI.open(exo.url_content)
+  filename: "#{exo.name.downcase.gsub(" ", "_")}#{Time.now.hour}#{Time.now.sec}.jpg",
+  io: URI.open(exo.url_title)
 )
 
 exo.gif.attach(
-  filename: "#{exo.name.downcase.gsub(" ", "_")}.gif",
+  filename: "#{exo.name.downcase.gsub(" ", "_")}#{Time.now.hour}#{Time.now.sec}.gif",
   io: URI.open(exo.url_content)
 )
 
@@ -139,12 +141,12 @@ exo = Exercice.create!(
 )
 
 exo.image.attach(
-  filename: "#{exo.name.downcase.gsub(" ", "_")}.jpg",
+  filename: "#{exo.name.downcase.gsub(" ", "_")}#{Time.now.hour}#{Time.now.sec}.jpg",
   io: URI.open(exo.url_title)
 )
 
 exo.gif.attach(
-  filename: "#{exo.name.downcase.gsub(" ", "_")}.gif",
+  filename: "#{exo.name.downcase.gsub(" ", "_")}#{Time.now.hour}#{Time.now.sec}.gif",
   io: URI.open(exo.url_content)
 )
 
@@ -160,12 +162,12 @@ exo = Exercice.create!(
 )
 
 exo.image.attach(
-  filename: "#{exo.name.downcase.gsub(" ", "_")}.jpg",
+  filename: "#{exo.name.downcase.gsub(" ", "_")}#{Time.now.hour}#{Time.now.sec}.jpg",
   io: URI.open(exo.url_title)
 )
 
 exo.gif.attach(
-  filename: "#{exo.name.downcase.gsub(" ", "_")}.gif",
+  filename: "#{exo.name.downcase.gsub(" ", "_")}#{Time.now.hour}#{Time.now.sec}.gif",
   io: URI.open(exo.url_content)
 )
 
@@ -181,12 +183,12 @@ exo = Exercice.create!(
 )
 
 exo.image.attach(
-  filename: "#{exo.name.downcase.gsub(" ", "_")}.jpg",
+  filename: "#{exo.name.downcase.gsub(" ", "_")}#{Time.now.hour}#{Time.now.sec}.jpg",
   io: URI.open(exo.url_title)
 )
 
 exo.gif.attach(
-  filename: "#{exo.name.downcase.gsub(" ", "_")}.gif",
+  filename: "#{exo.name.downcase.gsub(" ", "_")}#{Time.now.hour}#{Time.now.sec}.gif",
   io: URI.open(exo.url_content)
 )
 
@@ -202,12 +204,12 @@ exo = Exercice.create!(
 )
 
 exo.image.attach(
-  filename: "#{exo.name.downcase.gsub(" ", "_")}.jpg",
+  filename: "#{exo.name.downcase.gsub(" ", "_")}#{Time.now.hour}#{Time.now.sec}.jpg",
   io: URI.open(exo.url_title)
 )
 
 exo.gif.attach(
-  filename: "#{exo.name.downcase.gsub(" ", "_")}.gif",
+  filename: "#{exo.name.downcase.gsub(" ", "_")}#{Time.now.hour}#{Time.now.sec}.gif",
   io: URI.open(exo.url_content)
 )
 
@@ -223,12 +225,12 @@ exo = Exercice.create!(
 )
 
 exo.image.attach(
-  filename: "#{exo.name.downcase.gsub(" ", "_")}.jpg",
+  filename: "#{exo.name.downcase.gsub(" ", "_")}#{Time.now.hour}#{Time.now.sec}.jpg",
   io: URI.open(exo.url_title)
 )
 
 exo.gif.attach(
-  filename: "#{exo.name.downcase.gsub(" ", "_")}.gif",
+  filename: "#{exo.name.downcase.gsub(" ", "_")}#{Time.now.hour}#{Time.now.sec}.gif",
   io: URI.open(exo.url_content)
 )
 
@@ -244,12 +246,12 @@ exo = Exercice.create!(
 )
 
 exo.image.attach(
-  filename: "#{exo.name.downcase.gsub(" ", "_")}.jpg",
+  filename: "#{exo.name.downcase.gsub(" ", "_")}#{Time.now.hour}#{Time.now.sec}.jpg",
   io: URI.open(exo.url_title)
 )
 
 exo.gif.attach(
-  filename: "#{exo.name.downcase.gsub(" ", "_")}.gif",
+  filename: "#{exo.name.downcase.gsub(" ", "_")}#{Time.now.hour}#{Time.now.sec}.gif",
   io: URI.open(exo.url_content)
 )
 
@@ -265,12 +267,12 @@ exo = Exercice.create!(
 )
 
 exo.image.attach(
-  filename: "#{exo.name.downcase.gsub(" ", "_")}.jpg",
+  filename: "#{exo.name.downcase.gsub(" ", "_")}#{Time.now.hour}#{Time.now.sec}.jpg",
   io: URI.open(exo.url_title)
 )
 
 exo.gif.attach(
-  filename: "#{exo.name.downcase.gsub(" ", "_")}.gif",
+  filename: "#{exo.name.downcase.gsub(" ", "_")}#{Time.now.hour}#{Time.now.sec}.gif",
   io: URI.open(exo.url_content)
 )
 
@@ -286,12 +288,12 @@ exo = Exercice.create!(
 )
 
 exo.image.attach(
-  filename: "#{exo.name.downcase.gsub(" ", "_")}.jpg",
+  filename: "#{exo.name.downcase.gsub(" ", "_")}#{Time.now.hour}#{Time.now.sec}.jpg",
   io: URI.open(exo.url_title)
 )
 
 exo.gif.attach(
-  filename: "#{exo.name.downcase.gsub(" ", "_")}.gif",
+  filename: "#{exo.name.downcase.gsub(" ", "_")}#{Time.now.hour}#{Time.now.sec}.gif",
   io: URI.open(exo.url_content)
 )
 
@@ -299,7 +301,7 @@ exo = Exercice.create!(
   user_id: USER.sample.id,
   name: "Decline crunch",
   nature: "cardio",
-  muscle: "abs",
+  muscle: "abdominals",
   equipment: "incline bench",
   instructions: "Lie on your back on a decline bench and hold on to the top of the bench with both hands. Don't let your body slip down from this position. Hold your legs parallel to the floor using your abs to hold them there while keeping your knees and feet together. Tip: Your legs should be fully extended with a slight bend on the knee. This will be your starting position. While exhaling, move your legs towards the torso as you roll your pelvis backwards and you raise your hips off the bench. At the end of this movement your knees will be touching your chest. Hold the contraction for a second and move your legs back to the starting position while inhaling. Repeat for the recommended amount of repetitions. Variations: You can do the movement on a flat surface and as you get more advanced you can use ankle weights.",
   url_title: "https://www.muscleandfitness.com/wp-content/uploads/2018/10/abs-decline-crunch-1109.jpg?quality=86&strip=all",
@@ -307,12 +309,12 @@ exo = Exercice.create!(
 )
 
 exo.image.attach(
-  filename: "#{exo.name.downcase.gsub(" ", "_")}.jpg",
+  filename: "#{exo.name.downcase.gsub(" ", "_")}#{Time.now.hour}#{Time.now.sec}.jpg",
   io: URI.open(exo.url_title)
 )
 
 exo.gif.attach(
-  filename: "#{exo.name.downcase.gsub(" ", "_")}.gif",
+  filename: "#{exo.name.downcase.gsub(" ", "_")}#{Time.now.hour}#{Time.now.sec}.gif",
   io: URI.open(exo.url_content)
 )
 
@@ -328,12 +330,12 @@ exo = Exercice.create!(
 )
 
 exo.image.attach(
-  filename: "#{exo.name.downcase.gsub(" ", "_")}.jpg",
+  filename: "#{exo.name.downcase.gsub(" ", "_")}#{Time.now.hour}#{Time.now.sec}.jpg",
   io: URI.open(exo.url_title)
 )
 
 exo.gif.attach(
-  filename: "#{exo.name.downcase.gsub(" ", "_")}.gif",
+  filename: "#{exo.name.downcase.gsub(" ", "_")}#{Time.now.hour}#{Time.now.sec}.gif",
   io: URI.open(exo.url_content)
 )
 
@@ -349,12 +351,12 @@ exo = Exercice.create!(
 )
 
 exo.image.attach(
-  filename: "#{exo.name.downcase.gsub(" ", "_")}.jpg",
+  filename: "#{exo.name.downcase.gsub(" ", "_")}#{Time.now.hour}#{Time.now.sec}.jpg",
   io: URI.open(exo.url_title)
 )
 
 exo.gif.attach(
-  filename: "#{exo.name.downcase.gsub(" ", "_")}.gif",
+  filename: "#{exo.name.downcase.gsub(" ", "_")}#{Time.now.hour}#{Time.now.sec}.gif",
   io: URI.open(exo.url_content)
 )
 
@@ -413,15 +415,12 @@ users = User.all
 exercices = Exercice.all
 users.each do |user|
   exercices.each do |exercice|
-    factor = user.name.length % 10
-    factor += 1 if factor == 0
-    factor -= 1 if factor == 10
     rating = Rating.new(
       user_id: user.id,
       exercice_id: exercice.id,
-      muscular_effort: rand(0..factor),
+      muscular_effort: rand(1..10),
       breath_difficulty: rand(1..10),
-      flexibility: rand(1..factor)
+      flexibility: rand(1..10)
     )
     rating.save
   end
@@ -433,20 +432,5 @@ admin = User.create!(
   email: "admin@mail.com",
   password: "secret"
 )
-
-10.times do
-  training = Training.new()
-  training.user = admin
-  training.workout = WORKOUTS.sample
-  training.save
-end
-
-5.times do
-  session = Session.new(
-    programing_at: Date.today + rand(0..6).day
-  )
-  session.training = admin.trainings.sample
-  session.save
-end
 
 puts "#{admin.sessions.size} Admin sessions"
